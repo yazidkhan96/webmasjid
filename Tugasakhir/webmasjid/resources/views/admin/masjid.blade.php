@@ -14,24 +14,24 @@
 					<th scope="col">Tahun berdiri</th>
 					<th scope="col">Deskripsi</th>
 					<th scope="col">Gambar</th>
-					<th scope="col">Tanggal</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Masjid::all() as $masjid)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$masjid->nama_masjid}}</td>
+					<td>{{$masjid->alamat_masjid}}</td>
+					<td>{{$masjid->tahun_beridiri}}</td>
+					<td>{!!$masjid->deskripsi!!}</td>
+					<td>{{$masjid->gambar}}</td>
 					<td>
 						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>
