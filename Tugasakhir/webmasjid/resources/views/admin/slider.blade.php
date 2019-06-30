@@ -4,7 +4,7 @@
 	<div class="title-admin">Slider</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
-			<a class="btn btn-success" href="{{url('/admin/add/slider')}}">Tambah Slider</a>
+			<a class="btn btn-app" href="{{url('/admin/add/slider')}}">Tambah Slider</a>
 		</div>
 		<table id="table_id" class="table text-center table-striped">
 			<thead>
@@ -15,15 +15,16 @@
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Slider::all() as $slider)
 				<tr>
-					<td></td>
-					<td></td>
+					<td>{{$slider->judul}}</td>
+					<td>{{$slider->created_at}}</td>
 					<td>
-						<a href="{{url('/detail/slider')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/slider')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

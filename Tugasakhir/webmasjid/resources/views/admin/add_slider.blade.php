@@ -4,7 +4,7 @@
 	<div class="title-admin">Tambah Slider</div>
 	<div class="content-admin">
 		<div class="row m-0 mb-3">
-			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama Slider</div>
+			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Judu Slider</div>
 			<div class="col pr-0">
 				<input type="" name="" id="judul" placeholder="Nama Slider" class="form-control" style="max-width: 25rem">
 			</div>
@@ -28,7 +28,7 @@
   </div>
 </div>
 <div class="text-right mb-5">
- <button class="btn btn-primary" id="save">Simpan</button>
+ <button class="btn btn-app" id="save">Simpan</button>
 </div>
 </div>
 </div>
@@ -43,14 +43,16 @@ $('#save').click(function () {
     fileImg.push(img);
   });
   tmp.push(file_imginput);
+
+
   dataAll = ({
     'judul': $('#judul').val(),
     'gambar': tmp,
     'deskripsi':$('#desc').summernote('code')
   })
     // statusForm = variabel terdapat di main.js
-    if(statusForm == 0){
-      alert('lengkapi Data');
+    if(!tmp){
+    alert('Gambar Tidak Ada');
     }
     else{
       $('#save').addClass('disabled');

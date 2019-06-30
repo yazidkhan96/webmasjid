@@ -8,14 +8,31 @@
       
 
 			<div class="col pr-0">
-				<input type="" name="" id="Nama" placeholder="Tema kajian" class="form-control" style="max-width: 25rem">
+				<input type="" name="" id="tema" placeholder="Tema kajian" class="form-control" style="max-width: 25rem">
 			</div>
 		</div>
+
+
+    <div class="row m-0 mb-3">
+
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama masjid</div>
+            <div class="col pr-0">
+              <select class="form-control" id="namamasjid"  style="max-width: 25rem"> 
+              <option hidden="">Pilih masjid</option>
+              @foreach(App\Masjid::all() as $masjid)
+              <option value="{{$masjid->id}}">{{$masjid->nama_masjid}}</option>
+              @endforeach
+            </select>
+          </div>  
+      </div>
+      
+
+    </div>
       <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama Ustadz</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Alamat" placeholder="Nama Ustadz" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="namaustadz" placeholder="Nama Ustadz" class="form-control" style="max-width: 25rem">
       </div>
     </div>
 
@@ -23,7 +40,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tanggal Kajian</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Tahun" placeholder="Tanggal kajian" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="tanggalkajian" placeholder="Tanggal kajian" class="form-control" style="max-width: 25rem">
       </div>
     </div>
 
@@ -31,7 +48,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Bulan Kajian</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Tahun" placeholder="Bulan Kajian" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="bulankajian" placeholder="Bulan Kajian" class="form-control" style="max-width: 25rem">
       </div>
     </div>
 
@@ -39,7 +56,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Waktu Kajian</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Tahun" placeholder="Waktu kajian" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="waktukajian" placeholder="Waktu kajian" class="form-control" style="max-width: 25rem">
       </div>
     </div>
 
@@ -47,7 +64,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Lokasi Kajian</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Tahun" placeholder="Lokasi Kajian" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="lokasikajian" placeholder="Lokasi Kajian" class="form-control" style="max-width: 25rem">
       </div>
     </div>
 
@@ -59,66 +76,33 @@
 </div>
 </div>
 <script type="text/javascript">
-   var fileImg = [];
    var dataAll = [];
    $('#budaya').addClass('active');
-   $('#desc').summernote();
-   $('#desc2').summernote();
-   if(window.File && window.FileList && window.FileReader)
-   {
-      $('#add-img').on('change',function (event) {
-      var files = event.target.files; //FileList object
-      for(var i = 0; i< files.length; i++)
-      {
-         var file = files[i];
-         if(!file.type.match('image'))
-            continue;
-        var picReader = new FileReader();
-        picReader.addEventListener("load",function(event){
-            var picFile = event.target;
-            $('#add-img').before("<div class='img-view'><img class='thumbnail-img' src='" + picFile.result + "'" +
-               "title='" + picFile.name + "'/><div class='del-img'>Hapus</div></div>");
-            $('.del-img').click(function(){
-               $(this).parent().remove();
-           });
-        });
-        picReader.readAsDataURL(file);
-    }                               
-});
-}
-
 $('#save').click(function () {
-    $('.thumbnail-img').each(function (argument) {
-        var img = $(this).attr('src');
-        fileImg.push(img);
-    });
     dataAll = ({
-        'judul': $('#judul').val(),
-        'kota': $('#kota').val(),
-        'gambar': fileImg,
-        'deskripsi':$('#desc').summernote('code')
+        'temakajian': $('#tema').val(),
+        'namamasjid': $('#namamasjid').val(),
+        'namaustadz': $('#namaustadz').val(),
+        'tanggalkajian': $('#tanggalkajian').val(),
+        'bulankajian': $('#bulankajian').val(),
+        'waktukajian': $('#waktukajian').val(),
+        'lokasikajian': $('#lokasikajian').val(),
+
+
     })
     // statusForm = variabel terdapat di main.js
-    if(statusForm == 0){
-        alert('lengkapi Data');
-    }
-    else if(fileImg == ''){
-        alert('Gambar Tidak Ada');
-    }
-    else{
+
       $('#save').addClass('disabled');
     console.log(dataAll);
      $.ajax({
-      url: "/api/admin/create/budaya",
+      url: "/api/admin/add/kajian",
       type: "POST",
       data:  dataAll, 
       success:function(data){
-        location.href="/admin/budaya";
+        location.href="/admin/jadwalkajian";
         console.log(data);
       }
-    });
-    }
-
+    }); 
 });
 </script>
 @endsection

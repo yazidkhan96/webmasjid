@@ -17,7 +17,7 @@ class PublicController extends Controller
     }
 
 
-    public function detail_masjid()
+    public function detailmasjid()
     {
     	return view('public.detail_masjid');
     }

@@ -16,7 +16,7 @@
   <div class="row">
     @for($i=0;$i<11;$i++)
     <div class="col-md-3 col-6 mb-4">      
-      <a href="{{url('/detail_masjid',$i)}}" style="text-decoration: none;">
+      <a href="{{url('/detail/masjid',$i)}}" style="text-decoration: none;">
         <div class="thumb-img">
         <img class="" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
 

@@ -10,30 +10,32 @@
 			<thead>
 				<tr>
 					<th scope="col">Nama Pengurus</th>
-					<th scope="col">Nama Masjid</th>
+					<th scope="col">Judul perencanaan</th>
 					<th scope="col">Tanggal Pelaksaan</th>
-					<th scope="col">Judul Pelatihan</th>
-					<th scope="col">Waktu</th>
-					<th scope="col">Pemateri</th>
+					<th scope="col">Lokasi</th>
+					<th scope="col">Ustadz</th>
+					<th scope="col">Jenis Perencanaan</th>
 					<th scope="col">Biaya Pelaksaan</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Perencanaan_kajian_pelatihan::all() as $perencanaanpelatihan)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$perencanaanpelatihan->pengurus_id}}</td>
+					<td>{{$perencanaanpelatihan->judul_perencanaan}}</td>
+					<td>{{$perencanaanpelatihan->tanggal_pelaksaan}}</td>
+					<td>{{$perencanaanpelatihan->lokasi}}</td>
+					<td>{{$perencanaanpelatihan->ustadz}}</td>
+					<td>{{$perencanaanpelatihan->jenis_perencanaan}}</td>
+					<td>{{$perencanaanpelatihan->biaya_pelaksaan}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
+						<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

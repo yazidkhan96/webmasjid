@@ -129,22 +129,19 @@
 }
 
 $('#save').click(function () {
-    $('.thumbnail-img').each(function (argument) {
-        var img = $(this).attr('src');
-        fileImg.push(img);
-    });
+  var img = $('.thumbnail-img').attr('src');
+
+
+
     dataAll = ({
         'judul': $('#judul').val(),
         'kota': $('#kota').val(),
-        'gambar': fileImg,
+        'gambar': img,
         'deskripsi':$('#desc').summernote('code')
     })
     // statusForm = variabel terdapat di main.js
-    if(statusForm == 0){
-        alert('lengkapi Data');
-    }
-    else if(fileImg == ''){
-        alert('Gambar Tidak Ada');
+    if(!img){
+    alert('Gambar Tidak Ada');
     }
     else{
       $('#save').addClass('disabled');

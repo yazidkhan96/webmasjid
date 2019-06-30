@@ -13,7 +13,7 @@
 
 Route::get('/','PublicController@index');
 Route::get('/profile_masjid','PublicController@masjid');
-Route::get('/detail_masjid/{id}','PublicController@detail_masjid');
+Route::get('/detail/masjid/{id}','PublicController@detailmasjid');
 Route::get('/jadwal_kajian','PublicController@jadwal_kajian');
 Route::get('/perencanaan_kajian','PublicController@perencanaan_kajian');
 Route::get('/perencanaan_pelatihan','PublicController@perencanaan_pelatihan');

@@ -6,19 +6,7 @@
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Username</div>
       <div class="col pr-0">
-        <input type="" name="" id="judul" placeholder="Username" class="form-control" style="max-width: 25rem">
-      </div>
-    </div>
-    <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama Masjid</div>
-      <div class="col pr-0">
-        <input type="" name="" id="judul" placeholder="Nama Masjid" class="form-control" style="max-width: 25rem">
-      </div>
-    </div>
-    <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Alamat Masjid</div>
-      <div class="col pr-0">
-        <input type="" name="" id="Alamat" placeholder="Alamat Masjid" class="form-control" style="max-width: 25rem">
+        <input type="" name="" id="Username" placeholder="Username" class="form-control" style="max-width: 25rem">
       </div>
     </div>
     <div class="row m-0 mb-3">
@@ -39,6 +27,12 @@
         <input type="Password" name="" id="Password" placeholder="Password" class="form-control" style="max-width: 25rem">
       </div>
     </div>
+     <div class="row m-0 mb-3">
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Konfirmasi Password</div>
+      <div class="col pr-0">
+        <input type="Password" name="" id="konfirmasiPassword" placeholder="Password" class="form-control" style="max-width: 25rem">
+      </div>
+    </div>
   
   
 <div class="text-right mb-5">
@@ -50,31 +44,28 @@
  var dataAll = [];
  var tmp=[];
  $('#slider').addClass('active');
- $('#desc').summernote();
 $('#save').click(function () {
-  $('.thumbnail-img').each(function (argument) {
-    var img = $(this).attr('src');
-    fileImg.push(img);
-  });
-  tmp.push(file_imginput);
   dataAll = ({
-    'judul': $('#judul').val(),
-    'gambar': tmp,
-    'deskripsi':$('#desc').summernote('code')
+    'username': $('#Username').val(),
+    'email': $('#Email').val(),
+    'nohp': $('#Nohp').val(),
+    'password': $('#Password').val(),
+    'konfirmasiPassword': $('#konfirmasiPassword').val()
+
   })
     // statusForm = variabel terdapat di main.js
-    if(statusForm == 0){
-      alert('lengkapi Data');
+    if(!konfirmasiPassword){
+    alert('Gambar Tidak Ada');
     }
     else{
       $('#save').addClass('disabled');
       console.log(dataAll);
        $.ajax({
-      url: "/api/admin/create/slider",
+      url: "/api/admin/add/user",
       type: "POST",
       data:  dataAll, 
       success:function(data){
-        location.href="/admin/slider";
+        location.href="/admin/user";
         console.log(data);
       }
     });

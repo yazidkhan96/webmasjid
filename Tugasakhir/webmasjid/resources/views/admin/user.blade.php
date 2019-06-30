@@ -10,26 +10,26 @@
 			<thead>
 				<tr>
 					<th scope="col">Username Pengurus</th>
-					<th scope="col">Nama Masjid</th>
-					<th scope="col">Alamat Masjid</th>
 					<th scope="col">No Hp/Wa</th>
 					<th scope="col">Email</th>
+					<th scope="col">Password</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Pengurus::all() as $pengurus)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$pengurus->name}}</td>
+					<td>{{$pengurus->nohp_wa}}</td>
+					<td>{{$pengurus->email}}</td>
+					<td>{{$pengurus->password}}</td>
+					<td>{{$pengurus->created_at}}</td>
 					<td>
 						<a dataid="" href="" data-toggle="modal" data-target="#modalDelete" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>
@@ -53,7 +53,7 @@
 <script type="text/javascript">
 	$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/wisata/`+id+`')}}`);
+		$('#delete').attr('href',`{{url('/api/admin/delete/user/`+id+`')}}`);
 	})
 </script>
 @endsection

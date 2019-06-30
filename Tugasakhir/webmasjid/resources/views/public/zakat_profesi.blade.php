@@ -31,7 +31,8 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number" placeholder="Hutang/cicilan(Jika ada)" aria-label="Username" aria-describedby="basic-addon1">
+			<input type="text" class="form-control input-number" placeholder="Hutang/cicilan(Jika ada)" aria-label="Username" aria-describedby="basic-addon1"
+			id="hzakatpro3">
 		</div>
 	</div>
 	<a href="#" class="btn btn-success" id="btn-zakat" style="color: white ;">Hitung Zakat</a>
@@ -79,9 +80,11 @@
 	$('#btn-zakat').click(function(){
 	let zakat1 = $('#hzakatpro1').val();
 	let zakat2 = $('#hzakatpro2').val();
-	let total = parseInt(zakat1) + parseInt(zakat2);
-
-		if (total>3000000) {
+	let zakat3 = $('#hzakatpro3').val();
+	let total = (parseInt(zakat1) + parseInt(zakat2))-parseInt(zakat2);
+	total=((2.5/100)*total);
+	console.log(total)
+		if (total>4400000) {
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 		}

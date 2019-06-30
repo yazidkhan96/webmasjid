@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePelatihansTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,12 @@ class CreatePelatihansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pelatihans', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('masjid_id');
-            $table->string('nohp');
-            $table->string('judul_pelatihan');
-            $table->string('nama_pemateri');
-            $table->string('tanggal_pelatihan');
+        Schema::create('sliders', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('judul');
             $table->string('gambar');
             $table->string('deskripsi');
-
             $table->timestamps();
-
-            
         });
     }
 
@@ -36,6 +29,6 @@ class CreatePelatihansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelatihans');
+        Schema::dropIfExists('sliders');
     }
 }

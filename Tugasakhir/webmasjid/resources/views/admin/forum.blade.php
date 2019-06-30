@@ -13,23 +13,23 @@
 					<th scope="col">Deskripsi</th>
 					<th scope="col">Gambar</th>
 					<th scope="col">Tanggal</th>
-					<th scope="col">Komentar</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Forum::all() as $forum)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$forum->judul_forum}}</td>
+					<td>{{$forum->deskripsi}}</td>
+					<td>{{$forum->gambar}}</td>
+					<td>{{$forum->created_at}}</td>
 					<td>
 						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

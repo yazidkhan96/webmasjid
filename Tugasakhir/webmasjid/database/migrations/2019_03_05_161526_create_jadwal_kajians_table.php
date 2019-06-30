@@ -16,12 +16,12 @@ class CreateJadwalKajiansTable extends Migration
         Schema::create('jadwal_kajians', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('masjid_id');
-            $table->unsignedInteger('perencanaan_kajian_pelatihan_id');
             $table->string('tema_kajian');
             $table->string('nama_ustadz');
-            $table->date('tanggal_kajian');
+            $table->string('tanggal_kajian');
+            $table->string('bulan_kajian');
             $table->string('lokasi');
-            $table->string('gambar');
+            $table->string('waktu_kajian');
             $table->timestamps();
 
             $table->foreign('masjid_id')
@@ -30,11 +30,7 @@ class CreateJadwalKajiansTable extends Migration
             ->Ondelete('no action')
             ->Onupdate('no action');
 
-            $table->foreign('perencanaan_kajian_pelatihan_id')
-            ->references('id')
-            ->on('perencanaan_kajian_pelatihans')
-            ->Ondelete('no action')
-            ->Onupdate('no action');
+           
         
 
         });

@@ -9,29 +9,33 @@
 		<table id="table_id" class="table text-center table-striped">
 			<thead>
 				<tr>
-					<th scope="col">Judul Pelatihan</th>
-					<th scope="col">Info Pelatihan</th>
-					<th scope="col">Tanggal Pelatihan</th>
-					<th scope="col">Lokasi</th>
+					<th scope="col">Judul</th>
+					<th scope="col">Nama Masjid</th>
+					<th scope="col">Informasi</th>
+					<th scope="col">Tanggal</th>
+					<th scope="col">pemateri</th>
 					<th scope="col">Gambar</th>
-					<th scope="col">NoHP Panitia</th>
+					<th scope="col">No Hp</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Pelatihan::all() as $pelatihan);
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$pelatihan->judul_pelatihan}}</td>
+					<td>{{$pelatihan->masjid_id}}</td>
+					<td>{{$pelatihan->deskripsi}}</td>
+					<td>{{$pelatihan->tanggal_pelatihan}}</td>
+					<td>{{$pelatihan->nama_pemateri}}</td>
+					<td>{{$pelatihan->gambar}}</td>
+					<td>{{$pelatihan->nohp}}</td>
 					<td>
 						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

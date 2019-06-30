@@ -18,4 +18,11 @@ use Illuminate\Http\Request;
 });*/
 
 Route::post('admin/upload/masjid','AdminMasjidController@uploadmasjid');
+Route::post('admin/upload/forum','AdminForumController@uploadforum');
+Route::post('admin/add/user','AdminController@addpengurus');
+Route::post('admin/create/slider','AdminSliderController@createslider');
+Route::post('admin/add/kajian','AdminKajianController@addkajian');
+Route::post('admin/upload/perencanaan/kajian','AdminKajianController@perencanaankajian');
+Route::post('admin/upload/perencanaan/pelatihan','AdminPelatihanController@uploadpelatihan');
+
 

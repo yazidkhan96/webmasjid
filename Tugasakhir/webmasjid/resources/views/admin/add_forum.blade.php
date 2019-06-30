@@ -8,18 +8,15 @@
       
 
 			<div class="col pr-0">
-				<input type="" name="" id="Nama" placeholder="Judul Forum" class="form-control" style="max-width: 25rem">
+				<input type="" name="" id="judulforum" placeholder="Judul Forum" class="form-control" style="max-width: 25rem">
 			</div>
 		</div>
-
-    
-
 
      <div class="row m-0 mb-3">
          <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Gambar</div>
          <div class="col pr-0">
           <div class="row m-0">
-             <input class="hidden" id="add-img" accept="image/*" type="file" multiple/>
+             <input class="hidden" id="add-img" accept="image/*" type="file"/>
              <div class="col p-0">
                 <label for="add-img">
                    <div class="" style="display: inline-block;height: 9rem;background: #e0e0e0;width: 9rem;line-height: 91px;text-align: center;font-size: 37px;color: #9e9e9e;cursor: pointer;">+</div>
@@ -32,7 +29,7 @@
 <div class="row m-0 mb-3">
  <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Deskripsi Forum</div>
  <div class="col pr-0">
-  <div id="desc2"></div>
+  <div id="descforum"></div>
 </div>
 </div>
 <div class="text-right mb-5">
@@ -44,8 +41,7 @@
    var fileImg = [];
    var dataAll = [];
    $('#budaya').addClass('active');
-   $('#desc').summernote();
-   $('#desc2').summernote();
+   $('#descforum').summernote();
    if(window.File && window.FileList && window.FileReader)
    {
       $('#add-img').on('change',function (event) {
@@ -70,32 +66,26 @@
 }
 
 $('#save').click(function () {
-    $('.thumbnail-img').each(function (argument) {
-        var img = $(this).attr('src');
-        fileImg.push(img);
-    });
+  var img = $('.thumbnail-img').attr('src');
+
+
     dataAll = ({
-        'judul': $('#judul').val(),
-        'kota': $('#kota').val(),
-        'gambar': fileImg,
-        'deskripsi':$('#desc').summernote('code')
+        'judulforum': $('#judulforum').val(),
+        'gambar': img,
+        'deskripsi':$('#descforum').summernote('code')
     })
     // statusForm = variabel terdapat di main.js
-    if(statusForm == 0){
-        alert('lengkapi Data');
-    }
-    else if(fileImg == ''){
-        alert('Gambar Tidak Ada');
-    }
-    else{
+    if(!img){
+    alert('Gambar Tidak Ada');
+    }else{
       $('#save').addClass('disabled');
     console.log(dataAll);
      $.ajax({
-      url: "/api/admin/create/budaya",
+      url: "/api/admin/upload/forum",
       type: "POST",
       data:  dataAll, 
       success:function(data){
-        location.href="/admin/budaya";
+       location.href="/admin/forum";
         console.log(data);
       }
     });
