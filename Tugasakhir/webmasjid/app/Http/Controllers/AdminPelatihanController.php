@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pelatihan;
 use App\Perencanaan_kajian_pelatihan;
+use App\Request_kajian_pelatihan;
+use Action;
 class AdminPelatihanController extends Controller
 {
     public function jadwalpelatihan()
@@ -33,63 +35,107 @@ class AdminPelatihanController extends Controller
         return view ('admin.add_perencanaan_pelatihan');
     }
 
+    public function editperencanaanpelatihan($id)
+    {
+        $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
+        return view ('admin.edit_perencanaan_pelatihan',compact('perencanaanpelatihan'));
+    }
 
-     public function addpelatihan(Request $r)
+     public function editpelatihan($id)
+    {
+        $pelatihan=Pelatihan::find($id);
+        return view ('admin.edit_jadwal_pelatihan',compact('pelatihan'));
+    }
+
+
+     public function deleteperencanaanpelatihan($id)
+    {
+        $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
+        $perencanaanpelatihan->delete();
+        return back ();
+    }
+
+     public function deletepelatihan($id)
+    {
+        $pelatihan=Pelatihan::find($id);
+        Action::delete_foto($pelatihan->gambar,'Pelatihan');
+        $pelatihan->delete();
+        return back ();
+    }
+
+     public function createjadwalpelatihanadmin(Request $r)
     {
         $pelatihan=new Pelatihan();
         $pelatihan->judul_pelatihan=$r->judulpelatihan;
         $pelatihan->masjid_id=$r->namamasjid;
-        $pelatihan->tanggal_pelatihan=$r->namamasjid;
+        $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
         $pelatihan->nama_pemateri=$r->namapemateri;
         $pelatihan->nohp=$r->nomorhandphone;
-        $pelatihan->gambar=$this->save_foto($r->gambar,'Pelatihan');
+        $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
         $pelatihan->deskripsi=$r->deskripsi;
         $pelatihan->save();
         return response()->json(['data'=>$r->all()]);
     }
 
-
-     public function save_foto($img,$folder)
-    {
-        $uniqid=uniqid();
-      if (count(explode('.', $img))!=2) {
-          $ext=explode('/', explode(';',explode(',', $img)[0])[0])[1];
-          $img = explode(',', $img)[1];
-          $data = base64_decode($img);
-          $file =  public_path().'/images/'.$folder.'/'.$uniqid.'.'.$ext;
-          $success = file_put_contents($file, $data);
-          return $uniqid.'.'.$ext;
-      }else{
-          return 'default.jpg';
-      }
-    }
-
-    public function delete_foto($img,$folder)
-    {
-      $image_path = public_path().'/images/'.$folder.'/'.$img->name;
-      if ($img->name!="default.jpg") {
-          if(File::exists($image_path)){ 
-              unlink($image_path);
-              $img->delete();
-          }
-      }
-    }
-
-
-
     public function uploadpelatihan(Request $r)
     {
         $perencanaanpelatihan=new Perencanaan_kajian_pelatihan();
         $perencanaanpelatihan->pengurus_id=$r->pengurus;
-        $perencanaanpelatihan->tanggal_pelaksaan=$r->Tanggalpelaksanaan;
+        $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
         $perencanaanpelatihan->lokasi=$r->lokasikajian;
         $perencanaanpelatihan->ustadz=$r->namaustadz;
-        $perencanaanpelatihan->biaya_pelaksaan=$r->deskripsi;
+        $perencanaanpelatihan->biaya_pelaksanaan=$r->deskripsi;
         $perencanaanpelatihan->judul_perencanaan=$r->judulperencanaan;
         $perencanaanpelatihan->nohp=$r->nomorhandphone;
         $perencanaanpelatihan->jenis_perencanaan=$r->jenisperencanaan;
         $perencanaanpelatihan->save();
         return response()->json(['data'=>$r->all()]);
     }
+
+    
+    public function updatepelatihan(Request $r,$id)
+    {
+      $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
+      $perencanaanpelatihan->pengurus_id=$r->pengurus;
+      $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+      $perencanaanpelatihan->lokasi=$r->lokasikajian;
+      $perencanaanpelatihan->biaya_pelaksanaan=$r->deskripsi;
+      $perencanaanpelatihan->judul_perencanaan=$r->judulperencanaan;
+      $perencanaanpelatihan->nohp=$r->nomorhandphone;
+      $perencanaanpelatihan->jenis_perencanaan=$r->jenisperencanaan;
+      $perencanaanpelatihan->save();
+      return response()->json(['data'=>$r->all()]);
+    }
+
+
+    public function updatejadwalpelatihan(Request $r,$id)
+    {
+      $pelatihan=Pelatihan::find($id);
+      $pelatihan->judul_pelatihan=$r->judulpelatihan;
+      $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
+      $pelatihan->nama_pemateri=$r->namapemateri;
+      $pelatihan->nohp=$r->nomorhandphone;
+      $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
+      $pelatihan->deskripsi=$r->deskripsi;
+      $pelatihan->save();
+      return response()->json(['data'=>$r->all()]);
+    }
+
+    
+    public function uploadreqpelatihan(Request $r)
+    {
+        $reqpelatihan=new Request_kajian_pelatihan();
+        $reqpelatihan->nama_pengunjung=$r->namaanda;
+        $reqpelatihan->lokasi=$r->lokasi;
+        $reqpelatihan->email=$r->Email;
+        $reqpelatihan->nohp=$r->nohp;
+        $reqpelatihan->jenis_request=$r->lokasi;
+        $reqpelatihan->nama_pemateri=$r->namaustadz;
+        $reqpelatihan->deskripsi=$r->deskripsi;
+        $reqpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->tanggalpelaksanaan));
+        $reqpelatihan->save();
+        return response()->json(['data'=>$r->all()]);
+    }
+
 
 }   

@@ -27,13 +27,6 @@
 			</div>
 			<input type="text" class="form-control input-number" placeholder="Pendapatan lain(jika ada)" aria-label="Username" aria-describedby="basic-addon1" id="hzakatpro2">
 		</div>
-		<div class="input-group mb-4">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon1">Rp</span>
-			</div>
-			<input type="text" class="form-control input-number" placeholder="Hutang/cicilan(Jika ada)" aria-label="Username" aria-describedby="basic-addon1"
-			id="hzakatpro3">
-		</div>
 	</div>
 	<a href="#" class="btn btn-success" id="btn-zakat" style="color: white ;">Hitung Zakat</a>
 </div>
@@ -67,9 +60,9 @@
 	</div>
 	<div class="card-body">
 		<div style="position: relative; left: 31%;">
-			<span><em>Hasil perhitungan zakat profesi anda</em></span> 
+			<span><em>Hasil perhitungan zakat profesi anda :<span id='total'></span> </em></span> 
 			<br>
-			<span><em>Rp.10.000.000</em></span>
+			<span><em></em></span>
 		</div>
 		
 	</div>
@@ -80,11 +73,11 @@
 	$('#btn-zakat').click(function(){
 	let zakat1 = $('#hzakatpro1').val();
 	let zakat2 = $('#hzakatpro2').val();
-	let zakat3 = $('#hzakatpro3').val();
-	let total = (parseInt(zakat1) + parseInt(zakat2))-parseInt(zakat2);
+	let total = (parseInt(zakat1) + parseInt(zakat2));
 	total=((2.5/100)*total);
+	$('#total').text('lllll');
 	console.log(total)
-		if (total>4400000) {
+		if (zakat1>4400000) {
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 		}

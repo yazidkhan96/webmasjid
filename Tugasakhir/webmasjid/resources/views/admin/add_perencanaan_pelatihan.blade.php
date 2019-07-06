@@ -31,7 +31,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tanggal pelaksaan</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="Tanggalpelaksanaan" placeholder="Tanggal Pelaksaan" class="form-control" style="max-width: 25rem">
+        <input id="datepicker" style="max-width: 25rem;">
       </div>
     </div>
     <div class="row m-0 mb-3">
@@ -77,14 +77,14 @@
 var dataAll = [];
 $('#budaya').addClass('active');
 $('#desc').summernote();
-
+$('#datepicker').datepicker();
 // statusForm = variabel terdapat di main.js
 
 $('#save').on('click',function () {
 dataAll = ({
 'pengurus': $('#pengurus').val(),
 'jenisperencanaan': $('#jenisperencanaan').val(),
-'Tanggalpelaksanaan': $('#Tanggalpelaksanaan').val(),
+'Tanggalpelaksanaan': $('#datepicker').val(),
 'lokasikajian': $('#lokasi').val(),
 'nomorhandphone': $('#Nohp').val(),
 'namaustadz': $('#namaustadz ').val(),
@@ -102,5 +102,10 @@ dataAll = ({
   }
   });
 });
+
+      $('#datepicker').datepicker({
+                  uiLibrary: 'bootstrap'
+              });
+      </script>
 </script>
 @endsection

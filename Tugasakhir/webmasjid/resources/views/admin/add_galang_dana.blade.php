@@ -5,29 +5,15 @@
 	<div class="content-admin">
 
 <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Kategori Donasi</div>
-      
-<div class="col pr-0">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-xs-12">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <select name="combo" class="form-control" style="position: relative;right: 7%;top: 6px;">
-                      <option value="">--Pilih kategori donasi--</option>
-                      <option value="1">Kaum Dhuafa</option>
-                      <option value="2">Bencana alam</option>
-                      <option value="3">Pembangunan Masjid</option>
-                </select>
-
-                  </div>
-              </div>
-          </div>
-        </div>
+  <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Kategori Donasi</div>
+ <div class="col pr-0">
+        <select class="form-control" id="kategoridonasi"  style="max-width: 25rem; position:absolute; right: 70%; bottom: -1px;">
+          <option hidden="">--Pilih kategori galang dana--</option>
+          @foreach(App\Kategori_donasi::all() as $kategori)
+            <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
+          @endforeach
+        </select>
       </div>
-    </div>
   </div>
 </div>
 
@@ -35,41 +21,28 @@
 		<div class="row m-0 mb-3">
 			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Judul penggalangan dana</div>
 			<div class="col pr-0">
-				<input type="" name="" id="Nama" placeholder="Judul penggalangan dana" class="form-control" style="max-width: 25rem">
+				<input type="" name="" id="judulgalang" placeholder="Judul penggalangan dana" class="form-control" style="max-width: 25rem">
 			</div>
 		</div>
 
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Target donasi</div>
       <div class="col pr-0">
-        <input type="" name="" id="Nama" placeholder="Target donasi" class="form-control input-number" style="max-width: 25rem">
+        <input type="" name="" id="targetdonasi" placeholder="Target donasi" class="form-control input-number" style="max-width: 25rem">
       </div>
     </div>
 
 <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Batas waktu penggalangan dana</div>
       
-<div class="col pr-0">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-xs-12">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <select name="combo" class="form-control" style="position: relative;right: 7%;top: 6px;">
-                      <option value="">--Pilih batas akhir waktu penggalangan--</option>
-                      <option value="1">1 bulan</option>
-                      <option value="2">3 bulan</option>
-                      <option value="3">6 bulan</option>
-                </select>
-
-                  </div>
-              </div>
-          </div>
-        </div>
+ <div class="col pr-0">
+        <select class="form-control" id="bataswaktu"  style="max-width: 25rem; position:absolute; right: 70%;">
+          <option hidden="">--Pilih batas waktu--</option>
+          <option>1 bulan</option>
+          <option>3 bulan</option>
+          <option>6 bulan</option>
+        </select>
       </div>
-    </div>
   </div>
 </div>
 
@@ -81,7 +54,7 @@
              <input class="hidden" id="add-img" accept="image/*" type="file" multiple/>
              <div class="col p-0">
                 <label for="add-img">
-                   <div class="" style="display: inline-block;height: 9rem;background: #e0e0e0;width: 9rem;line-height: 91px;text-align: center;font-size: 37px;color: #9e9e9e;cursor: pointer;">+</div>
+                   <div class="img-add">+</div>
                </label>
            </div>
        </div>
@@ -91,7 +64,7 @@
 <div class="row m-0 mb-3">
  <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Keterangan tentang penggalangan dana dan penggunaan tersebut untuk apa</div>
  <div class="col pr-0">
-  <div id="desc2"></div>
+  <div id="desc"></div>
 </div>
 </div>
 <div class="text-right mb-5">
@@ -104,7 +77,6 @@
    var dataAll = [];
    $('#budaya').addClass('active');
    $('#desc').summernote();
-   $('#desc2').summernote();
    if(window.File && window.FileList && window.FileReader)
    {
       $('#add-img').on('change',function (event) {
@@ -134,8 +106,10 @@ $('#save').click(function () {
 
 
     dataAll = ({
-        'judul': $('#judul').val(),
-        'kota': $('#kota').val(),
+        'kategori': $('#kategoridonasi').val(),
+        'judul': $('#judulgalang').val(),
+        'target': $('#targetdonasi').val(),
+        'bataswaktu': $('#bataswaktu').val(),
         'gambar': img,
         'deskripsi':$('#desc').summernote('code')
     })
@@ -147,11 +121,11 @@ $('#save').click(function () {
       $('#save').addClass('disabled');
     console.log(dataAll);
      $.ajax({
-      url: "/api/admin/create/budaya",
+      url: "/api/admin/upload/galangdana",
       type: "POST",
       data:  dataAll, 
       success:function(data){
-        location.href="/admin/budaya";
+        location.href="/admin/galangdana"
         console.log(data);
       }
     });

@@ -34,32 +34,32 @@
 	</ul>
 </div>
 <!-- <div class="container">
-					<h3 style="positior: nrelative; bottom: 11rem; left: 317px; margin-top: 2rem;">Ubah Passwod</h3>
-					<hr style="border: 1px solid grey;width: 59%;position: relative;left: 5rem;bottom: 12rem;">
-					<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-										Password lama :<input type="text" class="form-control " name="" required="" style="    width: 600px;position: relative;bottom: 25px;left: 121px;">
-					</div>
-					<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-										Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
-					</div>
-					<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-										Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
-										<button class="btn btn-primary btn-lg" style="margin-left: 39rem;">Simpan</button>
-					</div>
+	<h3 style="positior: nrelative; bottom: 11rem; left: 317px; margin-top: 2rem;">Ubah Passwod</h3>
+	<hr style="border: 1px solid grey;width: 59%;position: relative;left: 5rem;bottom: 12rem;">
+		<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
+				Password lama :<input type="text" class="form-control " name="" required="" style="    width: 600px;position: relative;bottom: 25px;left: 121px;">
+			</div>
+	<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
+		Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
+	</div>
+	<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
+		Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
+			<button class="btn btn-primary btn-lg" style="margin-left: 39rem;">Simpan</button>
+	</div>
 </div> -->
 <!-- <PISAH> -->
 <!-- <div class="dashboard-foto-profile">
 		<h4 style="position: relative; bottom: 11rem; left: 404px; margin-top: 2rem;">Edit foto profile</h4>
 		<hr style="border: 1px solid grey;width: 59%;position: relative;left: 8rem;bottom: 12rem;">
 		<div style="display: flex;">
-					<input hidden id="add-img" type="file" multiple/>
-					<div class="col-dashboard">
-								<label for="add-img">
-											<div class="btn-add-img rounded-circle" style="position: relative;left: 611%;bottom: 181px;">+
-											</div>
-								</label>
+			<input hidden id="add-img" type="file" multiple/>
+				<div class="col-dashboard">
+				label for="add-img">
+		<div class="btn-add-img rounded-circle" style="position: relative;left: 611%;bottom: 181px;">+
 					</div>
+			</label>
 		</div>
+	</div>
 		<span style="position: absolute; left: 33rem; bottom: -116px;">
 					<em>Foto yang di Upload disarankan</em><br>
 					<em>Berukuran 72px x 75px</em><br>

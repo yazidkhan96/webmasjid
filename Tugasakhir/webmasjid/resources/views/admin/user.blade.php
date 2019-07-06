@@ -12,7 +12,7 @@
 					<th scope="col">Username Pengurus</th>
 					<th scope="col">No Hp/Wa</th>
 					<th scope="col">Email</th>
-					<th scope="col">Password</th>
+					<th scope="col">Avatar</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">Aksi</th>
 				</tr>
@@ -23,10 +23,10 @@
 					<td>{{$pengurus->name}}</td>
 					<td>{{$pengurus->nohp_wa}}</td>
 					<td>{{$pengurus->email}}</td>
-					<td>{{$pengurus->password}}</td>
+					<td>{{$pengurus->gambar}}</td>
 					<td>{{$pengurus->created_at}}</td>
 					<td>
-						<a dataid="" href="" data-toggle="modal" data-target="#modalDelete" class="material-icons delete">delete</a>
+						<a dataid="{{url('/admin/delete/user',$pengurus->id)}}" href="" data-toggle="modal" data-target="#modalDelete" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach
@@ -53,7 +53,7 @@
 <script type="text/javascript">
 	$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/user/`+id+`')}}`);
+		$('#delete').attr('href',id);
 	})
 </script>
 @endsection

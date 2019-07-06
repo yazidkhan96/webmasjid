@@ -4,9 +4,6 @@
   <!-- Card Start -->
   <div class="card" style="position: relative; top: 90px;">
     <div class="row ">
-   <div class="col-sm-4">
-          <img class="d-block w-100" src="{{asset('/img/msj1.jpg')}}" style="height : 307px;">
-        </div>
       <div class="col-md-7 px-3">
         <div class="card-block px-6">
           <h4 class="card-title">Kajian Musyawarrah-Al jihad</h4>

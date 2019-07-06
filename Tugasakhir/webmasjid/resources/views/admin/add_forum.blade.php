@@ -19,7 +19,7 @@
              <input class="hidden" id="add-img" accept="image/*" type="file"/>
              <div class="col p-0">
                 <label for="add-img">
-                   <div class="" style="display: inline-block;height: 9rem;background: #e0e0e0;width: 9rem;line-height: 91px;text-align: center;font-size: 37px;color: #9e9e9e;cursor: pointer;">+</div>
+                   <div class="img-add">+</div>
                </label>
            </div>
        </div>

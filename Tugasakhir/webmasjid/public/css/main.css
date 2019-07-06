@@ -1,6 +1,7 @@
 .nvb{
 background-color: #28a745 !important;
 color: white;
+height:     41px;
 }
 .jdk::hover{
 background: #28a745 !important;
@@ -343,4 +344,24 @@ a.btn-card {
 }
 /* End card section */
 
+.desc-elip{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 1001px !important;
+    text-overflow: ellipsis;
+}
+.title-admin {
+    background: #009976;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.content-admin {
+    margin-top: 15px;
+}
+.gj-datepicker-md [role=right-icon]{
+    right: 64% !important;
+    top: 1px;
+    font-size: 28px !important;
 
+}

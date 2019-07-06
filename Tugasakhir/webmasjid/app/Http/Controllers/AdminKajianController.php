@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Jadwal_kajian;
 use App\Perencanaan_kajian_pelatihan;
+use App\Request_kajian_pelatihan;
 
 class AdminKajianController extends Controller
 {
@@ -32,6 +33,20 @@ class AdminKajianController extends Controller
         return view ('admin.add_perencanaan_kajian');
     }
 
+
+     public function editperencanaankajian($id)
+    {
+        $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
+        return view ('admin.edit_perencanaan_kajian',compact('perencanaankajian'));
+    }
+
+     public function deleteperencanaankajian($id)
+    {
+        $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
+        $perencanaankajian->delete();
+        return back ();
+    }
+
     public function addkajian(Request $r)
     {
         $jadwalkajian =new Jadwal_kajian();
@@ -51,14 +66,44 @@ class AdminKajianController extends Controller
     {
         $perencanaankajian=new Perencanaan_kajian_pelatihan();
         $perencanaankajian->pengurus_id=$r->pengurus;
-        $perencanaankajian->tanggal_pelaksaan=$r->Tanggalpelaksanaan;
+        $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
         $perencanaankajian->lokasi=$r->lokasikajian;
         $perencanaankajian->ustadz=$r->namaustadz;
-        $perencanaankajian->biaya_pelaksaan=$r->deskripsi;
+        $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;
         $perencanaankajian->judul_perencanaan=$r->judulperencanaan;
         $perencanaankajian->nohp=$r->nomorhandphone;
         $perencanaankajian->jenis_perencanaan=$r->jenisperencanaan;
         $perencanaankajian->save();
+        return response()->json(['data'=>$r->all()]);
+    }
+
+
+    public function updatekajian(Request $r,$id)
+    {
+      $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
+      $perencanaankajian->pengurus_id=$r->pengurus;
+      $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+      $perencanaankajian->lokasi=$r->lokasikajian;
+      $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;
+      $perencanaankajian->judul_perencanaan=$r->judulperencanaan;
+      $perencanaankajian->nohp=$r->nomorhandphone;
+      $perencanaankajian->jenis_perencanaan=$r->jenisperencanaan;
+      $perencanaankajian->save();
+      return response()->json(['data'=>$r->all()]);
+    }
+
+    public function uploadreqkajian(Request $r)
+    {
+        $reqpelatihan=new Request_kajian_pelatihan();
+        $reqpelatihan->nama_pengunjung=$r->namaanda;
+        $reqpelatihan->lokasi=$r->lokasi;
+        $reqpelatihan->email=$r->Email;
+        $reqpelatihan->nohp=$r->nohp;
+        $reqpelatihan->jenis_request=$r->lokasi;
+        $reqpelatihan->nama_pemateri=$r->namaustadz;
+        $reqpelatihan->deskripsi=$r->deskripsi;
+        $reqpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->tanggalpelaksanaan));
+        $reqpelatihan->save();
         return response()->json(['data'=>$r->all()]);
     }
 

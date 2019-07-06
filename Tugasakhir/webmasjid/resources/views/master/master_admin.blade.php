@@ -27,6 +27,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.js
 "></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/Chart.min.js')}}"></script>
@@ -83,9 +85,10 @@
                 <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">
                         <a style="background: white; color: #00a680 !important;" href="#donasiSubmenu" data-toggle="collapse" aria-expanded="false"><i class="material-icons">monetization_on</i> Donasi</a>
                         <ul class="collapse list-unstyled" id="donasiSubmenu">
-                            <li><a href="{{url('/admin/donasi')}}" style="background-color: #00a680;"><i class="material-icons">chrome_reader_mode</i> List Donasi</a></li>
+                            <li><a href="{{url('/admin/galangdana')}}" style="background-color: #00a680;"><i class="material-icons">chrome_reader_mode</i> List galang dana</a></li>
                             <li><a href="{{url('/admin/pendonasi')}}" style="background-color: #00a680;"><i class="material-icons">person</i> Pendonasi</a></li>
                             <li><a href="{{url('/admin/penyerahan/donasi')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Penyerahan</a></li>
+                            <li><a href="{{url('/admin/kategori')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Kategori</a></li>
                         </ul>
                 </li>
                  <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">

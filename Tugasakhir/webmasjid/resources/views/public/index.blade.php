@@ -5,31 +5,21 @@
 <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
   <!--Indicators-->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+    @foreach(App\Slider::all() as $i=>$slider)
+    <li data-target="#carousel-example-1z" data-slide-to="{{$i}}" class="{{$i==0?'active':''}}"></li>
+    @endforeach
   </ol>
   <!--/.Indicators-->
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
+    @foreach(App\Slider::all() as $i=>$slider)
     <!--First slide-->
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+    <div class="carousel-item {{$i==0?'active':''}}">
+      <img class="d-block w-100" src="{{asset('images/Slider')}}/{{$slider->gambar}}"
       alt="First slide">
     </div>
     <!--/First slide-->
-    <!--Second slide-->
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-      alt="Second slide">
-    </div>
-    <!--/Second slide-->
-    <!--Third slide-->
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-      alt="Third slide">
-    </div>
-    <!--/Third slide-->
+    @endforeach
   </div>
   <!--/.Slides-->
   <!--Controls-->
@@ -59,28 +49,22 @@
   </div>
 
   <div class="row">
-    @for($i=0;$i<4;$i++)
+    @foreach(App\Masjid::take(10)->get() as $masjid)
     <div class="col-md-3 col-6 mb-4">      
         <div class="thumb-img">
-        <img class="" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+        <img class="" src="{{asset('images/Masjid')}}/{{$masjid->gambar}}" alt="Card image cap">
 
         </div>
-          <div class="thumb-tittle">Judul</div>
+          <div class="thumb-tittle">{{$masjid->nama_masjid}}</div>
           <!-- Text -->
           <div class="thumb-desc">
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum...
-          lorem</p>
+          {!!$masjid->deskripsi!!}
           </div>
           <!-- Button -->
     
       <!-- Card -->
       </div><!-- /.col-lg-4 -->
-        @endfor
+     @endforeach
     </div>
 
                                             <!-- PISAH -->
@@ -96,28 +80,22 @@
   </div>
 
   <div class="row">
-    @for($i=0;$i<4;$i++)
+    @foreach(App\Pelatihan::take(10)->get() as $pelatihan)
     <div class="col-md-3 col-6 mb-4">      
         <div class="thumb-img">
-        <img class="" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+        <img class="" src="{{asset('images/Pelatihan')}}/{{$pelatihan->gambar}}" alt="Card image cap">
 
         </div>
-          <div class="thumb-tittle">Judul</div>
+          <div class="thumb-tittle">{{$pelatihan->judul_pelatihan}}</div>
           <!-- Text -->
           <div class="thumb-desc">
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum...
-          lorem</p>
+         {!!$pelatihan->deskripsi!!}
           </div>
           <!-- Button -->
     
       <!-- Card -->
       </div><!-- /.col-lg-4 -->
-        @endfor
+    @endforeach
     </div>
 </div>
 

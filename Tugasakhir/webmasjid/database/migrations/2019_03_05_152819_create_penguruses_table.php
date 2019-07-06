@@ -19,7 +19,7 @@ class CreatePengurusesTable extends Migration
             $table->string('nohp_wa');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('avatar_pengurus');
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();   
         });

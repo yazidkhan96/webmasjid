@@ -4,32 +4,38 @@
 	<div class="title-admin">Donasi</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
-			<a class="btn btn-app" href="{{url('/admin/add/donasi')}}">Tambah donasi</a>
+			<a class="btn btn-app" href="{{url('/admin/add/galangdana')}}">Tambah galang dana</a>
 		</div>
 		<table id="table_id" class="table text-center table-striped">
 			<thead>
 				<tr>
 					<th scope="col">Kategori Donasi</th>
 					<th scope="col">Judul donasi</th>
-					<th scope="col">Deskripsi</th>
+					<th scope="col">Target biaya</th>
+					<th scope="col">batas waktu</th>
 					<th scope="col">Gambar</th>
+					<th scope="col">Deskripsi</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Galang_dana::all() as $galangdana)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$galangdana->kategori_id}}</td>
+					<td>{{$galangdana->judul}}</td>
+					<td>{{$galangdana->biaya_yang_dibutuhkan}}</td>
+					<td>{{$galangdana->batas_waktu}}</td>
+					<td>{{$galangdana->gambar}}</td>
+					<td>{{$galangdana->deskripsi}}</td>
+					<td>{{$galangdana->created_at}}</td>
 					<td>
 						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
+						<a href="{{url('/admin/edit/galangdana',$galangdana->id)}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -14,30 +14,26 @@
 </div>
   </div>
   <div class="row">
-    @for($i=0;$i<11;$i++)
+    @php($page=10)
+    @foreach(App\Masjid::paginate($page) as $masjid)
     <div class="col-md-3 col-6 mb-4">      
-      <a href="{{url('/detail/masjid',$i)}}" style="text-decoration: none;">
+      <a href="{{url('/detail/masjid',$masjid->id)}}" style="text-decoration: none;">
         <div class="thumb-img">
-        <img class="" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+        <img class="" src="{{asset('images/Masjid')}}/{{$masjid->gambar}}" alt="Card image cap">
 
         </div>
-          <div class="thumb-tittle">Judul</div>
+          <div class="thumb-tittle">{{$masjid->nama_masjid}}</div>
           <!-- Text -->
           <div class="thumb-desc">
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum...
-          lorem</p>
+           {!!$masjid->deskripsi!!}
           </div>
           <!-- Button -->
         </a>
     
       <!-- Card -->
       </div><!-- /.col-lg-4 -->
-        @endfor
+        @endforeach
     </div>
   </div>
+  {{App\Masjid::paginate($page)->links()}}
 @endsection

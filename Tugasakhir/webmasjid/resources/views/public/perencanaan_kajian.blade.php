@@ -15,24 +15,23 @@
 <section class="details-card">
     <div class="container">
         <div class="row">
-        	@for($i=0;$i<10;$i++)
+        	 @foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','kajian')->take(10)->get() as $perencanaanpelatihan)
             <div class="col-md-4 mb-5">
                 <div class="card-content">
                     <div class="card-img">
                         <img src="https://placeimg.com/380/230/nature" alt="">
                     </div>
                     <div class="card-desc">
-                        <h4>Kajian Musyawarrah-Al jihad</h4>
-                        <p><em>Username pengurus :</em></p>
-                        <p><em>Nama Masjid :</em></p>
-                        <p><em>Tanggal Pelaksanaan :</em></p>
-                        <p><em>Nama Ustadz :</em></p>
-                        <p><em>Kerperluan biaya transport dll :</em></p>
-						<a href="{{url('/detail/perencanaan/kajian')}}" class="btn-card">Read More</a>   
+                        <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
+                        <p><em>Username pengurus : {{$perencanaanpelatihan->pengurus_id}}</em></p>
+                        <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksaan}}</em></p>
+                        <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
+                        <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksaan!!}</em></p>
+                        <a href="{{url('/detail/perencanaan/pelatihan')}}" class="btn-card">Read More</a>   
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </section>

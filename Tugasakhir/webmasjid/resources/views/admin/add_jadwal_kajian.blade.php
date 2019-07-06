@@ -40,7 +40,7 @@
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tanggal Kajian</div>
       
       <div class="col pr-0">
-        <input type="" name="" id="tanggalkajian" placeholder="Tanggal kajian" class="form-control" style="max-width: 25rem">
+       <input id="datepicker" style="max-width: 25rem;">
       </div>
     </div>
 
@@ -76,6 +76,7 @@
 </div>
 </div>
 <script type="text/javascript">
+  $('#datepicker').datepicker();
    var dataAll = [];
    $('#budaya').addClass('active');
 $('#save').click(function () {
@@ -83,7 +84,7 @@ $('#save').click(function () {
         'temakajian': $('#tema').val(),
         'namamasjid': $('#namamasjid').val(),
         'namaustadz': $('#namaustadz').val(),
-        'tanggalkajian': $('#tanggalkajian').val(),
+        'tanggalkajian': $('#datepicker').val(),
         'bulankajian': $('#bulankajian').val(),
         'waktukajian': $('#waktukajian').val(),
         'lokasikajian': $('#lokasikajian').val(),
@@ -104,5 +105,9 @@ $('#save').click(function () {
       }
     }); 
 });
+
+$('#datepicker').datepicker({
+            uiLibrary: 'bootstrap'
+        });
 </script>
 @endsection

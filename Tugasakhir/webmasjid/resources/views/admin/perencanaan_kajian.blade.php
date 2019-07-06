@@ -14,25 +14,23 @@
 					<th scope="col">Tanggal Pelaksaan</th>
 					<th scope="col">Lokasi</th>
 					<th scope="col">Ustadz</th>
-					<th scope="col">Jenis Perencanaan</th>
 					<th scope="col">Biaya Pelaksaan</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(App\Perencanaan_kajian_pelatihan::all() as $perencanaankajian)
+				@foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Kajian')->get() as $perencanaankajian)
 				<tr>
 					<td>{{$perencanaankajian->pengurus_id}}</td>
 					<td>{{$perencanaankajian->judul_perencanaan}}</td>
-					<td>{{$perencanaankajian->tanggal_pelaksaan}}</td>
+					<td>{{$perencanaankajian->tanggal_pelaksanaan}}</td>
 					<td>{{$perencanaankajian->lokasi}}</td>
 					<td>{{$perencanaankajian->ustadz}}</td>
-					<td>{{$perencanaankajian->jenis_perencanaan}}</td>
-					<td>{{$perencanaankajian->biaya_pelaksaan}}</td>
+					<td>{{$perencanaankajian->biaya_pelaksanaan}}</td>
 					<td>
 						<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
-						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
+						<a href="{{url('/admin/edit/perencanaan/kajian',$perencanaankajian->id)}}" class="material-icons">edit</a>
+						<a dataid="{{url('/admin/delete/perencanaan/kajian',$perencanaankajian->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach
@@ -57,9 +55,9 @@
   </div>
 </div>
 <script type="text/javascript">
-	$('.delete').click(function () {
+		$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/wisata/`+id+`')}}`);
+		$('#delete').attr('href',id);
 	})
 </script>
 @endsection

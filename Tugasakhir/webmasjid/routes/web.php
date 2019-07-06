@@ -56,19 +56,29 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/','AdminController@index');
 	Route::get('/user','AdminController@user');
 	Route::get('/add/user','AdminController@adduser');
+	Route::get('/delete/user/{id}','AdminController@deletepengurus');
+
+	
 
 	Route::get('/masjid','AdminMasjidController@masjid');
 	Route::get('/add/profile/masjid','AdminMasjidController@addprofilemasjid');
+	Route::get('/edit/profile/masjid/{id}','AdminMasjidController@editprofilemasjid');
+	Route::get('/delete/profile/masjid/{id}','AdminMasjidController@deleteprofilemasjid');
 
 
 
 
 	Route::get('/slider','AdminSliderController@slider');
 	Route::get('/add/slider','AdminSliderController@addslider');
+	Route::get('/edit/slider/{id}','AdminSliderController@editslider');
+	Route::get('/delete/slider/{id}','AdminSliderController@deleteslider');
 
 
 	Route::get('/forum','AdminForumController@forum');
 	Route::get('/add/forum','AdminForumController@addforum');
+	Route::get('/edit/forum/{id}','AdminForumController@editforum');
+	Route::get('/delete/forum/{id}','AdminForumController@deleteforum');
+
 
 
 	Route::get('/jadwalkajian','AdminKajianController@jadwalkajian');
@@ -76,14 +86,23 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/request_kajian','AdminKajianController@request_kajian');
 	Route::get('/add/jadwal/kajian','AdminKajianController@addjadwalkajian');
 	Route::get('/add/perencanaan/kajian','AdminKajianController@addperencanaankajian');
+	Route::get('/edit/perencanaan/kajian/{id}','AdminKajianController@editperencanaankajian');
+	Route::get('/delete/perencanaan/kajian/{id}','AdminKajianController@deleteperencanaankajian');
 
 
 	Route::get('/jadwalpelatihan','AdminPelatihanController@jadwalpelatihan');
 	Route::get('/add/jadwal/pelatihan','AdminPelatihanController@addjadwalpelatihan');
+	Route::post('/create/jadwal/pelatihan','AdminPelatihanController@createjadwalpelatihanadmin');
+	Route::get('/edit/jadwal/pelatihan/{id}','AdminPelatihanController@editpelatihan');
+	Route::get('/delete/jadwal/pelatihan/{id}','AdminPelatihanController@deletepelatihan');
+
 	Route::get('/perencanaan/pelatihan','AdminPelatihanController@perencanaanpelatihan');
 	Route::get('/request/pelatihan','AdminPelatihanController@requestpelatihan');
-Route::get('/daftar/peserta/pelatihan','AdminPelatihanController@daftarpesertapelatihan');
-Route::get('/add/perencanaan/pelatihan','AdminPelatihanController@addperencanaanpelatihan');
+	Route::get('/daftar/peserta/pelatihan','AdminPelatihanController@daftarpesertapelatihan');
+	Route::get('/add/perencanaan/pelatihan','AdminPelatihanController@addperencanaanpelatihan');
+	Route::get('/edit/perencanaan/pelatihan/{id}','AdminPelatihanController@editperencanaanpelatihan');
+	Route::get('/delete/perencanaan/pelatihan/{id}','AdminPelatihanController@deleteperencanaanpelatihan');
+
 
 
 
@@ -94,11 +113,14 @@ Route::get('/add/perencanaan/pelatihan','AdminPelatihanController@addperencanaan
 
 
 
-	Route::get('/donasi','AdminDonasiController@donasi');
+	Route::get('/galangdana','AdminDonasiController@galangdana');
+	Route::get('/kategori','AdminDonasiController@kategori');
+	Route::get('/add/kategori','AdminDonasiController@addkategori');
 	Route::get('/pendonasi','AdminDonasiController@pendonasi');
 	Route::get('/penyerahan/donasi','AdminDonasiController@penyerahandonasi');
 	Route::get('/add/penyerahan/donasi','AdminDonasiController@addpenyerahandonasi');
-	Route::get('/add/donasi','AdminDonasiController@adddonasi');
+	Route::get('/add/galangdana','AdminDonasiController@addgalangdana');
+	Route::get('/edit/galangdana/{id}','AdminDonasiController@editgalangdana');
 
 
 

@@ -21,6 +21,21 @@
         <input type="text" name="" id="Nohp" placeholder="Nohp" class="form-control input-number" style="max-width: 25rem">
       </div>
     </div>
+
+    <div class="row m-0 mb-3">
+     <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Gambar</div>
+     <div class="col pr-0">
+      <div class="d-inline-block text-center">
+        <input name="image" type="file" accept="image/*" onchange="uploadimage(event)" id="imginput" class="hidden" />
+        <img id="imgview" src="{{asset('img/sampul.jpg')}}" class="admin-view-sampul"/><br>
+        <label class="mt-2 btn-change text-center" for="imginput">
+          <span class="btn border">Pilih Gambar</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+
      <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Password</div>
       <div class="col pr-0">
@@ -45,16 +60,24 @@
  var tmp=[];
  $('#slider').addClass('active');
 $('#save').click(function () {
+   $('.thumbnail-img').each(function (argument) {
+    var img = $(this).attr('src');
+    fileImg.push(img);
+  });
+  tmp.push(file_imginput);
+
+
   dataAll = ({
     'username': $('#Username').val(),
     'email': $('#Email').val(),
     'nohp': $('#Nohp').val(),
+    'gambar': tmp,
     'password': $('#Password').val(),
     'konfirmasiPassword': $('#konfirmasiPassword').val()
 
   })
     // statusForm = variabel terdapat di main.js
-    if(!konfirmasiPassword){
+    if(!tmp){
     alert('Gambar Tidak Ada');
     }
     else{
