@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>TripAceh</title>
+    <title>MasjidUmmat</title>
     <meta name="description" content="">
     <meta name="author" content="">
     
@@ -28,7 +28,7 @@ body{
     <div class="form-login-app">
         <div class="text-center mb-5">
             <img src="{{asset('img/masjid.jpg')}}" style="max-height: 110px">
-            <div class="font-34 text-bold color-app">TripAceh</div>
+            <div class="font-34 text-bold color-app">Masjid Ummat</div>
         </div>
         @if ($message = Session::get('error'))
     <div class="alert alert-danger alert-block">

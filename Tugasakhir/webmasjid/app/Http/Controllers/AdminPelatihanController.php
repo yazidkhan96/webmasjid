@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pelatihan;
 use App\Perencanaan_kajian_pelatihan;
 use App\Request_kajian_pelatihan;
+use App\Peserta_pelatihan;
 use Action;
 class AdminPelatihanController extends Controller
 {
@@ -63,19 +64,6 @@ class AdminPelatihanController extends Controller
         return back ();
     }
 
-     public function createjadwalpelatihanadmin(Request $r)
-    {
-        $pelatihan=new Pelatihan();
-        $pelatihan->judul_pelatihan=$r->judulpelatihan;
-        $pelatihan->masjid_id=$r->namamasjid;
-        $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
-        $pelatihan->nama_pemateri=$r->namapemateri;
-        $pelatihan->nohp=$r->nomorhandphone;
-        $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
-        $pelatihan->deskripsi=$r->deskripsi;
-        $pelatihan->save();
-        return response()->json(['data'=>$r->all()]);
-    }
 
     public function uploadpelatihan(Request $r)
     {
@@ -107,6 +95,19 @@ class AdminPelatihanController extends Controller
       return response()->json(['data'=>$r->all()]);
     }
 
+     public function createjadwalpelatihan(Request $r)
+    {
+        $pelatihan=new Pelatihan();
+        $pelatihan->judul_pelatihan=$r->judulpelatihan;
+        $pelatihan->masjid_id=$r->namamasjid;
+        $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
+        $pelatihan->nama_pemateri=$r->namapemateri;
+        $pelatihan->nohp=$r->nomorhandphone;
+        $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
+        $pelatihan->deskripsi=$r->deskripsi;
+        $pelatihan->save();
+        return response()->json(['data'=>$r->all()]);
+    }
 
     public function updatejadwalpelatihan(Request $r,$id)
     {
@@ -134,6 +135,20 @@ class AdminPelatihanController extends Controller
         $reqpelatihan->deskripsi=$r->deskripsi;
         $reqpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->tanggalpelaksanaan));
         $reqpelatihan->save();
+        return response()->json(['data'=>$r->all()]);
+    }
+
+
+    public function addpeserta(Request $r)
+    {
+        $pesertapelatihan=new Peserta_pelatihan();
+        $pesertapelatihan->pelatihan_id=$r->jenispelatihan;
+        $pesertapelatihan->nama_peserta=$r->nama;
+        $pesertapelatihan->email=$r->email;
+        $pesertapelatihan->nohp=$r->nohp;
+        $pesertapelatihan->alamat_lengkap=$r->alamat;
+        $pesertapelatihan->foto_data_diri=Action::save_foto($r->gambar,'Identitas');
+        $pesertapelatihan->save();
         return response()->json(['data'=>$r->all()]);
     }
 

@@ -24,9 +24,9 @@
                     <div class="card-desc">
                         <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
                         <p><em>Username pengurus : {{$perencanaanpelatihan->pengurus_id}}</em></p>
-                        <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksaan}}</em></p>
+                        <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
                         <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
-                        <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksaan!!}</em></p>
+                        <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
 						<a href="{{url('/detail/perencanaan/pelatihan')}}" class="btn-card">Read More</a>   
                     </div>
                 </div>

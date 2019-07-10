@@ -34,6 +34,7 @@ Route::post('admin/update/perencanaan/kajian/{id}','AdminKajianController@update
 
 
 Route::post('admin/upload/perencanaan/pelatihan','AdminPelatihanController@uploadpelatihan');
+Route::post('admin/add/pelatihan','AdminPelatihanController@createjadwalpelatihan');
 Route::post('admin/update/pelatihan/{id}','AdminPelatihanController@updatejadwalpelatihan');
 Route::post('admin/update/perencanaan/pelatihan/{id}','AdminPelatihanController@updatepelatihan');
 
@@ -45,3 +46,4 @@ Route::post('admin/update/galangdana/{id}','AdminDonasiController@updategalangda
 
 Route::post('add/request/pelatihan','AdminPelatihanController@uploadreqpelatihan');
 Route::post('add/request/kajian','AdminKajianController@uploadreqkajian');
+Route::post('add/peserta/pelatihan','AdminPelatihanController@addpeserta');

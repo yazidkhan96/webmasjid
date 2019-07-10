@@ -209,9 +209,7 @@ top: 154px;
     width: 9rem;
     object-fit: cover;    
 }
-img{
-    max-width:  100%;
-}
+
 .container-app{
     width: 90%;
     margin: 0 auto;
@@ -349,19 +347,96 @@ a.btn-card {
     overflow: hidden;
     width: 1001px !important;
     text-overflow: ellipsis;
+    text-decoration: none !important;
 }
 .title-admin {
     background: #009976;
     color: white;
     padding: 10px;
     font-size: 20px;
+    margin-top: 57px;
+    margin-left: 5px;
 }
 .content-admin {
     margin-top: 15px;
+    margin-left: 16px;
+    
 }
 .gj-datepicker-md [role=right-icon]{
     right: 64% !important;
     top: 1px;
     font-size: 28px !important;
 
+}
+.blinking{
+    position: relative;
+    left: 28%;
+    bottom: 76px;
+    font-size: 25px;
+    text-decoration: none;
+
+}
+.img-add {
+    display: inline-block;
+    height: 9rem;
+    background: #e0e0e0;
+    width: 9rem;
+    line-height: 91px;
+    text-align: center;
+    font-size: 37px;
+    color: #9e9e9e;
+    cursor: pointer;
+}
+.popover{
+    display: none;
+}
+.hidden{
+    display: none;
+}
+.hr-pas{
+    border: 1px solid grey;
+    width: 59%;position: fixed;
+    left: 24rem;bottom: 30rem;
+}
+.div-old1{
+    position: fixed;
+    left: 386px;
+    bottom: 25rem;
+}
+.lab-old1{
+    width: 600px;
+    position: relative;
+    bottom: 25px;
+    left: 121px;
+}
+.lab-new{
+    width: 600px;
+     position:relative;
+     bottom: 25px;
+      left: 121px;
+}
+.div-new{
+    position: fixed;
+    left: 386px;
+    bottom: 22rem;
+}
+.div-con{
+    position: fixed;
+    left: 386px;
+    bottom: 19rem;
+}
+.lab-conf{
+    width: 600px; 
+    position:relative;
+    bottom: 25px;
+     left: 160px;
+}
+.av-user{
+    height: 70px;
+    width: 70px;
+     position: relative; 
+     top: 20px; 
+     left: 33%; 
+     z-index: 1;
+     border: 5px solid #fff;
 }

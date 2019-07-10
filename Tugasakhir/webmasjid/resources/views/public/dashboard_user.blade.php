@@ -12,8 +12,8 @@
 				<a data-toggle="collapse" data-target="#demo" style="margin-left: -27px;">Akun saya</a><br>
 				<div id="demo" class="collapse" style="margin-left: -15px;">
 					<ul style="list-style-type:none;" class="list-group list-group-flush">
-						<li><a href="">Ubah password</a></li>
-						<li><a href="">Ubah foto profil</a></li>
+						<li><a href="{{url('/ubah_password')}}">Ubah password</a></li>
+						<li><a href="{{url('/ubah_foto')}}">Ubah foto profil</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,40 +33,7 @@
 		<li class="list-group-item">Pencairan dana</li>
 	</ul>
 </div>
-<!-- <div class="container">
-	<h3 style="positior: nrelative; bottom: 11rem; left: 317px; margin-top: 2rem;">Ubah Passwod</h3>
-	<hr style="border: 1px solid grey;width: 59%;position: relative;left: 5rem;bottom: 12rem;">
-		<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-				Password lama :<input type="text" class="form-control " name="" required="" style="    width: 600px;position: relative;bottom: 25px;left: 121px;">
-			</div>
-	<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-		Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
-	</div>
-	<div class="form-group" style="position: relative;left: 314px;bottom: 194px;">
-		Password baru : <input type="password" class="form-control" required="" style="width: 600px; position:relative;bottom: 25px; left: 121px;">
-			<button class="btn btn-primary btn-lg" style="margin-left: 39rem;">Simpan</button>
-	</div>
-</div> -->
-<!-- <PISAH> -->
-<!-- <div class="dashboard-foto-profile">
-		<h4 style="position: relative; bottom: 11rem; left: 404px; margin-top: 2rem;">Edit foto profile</h4>
-		<hr style="border: 1px solid grey;width: 59%;position: relative;left: 8rem;bottom: 12rem;">
-		<div style="display: flex;">
-			<input hidden id="add-img" type="file" multiple/>
-				<div class="col-dashboard">
-				label for="add-img">
-		<div class="btn-add-img rounded-circle" style="position: relative;left: 611%;bottom: 181px;">+
-					</div>
-			</label>
-		</div>
-	</div>
-		<span style="position: absolute; left: 33rem; bottom: -116px;">
-					<em>Foto yang di Upload disarankan</em><br>
-					<em>Berukuran 72px x 75px</em><br>
-					<em>dan memiliki format PNG,JPG atau Jpeg</em>
-		</span>
-		<button class="btn btn-primary btn-lg" style="margin-left: 33rem;padding: 5px 60px;position: relative; bottom: 90px;">Simpan</button>
-</div> -->
+
 <!-- <PISAH> -->
 <!-- <div class="container-dashboard-campign">
 	<h4 style="position: relative; bottom: 11rem; left: 404px; margin-top: 2rem;">Edit foto campaign</h4>

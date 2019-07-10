@@ -84,9 +84,6 @@
     max-width: 1380px !important;
   }
 }
-img {
-  max-width: 100%;
-}
 .ini-rate,
 .ini-set-rate {
   display: inline-block;

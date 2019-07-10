@@ -3,15 +3,13 @@
 <div id="formAdd">
   <div class="title-admin">Perencanaan Kajian</div>
   <div class="content-admin">
-
-
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama pengurus</div>
       <div class="col pr-0">
-        <select class="form-control" id="pengurus"  style="max-width: 25rem" >
+        <select class="form-control" id="user"  style="max-width: 25rem" >
           <option hidden="">Pilih Pengurus</option>
-          @foreach(App\Pengurus::all() as $pengurus)
-          <option value="{{$pengurus->id}}">{{$pengurus->name}}</option>
+          @foreach(App\User::all() as $user)
+          <option value="{{$user->id}}">{{$user->name}}</option>
           @endforeach
         </select>
       </div>
@@ -84,7 +82,7 @@ $('#datepicker').datepicker();
 
 $('#save').on('click',function () {
 dataAll = ({
-'pengurus': $('#pengurus').val(),
+'user': $('#user').val(),
 'jenisperencanaan': $('#jenisperencanaan').val(),
 'Tanggalpelaksanaan': $('#datepicker').val(),
 'lokasikajian': $('#lokasi').val(),

@@ -140,6 +140,8 @@
 			</div>
 		</div>
 	</div>
+
+	<a href="{{url('/daftar_peserta')}}" class="blinking">Daftarkan diri anda</a>
 	<input type="hidden" name="" value="{{$wisata->latlng_maps}}" id="latlng">
 	<input type="hidden" name="" value="{{$wisata->id}}" id="wisata_id">
 	<script type="text/javascript">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use App\Forum;
+use App\ChatForum;
 class PublicController extends Controller
 {
     public function index()
@@ -16,10 +18,19 @@ class PublicController extends Controller
     	return view('public.profile_masjid');
     }
 
+    public function daftarpeserta()
+    {
+        return view('public.daftar_peserta');
+    }
 
     public function detailmasjid()
     {
     	return view('public.detail_masjid');
+    }
+
+    public function addforum()
+    {
+        return view('public.tambah_forum');
     }
 
 
@@ -81,6 +92,7 @@ class PublicController extends Controller
     {
         return view('public.request_pelatihan');
     }
+
     public function detailperencanaanpelatihan()
     {
         return view('public.detail_perencanaan_pelatihan');
@@ -114,9 +126,32 @@ class PublicController extends Controller
     {
         return view('public.forum');
     }
-    public function detail_forum()
+
+    public function tambahkajian()
     {
-        return view('public.detail_forum');
+        return view('public.tambah_kajian');
+    }
+
+    public function tambahpelatihan()
+    {
+        return view('public.tambah_pelatihan');
+    }
+    public function detail_forum($id)
+    {
+        $forum=Forum::find($id);
+        return view('public.detail_forum',compact('forum'));
+    }
+
+    public function reply_comment(Request $r,$id)
+    {
+        $chat=new ChatForum();
+        $chat->forum_id=$r->forum_id;
+        $chat->chat_forum_id=$id;
+        $chat->user_id=Auth::user()->id;
+        $chat->message=$r->message;
+        $chat->save();
+
+        return back();
     }
     public function donasi()
     {
@@ -149,5 +184,22 @@ class PublicController extends Controller
      public function detail_laporan_donasi()
     {
         return view('public.detail_laporan_donasi');
+    }
+    public function ubahpassword()
+    {
+        return view('public.ubah_password');
+    }
+    public function ubahfoto()
+    {
+        return view('public.ubah_foto');
+    }
+     public function tambahgalangdana()
+    {
+        return view('public.tambah_galang_dana');
+    }
+
+    public function tambahmasjid()
+    {
+        return view('public.tambah_masjid');
     }
 }

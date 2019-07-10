@@ -1,7 +1,14 @@
 @extends('master.master_main')
 @section('content')
+
 <div class="container marketing" style="position: relative;top: 58px;">
-  <div class="row m-0 mb-2">
+    @if(Auth::user())
+    <div class="col p-0">
+       <a href="{{url('/tambah_pelatihan')}}" class="btn btn-primary" style="position: absolute;right: 1px;top: 34px;padding: 6px 28px;">Tambah Jadwal pelatihan</a>
+    </div>
+    @endif
+
+  <div class="row m-0 mb-5">
     <div class="col p-0">
       <div class="text-bold font-20">Jadwal Pelatihan</div>
     </div>

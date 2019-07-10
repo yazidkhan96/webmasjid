@@ -72,18 +72,12 @@
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button type="submit"><i class="fa fa-search"></i></button>
-            <div class="dropdown show">
-              <a class="nav-link active pgr dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" style="    position: relative;
-                left: 9rem;"><i class="fa fa-bars" style="font-size: 25px;
-              " ></i></a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-left: 1rem;">
-                <div> 
-                <a class="dropdown-item" href="{{url('/login')}}">Login</a>
-                <a class="dropdown-item" href="#">bantuan</a>
-              </div>
-            </div>
+            @if(!Auth::user())
+            <a class="" href="{{url('/login')}}" style="position: relative;left: 123%;color: white;">Login</a>
             <!-- pisah -->
-            <!-- <div class="dropdown show">
+            @else
+            @php($user=Auth::user())
+            <div class="dropdown show">
               <a class="nav-link active pgr dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" style="    position: relative;
                 left: 21rem;"><i class="fa fa-bars" style="font-size: 25px;
               " ></i></a>
@@ -94,8 +88,8 @@
                     <figure class="user-profile">
                       <img src="{{asset('/img/user-profile.jpg')}}" style="height: auto; line-height: normal; width: 63px; float: left;">
                       <figcaption style="position: relative;left: 12px; top: 7px;">
-                      <strong>Akbar khan</strong><br>
-                      <small>Email@mail.com</small>
+                      <strong>{{$user->name}}</strong><br>
+                      <small>{{$user->email}}</small>
                       </figcaption>
                     </figure>
                   </div>
@@ -106,7 +100,7 @@
                       </a>
                     </div>
                     <div>
-                      <a href=" " class="btn btn-primary  btn-lg btn-block" style="color: white;" >
+                      <a href="/user/logout" class="btn btn-primary  btn-lg btn-block" style="color: white;" >
                         <strong><i class="fa fa-sign-out"></i>Keluar</strong>
                       </a>
                     </div>
@@ -114,7 +108,8 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
+          @endif
           </li>
         </form>
       </ul>

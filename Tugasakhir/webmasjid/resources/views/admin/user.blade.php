@@ -18,15 +18,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(App\Pengurus::all() as $pengurus)
+				@foreach(App\User::all() as $user)
 				<tr>
-					<td>{{$pengurus->name}}</td>
-					<td>{{$pengurus->nohp_wa}}</td>
-					<td>{{$pengurus->email}}</td>
-					<td>{{$pengurus->gambar}}</td>
-					<td>{{$pengurus->created_at}}</td>
+					<td>{{$user->name}}</td>
+					<td>{{$user->nohp_wa}}</td>
+					<td>{{$user->email}}</td>
+					<td>{{$user->gambar}}</td>
+					<td>{{$user->created_at}}</td>
 					<td>
-						<a dataid="{{url('/admin/delete/user',$pengurus->id)}}" href="" data-toggle="modal" data-target="#modalDelete" class="material-icons delete">delete</a>
+						<a dataid="{{url('/admin/delete/user',$user->id)}}" href="" data-toggle="modal" data-target="#modalDelete" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach

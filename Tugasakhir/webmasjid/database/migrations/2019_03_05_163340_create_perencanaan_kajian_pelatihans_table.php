@@ -15,7 +15,7 @@ class CreatePerencanaanKajianPelatihansTable extends Migration
     {
         Schema::create('perencanaan_kajian_pelatihans', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('pengurus_id');
+            $table->unsignedInteger('user_id');
             $table->string('tanggal_pelaksaan');
             $table->string('lokasi');
             $table->string('ustadz');
@@ -27,9 +27,9 @@ class CreatePerencanaanKajianPelatihansTable extends Migration
 
 
 
-            $table->foreign('pengurus_id')
+            $table->foreign('user_id')
             ->references('id')
-            ->on('penguruses')
+            ->on('users')
             ->Ondelete('no action')
             ->Onupdate('no action');
         });

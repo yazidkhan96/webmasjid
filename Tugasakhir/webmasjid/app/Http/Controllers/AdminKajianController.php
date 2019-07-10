@@ -65,7 +65,7 @@ class AdminKajianController extends Controller
      public function perencanaankajian(Request $r)
     {
         $perencanaankajian=new Perencanaan_kajian_pelatihan();
-        $perencanaankajian->pengurus_id=$r->pengurus;
+        $perencanaankajian->user_id=$r->user;
         $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
         $perencanaankajian->lokasi=$r->lokasikajian;
         $perencanaankajian->ustadz=$r->namaustadz;
@@ -81,7 +81,7 @@ class AdminKajianController extends Controller
     public function updatekajian(Request $r,$id)
     {
       $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
-      $perencanaankajian->pengurus_id=$r->pengurus;
+      $perencanaankajian->pengurus_id=$r->user;
       $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
       $perencanaankajian->lokasi=$r->lokasikajian;
       $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;

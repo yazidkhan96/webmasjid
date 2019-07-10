@@ -18,19 +18,19 @@
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
-			<tbody>
-				@foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Kajian')->get() as $perencanaankajian)
-				<tr>
-					<td>{{$perencanaankajian->pengurus_id}}</td>
-					<td>{{$perencanaankajian->judul_perencanaan}}</td>
-					<td>{{$perencanaankajian->tanggal_pelaksanaan}}</td>
-					<td>{{$perencanaankajian->lokasi}}</td>
-					<td>{{$perencanaankajian->ustadz}}</td>
-					<td>{{$perencanaankajian->biaya_pelaksanaan}}</td>
-					<td>
-						<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
-						<a href="{{url('/admin/edit/perencanaan/kajian',$perencanaankajian->id)}}" class="material-icons">edit</a>
-						<a dataid="{{url('/admin/delete/perencanaan/kajian',$perencanaankajian->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
+	<tbody>
+		@foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Kajian')->get() as $perencanaankajian)
+		<tr>
+			<td>{{$perencanaankajian->user_id}}</td>
+			<td>{{$perencanaankajian->judul_perencanaan}}</td>
+			<td>{{$perencanaankajian->tanggal_pelaksanaan}}</td>
+			<td>{{$perencanaankajian->lokasi}}</td>
+			<td>{{$perencanaankajian->ustadz}}</td>
+			<td>{{$perencanaankajian->biaya_pelaksanaan}}</td>
+			<td>
+				<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
+				<a href="{{url('/admin/edit/perencanaan/kajian',$perencanaankajian->id)}}" class="material-icons">edit</a>
+				<a dataid="{{url('/admin/delete/perencanaan/kajian',$perencanaankajian->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach

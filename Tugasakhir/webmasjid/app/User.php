@@ -7,6 +7,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+     public function perencanaan()
+    {
+        return $this->hasMany(Perencanaan_kajian_pelatihan::class,'user_id');
+    }
+
+
+
     use Notifiable;
 
     /**

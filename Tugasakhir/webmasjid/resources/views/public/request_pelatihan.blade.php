@@ -11,10 +11,10 @@
     </div>
     
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Jenis Request</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Judul pelatihan</div>
       <div class="col pr-0">
         <select class="form-control" id="jenisrequest"  style="max-width: 25rem">
-          <option hidden="">Pilih Jenis Request</option>
+          <option hidden="">Pilih pelatihan</option>
           <option>Kajian</option>
           <option >Pelatihan</option>
         </select>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengurus;
-
+use App\User;
+use Hash;
+use Auth;
 class AdminController extends Controller
 {
     public function index()
@@ -23,24 +25,36 @@ class AdminController extends Controller
 
     public function addpengurus(Request $r)
     {
-        $pengurus =new Pengurus();
+        $user =new User();
         //kiri database || kanan sesuai yg dikirm
-        $pengurus->name=$r->username;
-        $pengurus->nohp_wa=$r->nohp;
-        $pengurus->email=$r->email;
-        $pengurus->gambar=$this->save_foto($r->gambar[0],uniqid());
-        $pengurus->password=$r->password;
-        $pengurus->save();
+        $user->name=$r->username;
+        $user->nohp=$r->nohp;
+        $user->email=$r->email;
+        $user->gambar=$this->save_foto($r->gambar[0],uniqid());
+        $user->password= Hash::make($r->password);
+        $user->save();
         return response()->json(['data'=>$r->all()]);
 
     }
     
      public function deletepengurus($id)
     {
-        $pengurus=Pengurus::find($id);
-        $this->delete_foto($pengurus->gambar,'Pengurus');
-        $pengurus->delete();
+        $user=User::find($id);
+        $this->delete_foto($user->gambar,'User');
+        $user->delete();
         return back ();
+    }
+
+    public function update_password(Request $request)
+    {
+        $user=Auth::user();
+        if (Hash::check($request->old,$user->password)) {
+            $user->password=bcrypt($request->new);
+            $user->save();
+            return redirect('/dashboard_user')->with(['success' => 'berhasil merubah password']);
+        }else{
+            return redirect('/ubah_password')->with(['error' => 'gagal merubah password']);
+        }
     }
 
 
