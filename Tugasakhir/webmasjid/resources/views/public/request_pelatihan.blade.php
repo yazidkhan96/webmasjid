@@ -1,7 +1,7 @@
 @extends('master.master_main')
 @section('content')
 
-  <div class="title-admin">Perencanaan Kajian</div>
+  <div class="title-admin">Request Pelatihan</div>
   <div class="content-admin">
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama</div>
@@ -70,7 +70,8 @@ Dll :
   </div>
 </div>
       <div class="text-right mb-5">
-        <button class="btn btn-app" id="save" style="position: absolute;right: 66%;">Tambah Perencanaan Kajian</button>
+        <button class="btn btn-app" id="save" style="position: absolute;
+    right: 872px;">Tambah Request pelatihan</button>
       </div>
 </div>
 

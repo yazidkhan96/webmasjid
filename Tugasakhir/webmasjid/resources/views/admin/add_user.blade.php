@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-	<div class="title-admin">Tambah Slider</div>
+	<div class="title-admin">Tambah Data Pengurus</div>
 	<div class="content-admin">
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Username</div>
@@ -51,7 +51,7 @@
   
   
 <div class="text-right mb-5">
- <button class="btn btn-app btn-user" id="save">Simpan</button>
+ <button class="btn btn-app btn-user" id="save">Tambah Data Pengurus</button>
 </div>
 </div>
 </div>

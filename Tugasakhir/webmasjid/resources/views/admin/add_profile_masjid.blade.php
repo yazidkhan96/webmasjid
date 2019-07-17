@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="text-right mb-5">
-      <button class="btn btn-app" id="save">Simpan</button>
+      <button class="btn btn-app" id="save">Tambah Profile Masjid</button>
     </div>
   </div>
  <!--  </form> -->

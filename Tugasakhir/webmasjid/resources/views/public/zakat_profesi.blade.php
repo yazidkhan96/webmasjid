@@ -66,18 +66,18 @@
 		</div>
 		
 	</div>
-	<a href="{{url('/payment_zakat')}}" class="btn btn-success" style="color: white;">Salurkan zakat anda</a><br>	
+	<a href="{{url('/payment_zakat')}}" class="btn btn-success" style="color: white;" id="salurkan">Salurkan zakat anda</a><br>	
 	<a href="#" class="btn btn-success" style="color: white;">Hitung ulang zakat</a>
 </div>
 <script type="text/javascript">
 	$('#btn-zakat').click(function(){
-	let zakat1 = $('#hzakatpro1').val();
-	let zakat2 = $('#hzakatpro2').val();
+	let zakat1 = ($('#hzakatpro1').val()||0);
+	let zakat2 = ($('#hzakatpro2').val()||0);
 	let total = (parseInt(zakat1) + parseInt(zakat2));
-	total=((2.5/100)*total);
-	$('#total').text('lllll');
-	console.log(total)
-		if (zakat1>4400000) {
+		if (total>=4400000) {
+			let totalZakat=total*0.025;
+			$('#total').text(totalZakat);
+			$('#salurkan').attr('href',"/payment_zakat?zakat="+totalZakat);
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 		}

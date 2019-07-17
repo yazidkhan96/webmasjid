@@ -33,10 +33,7 @@
 		<div class="card" style="width: 81%; height: 31px; position: relative; left: 9%;">
 			<strong>4988 00 8999</strong><em style="position: relative;left: 87%;bottom: 22px; width: 16%;">BCA</em>
 		</div>
-		
 	</div>
 </div>
-	<div class="alert alert-primary" style="width: 30%;position: relative;left: 32%;
-    top: 405px; background: #fcfcfc; "><strong style="font-size: 14px; ">Transfer sebelum 11 Jun 2019 10:00 WIB atau donasi Anda otomatis dibatalkan oleh sistem.</strong>
-	</div>
+	
 @endsection

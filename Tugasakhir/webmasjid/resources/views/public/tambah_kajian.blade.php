@@ -1,4 +1,4 @@
-@extends('master.master_admin')
+@extends('master.master_main')
 @section('content')
 <div id="formAdd">
 	<div class="title-admin">Tambah Jadwal kajian</div>
@@ -8,16 +8,16 @@
       
 
 			<div class="col pr-0">
-				<input type="" name="" id="tema" placeholder="Tema kajian" class="form-control" style="max-width: 25rem">
+				<input type="" name="" id="tema" placeholder="Tema kajian" class="form-control" style="max-width: 25rem; position: relative;right: 15px;">
 			</div>
 		</div>
 
 
     <div class="row m-0 mb-3">
 
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama masjid</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem;">Nama masjid</div>
             <div class="col pr-0">
-              <select class="form-control" id="namamasjid"  style="max-width: 25rem"> 
+              <select class="form-control" id="namamasjid"  style="max-width: 25rem; position: relative;right: 15px;"> 
               <option hidden="">Pilih masjid</option>
               @foreach(App\Masjid::all() as $masjid)
               <option value="{{$masjid->id}}">{{$masjid->nama_masjid}}</option>
@@ -29,7 +29,7 @@
 
     </div>
       <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama Ustadz</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 1rem;">Nama Ustadz</div>
       
       <div class="col pr-0">
         <input type="" name="" id="namaustadz" placeholder="Nama Ustadz" class="form-control" style="max-width: 25rem">
@@ -37,7 +37,7 @@
     </div>
 
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tanggal Kajian</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 1rem;">Tanggal Kajian</div>
       
       <div class="col pr-0">
        <input id="datepicker" style="max-width: 25rem;">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Bulan Kajian</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 1rem;">Bulan Kajian</div>
       
       <div class="col pr-0">
         <input type="" name="" id="bulankajian" placeholder="Bulan Kajian" class="form-control" style="max-width: 25rem">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Waktu Kajian</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 1rem;">Waktu Kajian</div>
       
       <div class="col pr-0">
         <input type="" name="" id="waktukajian" placeholder="Waktu kajian" class="form-control" style="max-width: 25rem">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Lokasi Kajian</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem;left: 1rem;">Lokasi Kajian</div>
       
       <div class="col pr-0">
         <input type="" name="" id="lokasikajian" placeholder="Lokasi Kajian" class="form-control" style="max-width: 25rem">
@@ -71,7 +71,8 @@
     <br>
 
 <div class="text-right mb-5">
- <button class="btn btn-app btn-kajian " id="save">Simpan</button>
+ <button class="btn btn-app btn-kajian " id="save" style="    position: relative;
+    right: 53%;">Simpan</button>
 </div>
 </div>
 </div>

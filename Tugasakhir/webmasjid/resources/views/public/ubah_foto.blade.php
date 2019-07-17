@@ -1,5 +1,8 @@
 @extends('master.master_main')
 @section('content')
+
+
+@php($user=Auth::user())
 <div class="card" style="width: 18rem; background-color: rgba(48,173,76,1);position: relative;
 	top: 8rem;left: 5rem;">
 	<img class="card-img-top rounded-circle" src="{{asset('/img/user-profile.jpg')}}" alt="Card image cap" style="height: 70px;width: 70px; position: relative; top: 20px; left: 33%; z-index: 1; border: 5px solid #fff;">
@@ -38,24 +41,51 @@
 		<hr style="border: 1px solid grey;width: 59%;position: relative;left: 8rem;bottom: 12rem;">
 		<div class="row m-0 mb-3">
      <div class="col p-0 pt-2 font-14 text-bold" style="position: relative;left: 27rem;bottom: 12rem;">Gambar</div>
+
+
      <div class="col pr-0">
       <div class="d-inline-block text-center">
+
         <input name="image" type="file" accept="image/*" onchange="uploadimage(event)" id="imginput" class="hidden" />
-        <img id="imgview" src="{{asset('img/sampul.jpg')}}" class="admin-view-sampul"/ style="position: fixed;left: 31rem;bottom: 20rem;"><br>
+        <img id="imgview" src="{{asset('images/User')}}/{{$user->gambar}}" class="admin-view-sampul"/ style="position: fixed;left: 31rem;bottom: 353px;width: 338px;object-fit: cover;"><br>
+
         <label class="mt-2 btn-change text-center" for="imginput">
-          <span class="btn border" style="position: fixed;bottom: 17rem;left: 40rem;">Pilih Gambar</span>
+          <span class="btn border" style="position: fixed;bottom: 19rem;left: 38rem;">Pilih Gambar</span>
         </label>
       </div>
     </div>
+
+
   </div>
-		<span style="position: relative; left: 33rem; bottom: 30px;">
+		<span style="position: relative; left: 33rem; bottom: 79px;">
 					<em>Foto yang di Upload disarankan</em><br>
 					<em>Berukuran 72px x 75px</em><br>
 					<em>dan memiliki format PNG,JPG atau Jpeg</em>
 		</span>
 </div>
-<button class="btn btn-primary btn-lg" style="margin-left: 33rem;padding: 5px 60px;position: relative; bottom: 1rem;">Simpan</button>
-<script type="text/javascript">
+<button class="btn btn-primary btn-lg" id="save" style="margin-left: 33rem;padding: 5px 60px;position: relative; bottom: 4rem;">Simpan</button>
 
+
+<script type="text/javascript">
+var dataAll = [];
+$('#save').click(function () {
+  dataAll = ({
+    'gambar': file_imginput,
+  })
+  console.log(file_imginput);
+    // statusForm = variabel terdapat di main.js
+
+      $('#save').addClass('disabled');
+       $.ajax({
+      url: '/api/update/user/'+'{{$user->id}}', 
+      type: "POST",
+      data:  dataAll, 
+      success:function(data){
+        location.href="/ubah_foto";
+        console.log(data);
+      }
+    });
+
+  });
 </script>
 @endsection

@@ -21,7 +21,7 @@
 				</a>
 			</div>
 			<div class="col-3">
-				<a href="{{url('/admin/wisata')}}">
+				<a href="{{url('/admin/masjid')}}">
 					<div class="col-dashboard">
 						<div class="col p-0">
 							<div class="icon-dashboard"><i class="material-icons">domain</i></div>
@@ -36,7 +36,7 @@
 				</a>
 			</div>
 			<div class="col-3">
-				<a href="{{url('/admin/akomodasi')}}">
+				<a href="{{url('/admin/forum')}}">
 					<div class="col-dashboard">
 						<div class="col p-0">
 							<div class="icon-dashboard"><i class="material-icons">hotel</i></div>
@@ -51,7 +51,7 @@
 				</a>
 			</div>
 			<div class="col-3">
-				<a href="{{url('/admin/budaya')}}">
+				<a href="{{url('/admin/zakat')}}">
 					<div class="col-dashboard">
 						<div class="col p-0">
 							<div class="icon-dashboard"><i class="material-icons">local_library</i></div>
@@ -81,19 +81,6 @@
 							</div>
 						</div>
 					</div>	
-				</a>
-				<a href="{{url('/admin/ulasan')}}">
-					<div class="col-dashboard">
-						<div class="col p-0">
-							<div class="icon-dashboard"><i class="material-icons">grade</i></div>
-							<div class="row m-0 mt-2 font-20">
-								<div class="col p-0">Ulasan</div>
-								<div class="col p-0 text-right">
-									<div class="count-dashboard"></div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</a>
 			</div>
 		</div>

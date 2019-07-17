@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-	<div class="title-admin">Tambah donasi</div>
+	<div class="title-admin">Tambah Donasi</div>
 	<div class="content-admin">
 
 <div class="row m-0 mb-3">
@@ -68,7 +68,7 @@
 </div>
 </div>
 <div class="text-right mb-5">
- <button class="btn btn-app" id="save">Tambah donasi</button>
+ <button class="btn btn-app" id="save">Tambah Donasi</button>
 </div>
 </div>
 </div>
@@ -80,6 +80,7 @@
    if(window.File && window.FileList && window.FileReader)
    {
       $('#add-img').on('change',function (event) {
+        console.log($('#add-img').val());
       var files = event.target.files; //FileList object
       for(var i = 0; i< files.length; i++)
       {
@@ -110,6 +111,8 @@ $('#save').click(function () {
         'judul': $('#judulgalang').val(),
         'target': $('#targetdonasi').val(),
         'bataswaktu': $('#bataswaktu').val(),
+        'creator': 'admin',
+        'creator_id':{{ Auth::user()->id}},
         'gambar': img,
         'deskripsi':$('#desc').summernote('code')
     })

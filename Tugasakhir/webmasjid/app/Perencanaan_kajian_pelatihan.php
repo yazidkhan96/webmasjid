@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perencanaan_kajian_pelatihan extends Model
 {
-    public function pengurus()
+    public function user()
     {
-        return $this->belongsTo(Pengurus::class,'pengurus_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }

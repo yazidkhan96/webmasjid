@@ -71,7 +71,7 @@
     <br>
 
 <div class="text-right mb-5">
- <button class="btn btn-app btn-kajian " id="save">Simpan</button>
+ <button class="btn btn-app btn-kajian " id="save">Tambah Jadwal Kajian</button>
 </div>
 </div>
 </div>

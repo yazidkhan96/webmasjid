@@ -15,7 +15,8 @@
 <section class="details-card">
     <div class="container">
         <div class="row">
-        	 @foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','kajian')->take(10)->get() as $perencanaanpelatihan)
+        	@php($perencanaans=App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Kajian')->paginate(6))
+            @foreach($perencanaans as $perencanaanpelatihan)
             <div class="col-md-4 mb-5">
                 <div class="card-content">
                     <div class="card-img">
@@ -23,7 +24,7 @@
                     </div>
                     <div class="card-desc">
                         <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
-                        <p><em>Username pengurus : {{$perencanaanpelatihan->pengurus_id}}</em></p>
+                        <p><em>Username pengurus : {{$perencanaanpelatihan->user_id}}</em></p>
                         <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
                         <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
                         <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
@@ -35,4 +36,11 @@
         </div>
     </div>
 </section>
+ @if(Auth::user())
+    <div class="col p-0">
+       <a href="{{url('/tambah/perencanaan/pelatihan')}}" style="position: relative;
+    left: 40%; bottom: 1345px;" class="btn btn-app">Tambah perencanaan Kajian</a>
+    </div>
+    @endif
+ {{$perencanaans->links()}}
 @endsection

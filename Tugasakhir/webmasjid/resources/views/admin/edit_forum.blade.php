@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-	<div class="title-admin">Tambah Forum</div>
+	<div class="title-admin">Ubah Forum</div>
 	<div class="content-admin">
 		<div class="row m-0 mb-3">
 			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Judul Forum</div>
@@ -34,7 +34,7 @@
 </div>
 </div>
 <div class="text-right mb-5">
- <button class="btn btn-app" id="save">Simpan</button>
+ <button class="btn btn-app" id="save">Ubah Forum</button>
 </div>
 </div>
 </div>

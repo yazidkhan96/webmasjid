@@ -86,7 +86,8 @@
                 <div class="card" style="width: 18rem;">
                   <div class="card-header">
                     <figure class="user-profile">
-                      <img src="{{asset('/img/user-profile.jpg')}}" style="height: auto; line-height: normal; width: 63px; float: left;">
+
+                      <img src="{{asset('images/user')}}/{{$user->gambar}}" style="height: auto; line-height: normal; width: 63px; float: left; object-fit: cover;">
                       <figcaption style="position: relative;left: 12px; top: 7px;">
                       <strong>{{$user->name}}</strong><br>
                       <small>{{$user->email}}</small>

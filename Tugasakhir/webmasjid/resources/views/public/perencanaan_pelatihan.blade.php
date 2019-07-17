@@ -1,5 +1,6 @@
 @extends('master.master_main')
 @section('content')
+
 <div class="row m-0 mb-2" style="position: relative;top: 86px;left: 6%;">
     <div class="col p-0">
       <div class="text-bold font-20">Perencanaan Pelatihan</div>
@@ -12,10 +13,12 @@
   <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" style="max-width:238px; ">
 </div>
   </div>
+
 <section class="details-card">
     <div class="container">
         <div class="row">
-            @foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Pelatihan')->take(10)->get() as $perencanaanpelatihan)
+            @php($perencanaans=App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Pelatihan')->paginate(6))
+            @foreach($perencanaans as $perencanaanpelatihan)
             <div class="col-md-4 mb-5">
                 <div class="card-content">
                     <div class="card-img">
@@ -23,7 +26,7 @@
                     </div>
                     <div class="card-desc">
                         <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
-                        <p><em>Username pengurus : {{$perencanaanpelatihan->pengurus_id}}</em></p>
+                        <p><em>Username pengurus : {{$perencanaanpelatihan->user_id}}</em></p>
                         <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
                         <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
                         <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
@@ -35,4 +38,11 @@
         </div>
     </div>
 </section>
+ @if(Auth::user())
+    <div class="col p-0">
+       <a href="{{url('/tambah/perencanaan/pelatihan')}}" style="position: relative;
+    left: 40%; bottom: 1345px;" class="btn btn-app">Tambah perencanaan pelatihan</a>
+    </div>
+    @endif
+ {{$perencanaans->links()}}
 @endsection

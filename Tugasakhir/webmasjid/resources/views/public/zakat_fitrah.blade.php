@@ -19,14 +19,30 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number" placeholder="harga beras yang anda konsumsi(wajib di isi)" aria-label="Username" aria-describedby="basic-addon1">
+			<input type="text" class="form-control input-number" id="hargaberas" placeholder="harga beras yang anda konsumsi(wajib di isi)" aria-label="Username" aria-describedby="basic-addon1">
 		</div>
 		<div class="input-group mb-4">
-			<input type="text" class="form-control" placeholder="Jumlah orang yang ingin berzakat" aria-label="Username" aria-describedby="basic-addon1" style="text-align: center;">
+			<input type="text" class="form-control" id="jumlahorang" placeholder="Jumlah orang yang ingin berzakat" aria-label="Username" aria-describedby="basic-addon1" style="text-align: center;">
+		</div>
+		<div class="input-group mb-4">
+			<span>Total zakat Fitrah anda :	<span id="totalzakat"></span> </span>
 		</div>
 	</div>
-	<a href="#" class="btn btn-success" style="color: white;">Hitung Zakat</a>
+	<a href="#" class="btn btn-success" id="btnzakat" style="color: white;">Hitung Zakat</a>
+ 	<a href="{{url('/payment_zakat')}}" class="btn btn-success mt-2" id="salurkan" style="color: white;">Salurkan zakat</a>
 </div>
-</div>
+<script type="text/javascript"> 
+	$('#salurkan').hide();
+	$('#btnzakat').click(function() {
+		let zakat1 = ($('#hargaberas').val()||0);
+		let zakat2 = ($('#jumlahorang').val()||0);
+		let total = (parseInt(zakat1) * parseInt(zakat2));
+		$('#totalzakat').text(total);
+			console.log(total);
+		$('#salurkan').show();
+		$('#salurkan').attr('href',"/payment_zakat?zakat="+total);
+	})				
+
+</script>
 
 @endsection

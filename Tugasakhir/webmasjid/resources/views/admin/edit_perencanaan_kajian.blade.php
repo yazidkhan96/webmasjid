@@ -1,17 +1,17 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-  <div class="title-admin">Perencanaan Kajian</div>
+  <div class="title-admin">Ubah Perencanaan Kajian</div>
   <div class="content-admin">
 
 
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Nama pengurus</div>
       <div class="col pr-0">
-        <select class="form-control" id="pengurus"  style="max-width: 25rem" >
-          <option hidden value="{{$perencanaankajian->pengurus_id}}">{{$perencanaankajian->pengurus->name}}</option>
-          @foreach(App\Pengurus::all() as $pengurus)
-          <option value="{{$pengurus->id}}">{{$pengurus->name}}</option>
+       <select class="form-control" id="user_id"  style="max-width: 25rem" >
+          <option hidden value="{{$perencanaankajian->user_id}}">{{$perencanaankajian->user->name}}</option>
+          @foreach(App\User::all() as $user)
+          <option value="{{$user->id}}">{{$user->name}}</option>
           @endforeach
         </select>
       </div>
@@ -70,7 +70,7 @@
     </div>
   </div>
       <div class="text-right mb-5">
-        <button class="btn btn-app" id="save">Tambah Perencanaan Kajian</button>
+        <button class="btn btn-app" id="save">Ubah Perencanaan Kajian</button>
       </div>
 </div>
 <script type="text/javascript">
@@ -85,7 +85,7 @@ $('#desc').summernote();
 
 $('#save').on('click',function () {
 dataAll = ({
-'pengurus': $('#pengurus').val(),
+'user': $('#user_id').val(),
 'jenisperencanaan': $('#jenisperencanaan').val(),
 'Tanggalpelaksanaan': $('#datepicker').val(),
 'lokasikajian': $('#lokasi').val(),

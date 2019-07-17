@@ -21,15 +21,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('font-awesome/css/font-awesome.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/summernote.css')}}">
+<link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}">
 
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.js
 "></script>
-<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+<script src="{{asset('js/gijgo.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/Chart.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
@@ -60,9 +58,9 @@
             </div>
             <ul class="list-unstyled components">
                 <li id="dashboard" class="{{ request()->is('admin') ? 'active' : '' }}"><a href="{{url('/admin/')}}"><i class="material-icons">assessment</i> Dashboard</a></li>
-                <li id="user" class="{{ request()->is('admin/user') ? 'active' : '' }}"><a href="{{url('/admin/user')}}"><i class="material-icons">assignment_ind</i> Data Pengurus</a></li>
-                <li id="wisata" class="{{ request()->is('admin/masjid') ? 'active' : '' }}"><a href="{{url('/admin/masjid')}}"><i class="material-icons">domain</i> Profile Masjid</a></li>
-                <li id="akomodasi" class="{{ request()->is('admin/akomodasi') ? 'active' : '' }}"><a href="{{url('/admin/forum')}}"><i class="material-icons">chat</i> Forum Pengurus</a></li>
+                <li id="user" class="{{ request()->is('admin/user') ? 'active' : '' }}"><a href="{{url('admin/user')}}"><i class="material-icons">assignment_ind</i> Data Pengurus</a></li>
+                <li class="{{ request()->is('admin/masjid') ? 'active' : '' }}"><a href="{{url('/admin/masjid')}}"><i class="material-icons">domain</i> Profile Masjid</a></li>
+                <li id="akomodasi" class="{{ request()->is('admin/forum') ? 'active' : '' }}"><a href="{{url('/admin/forum')}}"><i class="material-icons">chat</i> Forum Pengurus</a></li>
                 <li id="slider" class="{{ request()->is('admin/slider') ? 'active' : '' }}"><a href="{{url('/admin/slider')}}"><i class="material-icons">info</i> Slider</a></li>
                 <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">
                         <a style="background: white; color: #00a680 !important;" href="#kajianSubmenu" data-toggle="collapse" aria-expanded="false"><i class="material-icons">school</i> Kajian</a>
@@ -70,7 +68,6 @@
                             <li><a href="{{url('/admin/jadwalkajian')}}" style="background-color: #00a680;"><i class="material-icons">event</i> Jadwal</a></li>
                             <li><a href="{{url('/admin/perencanaan_kajian')}}" style="background-color: #00a680;"><i class="material-icons">meeting_room</i> Perencanaan</a></li>
                             <li><a href="{{url('/admin/request_kajian')}}" style="background-color: #00a680;"><i class="material-icons">list_alt</i> Request</a></li>
-
                         </ul>
                 </li>
                 <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">
@@ -88,7 +85,6 @@
                             <li><a href="{{url('/admin/galangdana')}}" style="background-color: #00a680;"><i class="material-icons">chrome_reader_mode</i> List galang dana</a></li>
                             <li><a href="{{url('/admin/pendonasi')}}" style="background-color: #00a680;"><i class="material-icons">person</i> Pendonasi</a></li>
                             <li><a href="{{url('/admin/penyerahan/donasi')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Penyerahan</a></li>
-                            <li><a href="{{url('/admin/kategori')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Kategori</a></li>
                         </ul>
                 </li>
                  <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">

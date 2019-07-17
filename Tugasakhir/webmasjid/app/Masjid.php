@@ -10,4 +10,9 @@ class Masjid extends Model
     {
         return $this->hasMany(Pelatihan::class,'masjid_id');
     }
+
+    public function jadwalkajian()
+    {
+        return $this->hasMany(Jadwal_kajian::class,'masjid_id');
+    }
 }

@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div>
-	<div class="title-admin">Masjid</div>
+	<div class="title-admin">Profile Masjid</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
 			<a class="btn btn-app" href="{{url('/admin/add/profile/masjid')}}">Tambah Masjid</a>
@@ -12,7 +12,6 @@
 					<th scope="col">Nama Masjid</th>
 					<th scope="col">Alamat</th>
 					<th scope="col">Tahun berdiri</th>
-					<th scope="col">Deskripsi</th>
 					<th scope="col">Gambar</th>
 					<th scope="col">Aksi</th>
 				</tr>
@@ -23,10 +22,8 @@
 					<td>{{$masjid->nama_masjid}}</td>
 					<td>{{$masjid->alamat_masjid}}</td>
 					<td>{{$masjid->tahun_beridiri}}</td>
-					<td>{!!$masjid->deskripsi!!}</td>
 					<td>{{$masjid->gambar}}</td>
 					<td>
-						<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/profile/masjid',$masjid->id)}}" class="material-icons">edit</a>
 						<a dataid="{{url('/admin/delete/profile/masjid',$masjid->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

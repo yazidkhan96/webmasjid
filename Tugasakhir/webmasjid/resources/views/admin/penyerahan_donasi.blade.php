@@ -22,16 +22,15 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>a</td>
+					<td>b</td>
+					<td>c</td>
+					<td>d</td>
+					<td>e</td>
+					<td>f</td>
+					<td>g</td>
+					<td>h</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

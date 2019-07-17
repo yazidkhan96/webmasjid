@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div>
-	<div class="title-admin">Forum pengurus</div>
+	<div class="title-admin">Forum Pengurus</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
 			<a class="btn btn-app" href="{{url('/admin/add/forum')}}">Tambah Forum</a>
@@ -24,7 +24,6 @@
 					<td>{{$forum->gambar}}</td>
 					<td>{{$forum->created_at}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/forum',$forum->id)}}" class="material-icons">edit</a>
 						<a dataid="{{url('/admin/delete/forum',$forum->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

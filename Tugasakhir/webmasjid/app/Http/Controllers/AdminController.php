@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pengurus;
 use App\User;
+use Action;
 use Hash;
 use Auth;
 class AdminController extends Controller
@@ -36,7 +37,16 @@ class AdminController extends Controller
         return response()->json(['data'=>$r->all()]);
 
     }
-    
+
+       public function updatefotopengurus(Request $r,$id)
+    {
+      $user=User::find($id);
+      $user->gambar=Action::update_foto($r->gambar,'User',$user->gambar);
+      $user->save();
+      return response()->json(['data'=>$user,"gbr"=>$r->all()]);
+    }
+
+
      public function deletepengurus($id)
     {
         $user=User::find($id);
@@ -58,7 +68,7 @@ class AdminController extends Controller
     }
 
 
-public function update_foto($img,$folder,$old_img)
+ public function update_foto($img,$folder,$old_img)
     {
       $uniqid=uniqid();
       if ($img && count(explode('.', $img))!=2) {
@@ -82,7 +92,7 @@ public function update_foto($img,$folder,$old_img)
           $ext=explode('/', explode(';',explode(',', $img)[0])[0])[1];
           $img = explode(',', $img)[1];
           $data = base64_decode($img);
-          $file =  public_path().'/images/Slider/'.$uniqid.'.'.$ext;
+          $file =  public_path().'/images/User/'.$uniqid.'.'.$ext;
           $success = file_put_contents($file, $data);
           return $uniqid.'.'.$ext;
       }else{

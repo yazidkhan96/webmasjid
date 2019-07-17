@@ -8,7 +8,7 @@
   <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
 </div>
 
-<a href="{{url('/tambah_kajian')}}" class="btn btn-primary" style="position: absolute;right: 81%;top: 63px;">Tambah Jadwal kajian</a>
+<a href="{{url('/tambah_kajian')}}" class="btn btn-app" style="position: absolute;right: 81%;top: 63px;">Tambah Jadwal kajian</a>
 <div class="container">
 	@for($i=0;$i<5;$i++)
 	<div id="accordion">

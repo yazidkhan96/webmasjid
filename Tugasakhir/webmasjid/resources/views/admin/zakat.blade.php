@@ -10,25 +10,25 @@
 					<th scope="col">No HP</th>
 					<th scope="col">Email</th>
 					<th scope="col">Jumlah zakat</th>
-					<th scope="col">Tanggal Pelaksaan</th>
 					<th scope="col">Jenis Zakat</th>
-					<th scope="col">BANK</th>
+					<th scope="col">status</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Penzakat::all() as $zakat)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$zakat->nama_penzakat}}</td>
+					<td>{{$zakat->no_hp}}</td>
+					<td>{{$zakat->email}}</td>
+					<td>{{$zakat->jumlah_zakat}}</td>
+					<td>{{$zakat->zakat_id}}</td>
+					<td>{{$zakat->status}}</td>
 					<td>
 						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

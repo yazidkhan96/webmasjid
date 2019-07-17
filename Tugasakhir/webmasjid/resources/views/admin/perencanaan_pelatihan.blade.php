@@ -21,14 +21,13 @@
 			<tbody>
 				@foreach(App\Perencanaan_kajian_pelatihan::where('jenis_perencanaan','Pelatihan')->get() as $perencanaanpelatihan)
 				<tr>
-					<td>{{$perencanaanpelatihan->pengurus_id}}</td>
+					<td>{{$perencanaanpelatihan->user_id}}</td>
 					<td>{{$perencanaanpelatihan->judul_perencanaan}}</td>
 					<td>{{$perencanaanpelatihan->tanggal_pelaksanaan}}</td>
 					<td>{{$perencanaanpelatihan->lokasi}}</td>
 					<td>{{$perencanaanpelatihan->ustadz}}</td>
 					<td>{{$perencanaanpelatihan->biaya_pelaksanaan}}</td>
 					<td>
-						<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/perencanaan/pelatihan',$perencanaanpelatihan->id)}}" class="material-icons">edit</a>
 						<a dataid="{{url('/admin/delete/perencanaan/pelatihan',$perencanaanpelatihan->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

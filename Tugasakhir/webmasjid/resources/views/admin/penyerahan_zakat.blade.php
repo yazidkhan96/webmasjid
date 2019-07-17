@@ -29,7 +29,6 @@
 					<td></td>
 					<td></td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

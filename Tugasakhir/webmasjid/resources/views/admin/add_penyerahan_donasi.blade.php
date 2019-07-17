@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-	<div class="title-admin">Penyerahan donasi</div>
+	<div class="title-admin">Tambah Penyerahan Donasi</div>
 	<div class="content-admin">
 		<div class="row m-0 mb-3">
 			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tanggal Penyerahan</div>
@@ -9,7 +9,32 @@
 				<input type="" name="" id="Nama" placeholder="Tanggal Penyerahan" class="form-control" style="max-width: 25rem">
 			</div>
 		</div>
-    <div class="row m-0 mb-3">
+<div class="row m-0 mb-3">
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Jenis Penyerahan</div>
+      
+<div class="col pr-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <select id="select_penyerahan" class="form-control" style="position: relative;right: 7%;top: 6px;">
+                      <option value="">--Pilih penyerahan--</option>
+                      <option value="1" id="optzakat">Zakat</option>
+                      <option value="2" id="optdonasi">Donasi</option>
+                </select>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row m-0 mb-3 hidden" id="penyerahandonasi">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Kategori Penyerahan</div>
       
 <div class="col pr-0">
@@ -20,8 +45,8 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="form-group">
-              <select name="combo" class="form-control" style="position: relative;right: 7%;top: 6px;">
-                      <option value="">--kategori Penyerahan--</option>
+              <select id="select_donasi" class="form-control" style="position: relative;right: 7%;top: 6px;">
+                      <option value="">--Penyerahan Donasi--</option>
                       <option value="1">Kaum Dhuafa</option>
                       <option value="2">Bencana alam</option>
                       <option value="3">Pembangunan Masjid</option>
@@ -36,56 +61,30 @@
   </div>
 </div>
 
-   <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tambah Data</div>
-      <div class="col pr-0">
-        <div class="row m-0">
-          <button type="button" class="btn btn-app" data-toggle="modal" data-target="#exampleModal" style="">+</button>
-          <div class="col p-0">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+<div class="row m-0 mb-3 hidden" id="penyerahanzakat">
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Kategori Penyerahan</div>
+      
+<div class="col pr-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <select id="select_zakat" class="form-control" style="position: relative;right: 7%;top: 6px;">
+                      <option value="">--Penyerahan Zakat--</option>
+                      <option value="1">Zakat profesi</option>
+                      <option value="2">Zakat maal</option>
+                      <option value="3">Zakat fitrah</option>
+                </select>
                   </div>
-                  <div class="modal-body">
-                    <div class="col pr-0">
-                      <table  class="table text-center table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">Jenis donasi</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Jumlah donasi</th>
-                            <th scope="col">Rekening</th>
-                            <th scope="col">Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-app">Tambahkan</button>
-                  </div>
-                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tabel Donasi</div>
       
@@ -97,24 +96,14 @@
           <th scope="col">Nama</th>
           <th scope="col">Jumlah donasi</th>
           <th scope="col">Rekening</th>
-          <th scope="col">Status</th>
+          <th scope="col">Status penyerahan</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      <tbody id="body-donasi">
       </tbody>
     </table>
       </div>
     </div>
-
-
-
 
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Total donasi</div>
@@ -145,11 +134,49 @@
 </div>
 </div>
 <div class="text-right mb-5">
- <button class="btn btn-app" id="save">Tambah Penyerahan</button>
+ <button class="btn btn-app" id="save">Tambah Penyerahan Donasi</button>
 </div>
 </div>
 </div>
 <script type="text/javascript">
+
+  $('#select_penyerahan').on('change',function () {
+    if ($(this).val()==1) {
+      $('#penyerahandonasi').addClass('hidden');
+      $('#penyerahanzakat').removeClass('hidden');
+    }else if ($(this).val()==2) {
+      $('#penyerahanzakat').addClass('hidden');
+      $('#penyerahandonasi').removeClass('hidden');
+    }
+
+      console.log($(this).val())
+  })
+
+
+
+
+  $('#select_donasi').on('change',function () {
+     let myNode= $('#body-donasi');
+     while (myNode.firstChild) {
+         myNode.removeChild(myNode.firstChild);
+     }
+    $.get("/api/get/donasi/by/kategori/"+$(this).val(), function(data, status){
+      for (var i = 0,dataLength=data.length; i < dataLength; i++) {
+         console.log($('#body-donasi').children());
+         $('#body-donasi').html('')
+     myNode.append(`
+            <tr>
+            <td>${data[i].kategori_id}</td>
+            <td>${data[i].nama_pendonasi}</td>
+            <td>${data[i].jumlah_donasi}</td>
+            <td>${data[i].nama_bank}</td>
+            <td>${data[i].status_penyerahan}</td>
+          </tr>`
+          ) 
+      }
+      console.log(data);
+     });
+  })
    var fileImg = [];
    var dataAll = [];
    $('#budaya').addClass('active');

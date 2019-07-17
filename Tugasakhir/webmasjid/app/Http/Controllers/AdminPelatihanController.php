@@ -68,7 +68,7 @@ class AdminPelatihanController extends Controller
     public function uploadpelatihan(Request $r)
     {
         $perencanaanpelatihan=new Perencanaan_kajian_pelatihan();
-        $perencanaanpelatihan->pengurus_id=$r->pengurus;
+        $perencanaanpelatihan->user_id=$r->user;
         $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
         $perencanaanpelatihan->lokasi=$r->lokasikajian;
         $perencanaanpelatihan->ustadz=$r->namaustadz;
@@ -84,7 +84,7 @@ class AdminPelatihanController extends Controller
     public function updatepelatihan(Request $r,$id)
     {
       $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
-      $perencanaanpelatihan->pengurus_id=$r->pengurus;
+      $perencanaanpelatihan->user_id=$r->user;
       $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
       $perencanaanpelatihan->lokasi=$r->lokasikajian;
       $perencanaanpelatihan->biaya_pelaksanaan=$r->deskripsi;
@@ -103,7 +103,7 @@ class AdminPelatihanController extends Controller
         $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
         $pelatihan->nama_pemateri=$r->namapemateri;
         $pelatihan->nohp=$r->nomorhandphone;
-        $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
+        $pelatihan->gambar=Action::save_multiple_foto($r->gambar,'Pelatihan');
         $pelatihan->deskripsi=$r->deskripsi;
         $pelatihan->save();
         return response()->json(['data'=>$r->all()]);
@@ -116,7 +116,7 @@ class AdminPelatihanController extends Controller
       $pelatihan->tanggal_pelatihan=date('d',strtotime($r->tanggalpelatihan));
       $pelatihan->nama_pemateri=$r->namapemateri;
       $pelatihan->nohp=$r->nomorhandphone;
-      $pelatihan->gambar=Action::save_foto($r->gambar,'Pelatihan');
+      $pelatihan->gambar=Action::update_multiple_foto($r->gambar,'Pelatihan',$pelatihan->gambar,$r->gambar_hapus);
       $pelatihan->deskripsi=$r->deskripsi;
       $pelatihan->save();
       return response()->json(['data'=>$r->all()]);

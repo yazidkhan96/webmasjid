@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jadwal_kajian extends Model
 {
-    public function kategori()
+   public function masjid()
     {
-        return $this->belongsTo(Galang_dana::class,'pengurus_id');
+        return $this->belongsTo(Masjid::class,'masjid_id');
     }
+
 }

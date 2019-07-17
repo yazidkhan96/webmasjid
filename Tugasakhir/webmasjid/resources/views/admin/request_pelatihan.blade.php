@@ -8,29 +8,29 @@
 				<tr>
 					<th scope="col">Nama</th>
 					<th scope="col">Email</th>
-					<th scope="col">Tanggal Pelatihan</th>
-					<th scope="col">Waktu</th>
+					<th scope="col">Tanggal Pelaksaan</th>
 					<th scope="col">Lokasi</th>
-					<th scope="col">Pemateri</th>
-					<th scope="col">No Hp</th>
+					<th scope="col">nohp</th>
+					<th scope="col">Deskripsi</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Request_kajian_pelatihan::where('jenis_request','Pelatihan')->get() as $requestpelatihan)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$requestpelatihan->nama_pengunjung}}</td>
+					<td>{{$requestpelatihan->email}}</td>
+					<td>{{$requestpelatihan->tanggal_pelaksanaan}}</td>
+					<td>{{$requestpelatihan->lokasi}}</td>
+					<td>{{$requestpelatihan->nohp}}</td>
+					<td>{{$requestpelatihan->deskripsi}}</td>
 					<td>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 						
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -30,7 +30,6 @@
 					<td>{{$pelatihan->gambar}}</td>
 					<td>{{$pelatihan->nohp}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/jadwal/pelatihan',$pelatihan->id)}}" class="material-icons">edit</a>
 						<a dataid="{{url('/admin/delete/jadwal/pelatihan',$pelatihan->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

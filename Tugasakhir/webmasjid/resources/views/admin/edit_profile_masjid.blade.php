@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-    <div class="title-admin">Tambah Profile Masjid</div>
+    <div class="title-admin">Ubah Profile Masjid</div>
    <!--  <form action="{{url('admin/upload/masjid')}}" method="post" enctype="multipart/form-data">
       {{csrf_field()}} -->
     <div class="content-admin">
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="text-right mb-5">
-      <button class="btn btn-app" id="save">Simpan</button>
+      <button class="btn btn-app" id="save">Ubah Profile Masjid</button>
     </div>
   </div>
  <!--  </form> -->

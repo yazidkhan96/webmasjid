@@ -28,7 +28,6 @@
 			<td>{{$perencanaankajian->ustadz}}</td>
 			<td>{{$perencanaankajian->biaya_pelaksanaan}}</td>
 			<td>
-				<a href="{{url('/detail/masjid,$i')}}" class="material-icons">visibility</a>
 				<a href="{{url('/admin/edit/perencanaan/kajian',$perencanaankajian->id)}}" class="material-icons">edit</a>
 				<a dataid="{{url('/admin/delete/perencanaan/kajian',$perencanaankajian->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>

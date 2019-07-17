@@ -20,18 +20,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(App\Jadwal_kajian::all() as $jadwal_kajian);
+				@foreach(App\Jadwal_kajian::all() as $jadwalkajian);
 				<tr>
-					<td>{{$jadwal_kajian->tema_kajian}}</td>
-					<td>{{$jadwal_kajian->masjid_id}}</td>
-					<td>{{$jadwal_kajian->nama_ustadz}}</td>
-					<td>{{$jadwal_kajian->tanggal_kajian}}</td>
-					<td>{{$jadwal_kajian->bulan_kajian}}</td>
-					<td>{{$jadwal_kajian->waktu_kajian}}</td>
-					<td>{{$jadwal_kajian->lokasi}}</td>
+					<td>{{$jadwalkajian->tema_kajian}}</td>
+					<td>{{$jadwalkajian->masjid_id}}</td>
+					<td>{{$jadwalkajian->nama_ustadz}}</td>
+					<td>{{$jadwalkajian->tanggal_kajian}}</td>
+					<td>{{$jadwalkajian->bulan_kajian}}</td>
+					<td>{{$jadwalkajian->waktu_kajian}}</td>
+					<td>{{$jadwalkajian->lokasi}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
+						<a href="{{url('/admin/edit/jadwal/kajian',$jadwalkajian->id)}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>

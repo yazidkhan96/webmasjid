@@ -39,6 +39,11 @@ class AdminKajianController extends Controller
         $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
         return view ('admin.edit_perencanaan_kajian',compact('perencanaankajian'));
     }
+    public function editkajian($id)
+    {
+        $jadwalkajian=Jadwal_kajian::find($id);
+        return view ('admin.edit_jadwal_kajian',compact('jadwalkajian'));
+    }
 
      public function deleteperencanaankajian($id)
     {
@@ -53,12 +58,25 @@ class AdminKajianController extends Controller
         $jadwalkajian->tema_kajian=$r->temakajian;
         $jadwalkajian->masjid_id=$r->namamasjid;
         $jadwalkajian->nama_ustadz=$r->namaustadz;
-        $jadwalkajian->tanggal_kajian=$r->tanggalkajian;
+        $jadwalkajian->tanggal_kajian=date('d',strtotime($r->tanggalkajian));
         $jadwalkajian->bulan_kajian=$r->bulankajian;
         $jadwalkajian->waktu_kajian=$r->waktukajian;
         $jadwalkajian->lokasi=$r->lokasikajian;
         $jadwalkajian->save();
         return response()->json(['data'=>$r->all()]);
+    }
+    public function updatejadwalkajian(Request $r,$id)
+    {
+      $jadwalkajian=Jadwal_kajian::find($id);
+      $jadwalkajian->tema_kajian=$r->temakajian;
+      $jadwalkajian->masjid_id=$r->namamasjid;
+      $jadwalkajian->nama_ustadz=$r->namaustadz;
+      $jadwalkajian->tanggal_kajian=date('d',strtotime($r->tanggalkajian));
+      $jadwalkajian->bulan_kajian=$r->bulankajian;
+      $jadwalkajian->waktu_kajian=$r->waktukajian;
+      $jadwalkajian->lokasi=$r->lokasikajian;
+      $jadwalkajian->save();
+      return response()->json(['data'=>$r->all()]);
     }
 
 
@@ -81,7 +99,7 @@ class AdminKajianController extends Controller
     public function updatekajian(Request $r,$id)
     {
       $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
-      $perencanaankajian->pengurus_id=$r->user;
+      $perencanaankajian->user_id=$r->user;
       $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
       $perencanaankajian->lokasi=$r->lokasikajian;
       $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;
@@ -99,7 +117,7 @@ class AdminKajianController extends Controller
         $reqpelatihan->lokasi=$r->lokasi;
         $reqpelatihan->email=$r->Email;
         $reqpelatihan->nohp=$r->nohp;
-        $reqpelatihan->jenis_request=$r->lokasi;
+        $reqpelatihan->jenis_request=$r->jenisrequest;
         $reqpelatihan->nama_pemateri=$r->namaustadz;
         $reqpelatihan->deskripsi=$r->deskripsi;
         $reqpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->tanggalpelaksanaan));

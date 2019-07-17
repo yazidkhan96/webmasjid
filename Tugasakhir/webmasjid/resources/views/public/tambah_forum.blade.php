@@ -25,12 +25,12 @@
    </div>
 </div><br>
 
-<div class="row m-0 mb-3">
- <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem;margin-left: 12px;">Deskripsi Forum</div>
- <div class="col pr-0" style="position: relative;right: 113px;">
-  <div id="descforum"></div>
-</div>
-</div>
+  <div class="row m-0 mb-3">
+   <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem;margin-left: 12px;">Deskripsi Forum</div>
+     <div class="col pr-0" style="position: relative;right: 113px;">
+      <div id="descforum"></div>
+    </div>
+  </div>
 <div class="text-right mb-5">
  <button class="btn btn-app" id="save" style="margin-right: 113px;">Simpan</button>
 </div>

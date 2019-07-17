@@ -9,22 +9,27 @@
 					<th scope="col">Nama</th>
 					<th scope="col">Email</th>
 					<th scope="col">Tanggal Pelaksaan</th>
+					<th scope="col">Lokasi</th>
+					<th scope="col">nohp</th>
 					<th scope="col">Deskripsi</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Request_kajian_pelatihan::where('jenis_request','Kajian')->get() as $requestkajian)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$requestkajian->nama_pengunjung}}</td>
+					<td>{{$requestkajian->email}}</td>
+					<td>{{$requestkajian->tanggal_pelaksanaan}}</td>
+					<td>{{$requestkajian->lokasi}}</td>
+					<td>{{$requestkajian->nohp}}</td>
+					<td>{{$requestkajian->deskripsi}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div id="formAdd">
-	<div class="title-admin">Tambah Jadwal Pelatihan</div>
+	<div class="title-admin">Ubah Jadwal Pelatihan</div>
 	<div class="content-admin">
 		<div class="row m-0 mb-3">
 			<div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Judul Pelatihan</div>
@@ -53,7 +53,12 @@
          <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Gambar</div>
          <div class="col pr-0">
           <div class="row m-0">
-              <img  src="{{asset('images/Pelatihan')}}/{{$pelatihan->gambar}}" class="edit-img">
+            @foreach(explode(',',$pelatihan->gambar) as $gbr)
+            <div class='img-view'>
+              <img class='thumbnail-img' src="{{asset('images/Pelatihan')}}/{{$gbr}}"/>
+              <div class='del-img' data-gbr="{{$gbr}}">Hapus</div>
+            </div>
+            @endforeach
              <input class="hidden" id="add-img" accept="image/*" type="file" multiple/>
              <div class="col p-0">
                 <label for="add-img">
@@ -73,11 +78,17 @@
 
 
 <div class="text-right mb-5">
- <button class="btn btn-app" id="save">Simpan</button>
+ <button class="btn btn-app" id="save">Ubah Jadwal Pelatihan</button>
 </div>
 </div>
 </div>
 <script type="text/javascript">
+  let index=0;
+  let fileImgdel=[];
+  $('.del-img').click(function(){
+    fileImgdel.push($(this).attr('data-gbr'));
+   $(this).parent().remove();
+  });
   $('#desc').summernote('code','{!!$pelatihan->deskripsi!!}');
 var fileImg = [];
 var dataAll = [];
@@ -95,7 +106,9 @@ if(window.File && window.FileList && window.FileReader)
     continue;
     var picReader = new FileReader();
     picReader.addEventListener("load",function(event){
+      index++;
       var picFile = event.target;
+      fileImg.push({id:index,gambar:picFile.result});
       $('#add-img').before("<div class='img-view'><img class='thumbnail-img' src='" + picFile.result + "'" +
       "title='" + picFile.name + "'/><div class='del-img'>Hapus</div></div>");
       $('.del-img').click(function(){
@@ -115,7 +128,8 @@ $('#save').click(function () {
   'namamasjid': $('#namamasjid').val(),
   'deskripsi':$('#desc').summernote('code'),
   'tanggalpelatihan': $('#tanggalpelatihan').val(),
-  'gambar': img,
+  'gambar': fileImg,
+  'gambar_hapus': fileImgdel,
   'namapemateri': $('#namapemateri').val(),
   'nomorhandphone': $('#nohp').val(),
   
@@ -132,7 +146,7 @@ if(!img){
       type: "POST",
       data:  dataAll,
     success:function(data){
-      location.href="/admin/jadwalpelatihan";
+    location.href="/admin/jadwalpelatihan";
       console.log(data);
     }
     });

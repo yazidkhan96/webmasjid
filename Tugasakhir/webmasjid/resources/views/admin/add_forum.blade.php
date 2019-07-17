@@ -33,7 +33,7 @@
 </div>
 </div>
 <div class="text-right mb-5">
- <button class="btn btn-app" id="save">Simpan</button>
+ <button class="btn btn-app" id="save">Tambah Forum</button>
 </div>
 </div>
 </div>

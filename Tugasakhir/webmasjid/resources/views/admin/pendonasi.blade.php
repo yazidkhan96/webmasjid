@@ -11,20 +11,24 @@
 					<th scope="col">Jumlah donasi</th>
 					<th scope="col">Untuk donasi</th>
 					<th scope="col">Rekening</th>
+					<th scope="col">status</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Donasi_pengunjung::all() as $donasi)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$donasi->nama_pendonasi}}</td>
+					<td>{{$donasi->email}}</td>
+					<td>{{$donasi->jumlah_donasi}}</td>
+					<td>{{$donasi->judul_donasi}}</td>
+					<td>{{$donasi->nama_bank}}</td>
+					<td>{{$donasi->status}}</td>
 					<td>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -4,7 +4,7 @@
 <div class="container marketing" style="position: relative;top: 58px;">
     @if(Auth::user())
     <div class="col p-0">
-       <a href="{{url('/tambah_pelatihan')}}" class="btn btn-primary" style="position: absolute;right: 1px;top: 34px;padding: 6px 28px;">Tambah Jadwal pelatihan</a>
+       <a href="{{url('/tambah_pelatihan')}}" class="btn btn-app" style="position: absolute;right: 1px;top: 34px;padding: 6px 28px;">Tambah Jadwal pelatihan</a>
     </div>
     @endif
 
@@ -25,7 +25,7 @@
     <div class="col-md-3 col-6 mb-4" >
     <a href="{{url('/detail_jadwal_pelatihan',$pelatihan->id)}}" style="text-decoration: none;">
         <div class="thumb-img">
-        <img  src="{{asset('images/Pelatihan')}}/{{$pelatihan->gambar}}" alt="Card image cap">
+        <img  src="{{asset('images/Pelatihan')}}/{{explode(',',$pelatihan->gambar)[0]}}" alt="Card image cap">
 
         </div>
           <div class="thumb-tittle">{{$pelatihan->judul_pelatihan}}</div>

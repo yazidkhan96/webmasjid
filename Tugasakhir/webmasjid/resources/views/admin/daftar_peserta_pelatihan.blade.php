@@ -12,25 +12,25 @@
 					<th scope="col">No Hp</th>
 					<th scope="col">Email</th>
 					<th scope="col">Foto data diri</th>
-					<th scope="col">Alasan ikut pelatihan</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Peserta_pelatihan::all() as $peserta);
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{$peserta->nama_peserta}}</td>
+					<td>{{$peserta->alamat_lengkap}}</td>
+					<td>{{$peserta->pelatihan_id}}</td>
+					<td>{{$peserta->nohp}}</td>
+					<td>{{$peserta->email}}</td>
+					<td>{{$peserta->foto_data_diri}}</td>
 					<td>
 						
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 						
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>
