@@ -15,8 +15,8 @@
     @foreach(App\Slider::all() as $i=>$slider)
     <!--First slide-->
     <div class="carousel-item {{$i==0?'active':''}}">
-      <img class="d-block w-100" src="{{asset('images/Slider')}}/{{$slider->gambar}}"
-      alt="First slide">
+      <img class="d-block w-100" src="{{asset('images/Slider')}}/{{$slider->gambar}}" 
+      alt="First slide" style="width:133% !important; height:500px !important; ">
     </div>
     <!--/First slide-->
     @endforeach
@@ -84,7 +84,6 @@
     <div class="col-md-3 col-6 mb-4">      
         <div class="thumb-img">
         <img class="" src="{{asset('images/Pelatihan')}}/{{$pelatihan->gambar}}" alt="Card image cap">
-
         </div>
           <div class="thumb-tittle">{{$pelatihan->judul_pelatihan}}</div>
           <!-- Text -->

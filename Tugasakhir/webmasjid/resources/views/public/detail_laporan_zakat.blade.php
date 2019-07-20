@@ -1,33 +1,38 @@
 @extends('master.master_main')
 @section('content')
-
-<div class="row">
-	@for($i=0;$i<3;$i++)
-	<div class="col-6 col-md-4 mb-5">
-		<div class="card" style="width: 75%;position: relative;top: 177px;left: 15%;">
-		  <a href=""><img src="{{asset('/img/msj1.jpg')}}" class="card-img-top" alt="..." style="height: 	178px;"></a>
+<div class="container-app">
+	<!-- Slider -->
+	<div id="myCarousel" class="carousel slide slider-app" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			@foreach(explode(',',$penyerahan->gambar) as $key=> $image)
+			<li data-target="#myCarousel" data-slide-to="{{$key}}" class="{{$key == 0 ? 'active':''}}"></li>
+		@endforeach
+		</ol>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			@foreach(explode(',',$penyerahan->gambar) as $i=> $image)
+			<div class="carousel-item {{$i == 0 ? 'active':''}}">
+				<img src="{{asset('images/Penyerahan')}}/{{$image}}" style="object-fit: contain; !important;">
+			</div>
+			@endforeach
 		</div>
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
-	@endfor
-	<br>
-</div>
-<form>	
-	<div class="form-group" style="position: relative;left: 5%;top: 209px;">
+	<div class="form-group" style="position: relative;top: 16px;">
 	    <label for="exampleFormControlTextarea1">Informasi zakat :</label>
-	    <textarea class="form-control" id="exampleFormControlTextarea1" rows="13" style="width:57%;" placeholder="Nama penzakat :
-Tanggal Zakat:
-Jenis zakat :
-Jumlah zakat :
-Tanggal penyerahan zakat :
-Nama-nama penerima zakat :
-1.
-2.
-3.
-4.
-"></textarea>
+	    <p>{!!$penyerahan->keterangan!!}</p>
 	  </div>
-</form>
-		<div class="alert" style="width: 415px; position: relative;left: 37%; top: 287px; background-color: #f8f8f8; border-color: #f8f8f8; "><strong style="font-size: 14px; ">Terima kasih untuk para donatur yang sudah mempercayakan zakat nya kepada kami.
+		<div class="alert" style="width: 415px; position: relative;left: 32%; top: 14px; background-color: #f8f8f8; border-color: #f8f8f8; "><strong style="font-size: 14px; ">Terima kasih untuk para donatur yang sudah mempercayakan zakat nya kepada kami.
 		Dan terima kasih sudah menggunakan website kami sebagai media penyaluran zakat anda</strong>
 		</div>
 @endsection

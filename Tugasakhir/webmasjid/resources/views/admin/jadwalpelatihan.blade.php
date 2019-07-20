@@ -6,12 +6,12 @@
 		<div class="text-right mb-3">
 			<a class="btn btn-app" href="{{url('/admin/add/jadwal/pelatihan')}}">Tambah Jadwal Pelatihan</a>
 		</div>
+
 		<table id="table_id" class="table text-center table-striped">
 			<thead>
 				<tr>
 					<th scope="col">Judul</th>
 					<th scope="col">Nama Masjid</th>
-					<th scope="col">Informasi</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">pemateri</th>
 					<th scope="col">Gambar</th>
@@ -20,11 +20,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(App\Pelatihan::all() as $pelatihan);
+				@foreach(App\Pelatihan::all() as $pelatihan)
 				<tr>
 					<td>{{$pelatihan->judul_pelatihan}}</td>
 					<td>{{$pelatihan->masjid_id}}</td>
-					<td>{{$pelatihan->deskripsi}}</td>
 					<td>{{$pelatihan->tanggal_pelatihan}}</td>
 					<td>{{$pelatihan->nama_pemateri}}</td>
 					<td>{{$pelatihan->gambar}}</td>

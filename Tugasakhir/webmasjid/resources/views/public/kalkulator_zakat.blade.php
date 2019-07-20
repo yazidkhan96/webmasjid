@@ -77,7 +77,7 @@
 			let totalZakat=total*0.025;
 			console.log(total,totalZakat);
 			$('#total').text(totalZakat);
-			$('#salurkan').attr('href',"/payment_zakat?zakat="+totalZakat);
+			$('#salurkan').attr('href',"/payment_zakat?zakat="+totalZakat+'&jenis=2');
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 			$('#summary-mal').show();

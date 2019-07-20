@@ -4,16 +4,17 @@
   <!-- Card Start -->
   <div class="card" style="position: relative; top: 90px;">
     <div class="row ">
+      <img src="{{asset('images/User')}}/{{$perencanaanpelatihan->user->gambar}}" alt="">
       <div class="col-md-7 px-3">
         <div class="card-block px-6">
-          <h4 class="card-title">Kajian Musyawarrah-Al jihad</h4>
+          <h4 class="card-title"></h4>
           <p class="card-text">
-                 <p><em>Username pengurus :</em></p>
-                 <p><em>Nama Masjid :</em></p>
-                 <p><em>Tanggal Pelaksanaan :</em></p>
-                 <p><em>Judul Pelatihan :</em></p>
-                 <p><em>Nama Pemateri :</em></p>
-                 <p><em>Biaya Pelaksaan(dll) :</em></p>
+                 <p><em>Username pengurus :{{$perencanaanpelatihan->user->name}}</em></p>
+                 <p><em>Nama Masjid : {{$perencanaanpelatihan->lokasi}}</em></p>
+                 <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
+                 <p><em>Judul Pelatihan :{{$perencanaanpelatihan->judul_perencanaan}}</em></p>
+                 <p><em>Nama Pemateri :{{$perencanaanpelatihan->ustadz}}</em></p>
+                 <p><em>Biaya Pelaksaan(dll) : {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
           </p>
           <br>
         </div>

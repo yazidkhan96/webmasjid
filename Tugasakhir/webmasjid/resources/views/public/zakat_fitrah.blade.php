@@ -40,7 +40,7 @@
 		$('#totalzakat').text(total);
 			console.log(total);
 		$('#salurkan').show();
-		$('#salurkan').attr('href',"/payment_zakat?zakat="+total);
+		$('#salurkan').attr('href',"/payment_zakat?zakat="+total+'&jenis=3');
 	})				
 
 </script>

@@ -55,8 +55,8 @@
           <div class="row m-0">
              <input class="hidden" id="add-img" accept="image/*" type="file" multiple/>
              <div class="col p-0">
-                <label for="add-img">
-                   <div class="img-add">+</div>
+                <label for="add-img" class="img-add">
+                   <div class="postion-gambar">+</div>
                </label>
            </div>
        </div>
@@ -77,32 +77,38 @@
 </div>
 </div>
 <script type="text/javascript">
+  let index=0;
 var fileImg = [];
 var dataAll = [];
 $('#budaya').addClass('active');
 $('#datepicker').datepicker();
 $('#desc').summernote();
-if(window.File && window.FileList && window.FileReader)
-{
-  $('#add-img').on('change',function (event) {
-  var files = event.target.files; //FileList object
-  for(var i = 0; i< files.length; i++)
-  {
-    var file = files[i];
-    if(!file.type.match('image'))
-    continue;
-    var picReader = new FileReader();
-    picReader.addEventListener("load",function(event){
-      var picFile = event.target;
-      $('#add-img').before("<div class='img-view'><img class='thumbnail-img' src='" + picFile.result + "'" +
-      "title='" + picFile.name + "'/><div class='del-img'>Hapus</div></div>");
-      $('.del-img').click(function(){
-       $(this).parent().remove();
-      });
-    });
-    picReader.readAsDataURL(file);
-  }
-  });
+ if(window.File && window.FileList && window.FileReader)
+   {
+      $('#add-img').on('change',function (event) {
+                console.log($('#add-img').val());
+
+      var files = event.target.files; //FileList object
+      for(var i = 0,fileLength=files.length; i<fileLength; i++)
+      {
+         var file = files[i];
+        // fileImg.push(file);
+         if(!file.type.match('image'))
+            continue;
+        var picReader = new FileReader();
+        picReader.addEventListener("load", function(event){
+            index++;
+            var picFile = event.target;
+            fileImg.push({id:index,gambar:picFile.result});
+            $('#add-img').before(`<div class='img-view'><img class='thumbnail-img' src='${picFile.result}' title='${picFile.name}'/><div class='del-img' data-id=${index}>Hapus</div></div>`);
+
+            $('.del-img').click(function(){
+               $(this).parent().remove();
+           });
+        });
+        picReader.readAsDataURL(file);
+    }  
+});
 }
 $('#save').click(function () {
     var img = $('.thumbnail-img').attr('src');
@@ -111,7 +117,7 @@ $('#save').click(function () {
     'namamasjid': $('#namamasjid').val(),
     'deskripsi':$('#desc').summernote('code'),
     'tanggalpelatihan': $('#datepicker').val(),
-    'gambar': img,
+    'gambar': fileImg,
     'namapemateri': $('#namapemateri').val(),
     'nomorhandphone': $('#nohp').val(),
     

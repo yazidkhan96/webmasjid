@@ -14,37 +14,43 @@
 <table class="table table-bordered" style="position: relative;top: 192px;left: 5%;width: 90%;">
   <thead>
     <tr>
-      <th scope="col">No</th>
       <th scope="col">Jenis zakat</th>
       <th scope="col">Jumlah zakat</th>
+      <th scope="col">Tanggal Penerimaan</th>
       <th scope="col">Nama penzakat</th>
-      <th scope="col">Nama penerima zakat</th>
-      <th scope="col">Tanggal penyerahan</th>
-      <th scope="col">Detail</th>
-
 	 </tr>
   </thead>
   <tbody>
+      @foreach(App\Penzakat::where('status_penyerahan','diserahkan')->get() as $zakat)
     <tr>
-      <th scope="row">1</th>
-      <td>.</td>
-      <td>.</td>
-      <td>.</td>
-      <td>.</td>
-      <td>.</td>
-      <td><a href="{{url('/detail_laporan_zakat')}}">Info lebih lanjut</a></td>
-
+      <td>{{$zakat->zakat->jenis_zakat}}</td>
+      <td>{{$zakat->jumlah_zakat}}</td>
+      <td>{{$zakat->created_at}}</td>
+       <td>{{$zakat->nama_penzakat}}</td>
     </tr>
+    @endforeach
   </tbody>
 </table>
 
 
-
-
-
-
-
-
-
-
+<table class="table table-bordered" style="position: relative;top: 232px;left: 5%;width: 90%;">
+  <thead>
+    <tr>
+      <th scope="col">Tanggal Penyerahan</th>
+      <th scope="col">Kategori Penyerahan</th>
+      <th scope="col">Total Zakat</th>
+      <th scope="col">Detail</th>
+   </tr>
+  </thead>
+  <tbody>
+    @foreach(App\Penyerahan::whereIn('kategori_penyerahan',['Zakat profesi','Zakat maal','Zakat fitrah'])->get() as $penyerahan)
+    <tr>
+      <td>{{$penyerahan->tanggal}}</td>
+      <td>{{$penyerahan->kategori_penyerahan}}</td>
+      <td>{{$penyerahan->total_donasi}}</td>
+      <td style="text-align: center;"><a href="{{url('/detail_laporan_zakat',$penyerahan->id)}}">Info lebih lanjut</a></td>
+    </tr>
+    @endforeach
+  </tbody>
+</table> 
 @endsection

@@ -69,9 +69,9 @@
 
         </li>
         <li class="nav-item active">
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+          <div class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search">
+            <button id="searchsubmit"><i class="fa fa-search"></i></button>
             @if(!Auth::user())
             <a class="" href="{{url('/login')}}" style="position: relative;left: 123%;color: white;">Login</a>
             <!-- pisah -->
@@ -112,8 +112,15 @@
           </div>
           @endif
           </li>
-        </form>
+        </div>
       </ul>
     </div>
   </nav>
 </header>
+<script type="text/javascript">
+  $('#searchsubmit').on('click',function () {
+    let key=$('#search').val();
+    location.href=`/search/masjid?key=${key}`;
+
+  })
+</script>

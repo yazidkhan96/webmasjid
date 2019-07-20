@@ -58,7 +58,7 @@ class AdminKajianController extends Controller
         $jadwalkajian->tema_kajian=$r->temakajian;
         $jadwalkajian->masjid_id=$r->namamasjid;
         $jadwalkajian->nama_ustadz=$r->namaustadz;
-        $jadwalkajian->tanggal_kajian=date('d',strtotime($r->tanggalkajian));
+        $jadwalkajian->tanggal_kajian=$r->tanggalkajian;
         $jadwalkajian->bulan_kajian=$r->bulankajian;
         $jadwalkajian->waktu_kajian=$r->waktukajian;
         $jadwalkajian->lokasi=$r->lokasikajian;
@@ -71,7 +71,7 @@ class AdminKajianController extends Controller
       $jadwalkajian->tema_kajian=$r->temakajian;
       $jadwalkajian->masjid_id=$r->namamasjid;
       $jadwalkajian->nama_ustadz=$r->namaustadz;
-      $jadwalkajian->tanggal_kajian=date('d',strtotime($r->tanggalkajian));
+      $jadwalkajian->tanggal_kajian=$r->tanggalkajian;
       $jadwalkajian->bulan_kajian=$r->bulankajian;
       $jadwalkajian->waktu_kajian=$r->waktukajian;
       $jadwalkajian->lokasi=$r->lokasikajian;

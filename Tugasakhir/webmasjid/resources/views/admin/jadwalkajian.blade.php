@@ -20,7 +20,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach(App\Jadwal_kajian::all() as $jadwalkajian);
+				@foreach(App\Jadwal_kajian::all() as $jadwalkajian)
 				<tr>
 					<td>{{$jadwalkajian->tema_kajian}}</td>
 					<td>{{$jadwalkajian->masjid_id}}</td>

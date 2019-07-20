@@ -14,7 +14,7 @@
 			 </div>
 			 <div class="card-text" style="position: relative;top: -30px;left: 23px;">
 			  	<span>Terkumpul :</span><br>
-			  	<span>0;</span>
+			  	<span>{{$galangdana->donasi->where('status','bayar')->sum('jumlah_donasi')}};</span>
 			 </div>
 			 <div class="card-text" style="position: relative;left: 74%;bottom: 76px;">	
 			 		<span>sisa hari :</span><br>	
@@ -28,9 +28,11 @@
 </div>
 <div class="text-right mb-3">
 			<a class="btn btn-app" href="{{url('/tambah/galang/dana')}}" style="position: relative;bottom: 401px;right: 39px;">Tambah Galang Dana</a>
-		</div>
+</div>
 
-
+<script type="text/javascript">
+	
+</script>
 
 
 

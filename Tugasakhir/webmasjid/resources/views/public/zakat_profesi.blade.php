@@ -77,7 +77,7 @@
 		if (total>=4400000) {
 			let totalZakat=total*0.025;
 			$('#total').text(totalZakat);
-			$('#salurkan').attr('href',"/payment_zakat?zakat="+totalZakat);
+			$('#salurkan').attr('href',"/payment_zakat?zakat="+totalZakat+'&jenis=1');
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 		}

@@ -14,7 +14,6 @@
 					<th scope="col">Target biaya</th>
 					<th scope="col">batas waktu</th>
 					<th scope="col">Gambar</th>
-					<th scope="col">Deskripsi</th>
 					<th scope="col">Tanggal</th>
 					<th scope="col">Aksi</th>
 				</tr>
@@ -27,11 +26,10 @@
 					<td>{{$galangdana->biaya_yang_dibutuhkan}}</td>
 					<td>{{$galangdana->batas_waktu}}</td>
 					<td>{{$galangdana->gambar}}</td>
-					<td>{{$galangdana->deskripsi}}</td>
 					<td>{{$galangdana->created_at}}</td>
 					<td>
 						<a href="{{url('/admin/edit/galangdana',$galangdana->id)}}" class="material-icons">edit</a>
-						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
+						<a dataid="{{url('/admin/delete/galang/dana',$galangdana->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach
@@ -58,7 +56,7 @@
 <script type="text/javascript">
 	$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/wisata/`+id+`')}}`);
+		$('#delete').attr('href',id);
 	})
 </script>
 @endsection

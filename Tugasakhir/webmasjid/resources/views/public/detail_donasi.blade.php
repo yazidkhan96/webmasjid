@@ -47,8 +47,8 @@
 				<div class="title-section-app border-bottom" style="position: relative;left: 419%;bottom: 141px;">Donasi<br>
 				</div>
 				<div class="donasi-total">
-				<span>Rp.</span><br><br>
-				<span>Terkumpul dari : </span><br><br>
+				<span>Rp.{{$galangdana->donasi->where('status','bayar')->sum('jumlah_donasi')}};</span><br><br>
+				<span>Terkumpul dari : {{$galangdana->biaya_yang_dibutuhkan}}</span><br><br>
 				<a href="{{url('/payment_donasi',$galangdana->id)}}" class="btn btn-danger" style="padding: 8px 44px;">DONASI SEKARANG</a>
 				</div>
 				<div id="map" style="height: 20rem;"></div>

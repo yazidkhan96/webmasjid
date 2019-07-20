@@ -11,30 +11,26 @@
 				<tr>
 					<th scope="col">Tanggal Penyerahan</th>
 					<th scope="col">Tipe Penyerahan</th>
-					<th scope="col">Deskripsi</th>
-					<th scope="col">Id donasi</th>
+					<th scope="col">Kategori Id</th>
 					<th scope="col">Total</th>
 					<th scope="col">Gambar</th>
-					<th scope="col">Keterangan</th>
-					<th scope="col">Status</th>
 					<th scope="col">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach(App\Penyerahan::all() as $bantuan)
 				<tr>
-					<td>a</td>
-					<td>b</td>
-					<td>c</td>
-					<td>d</td>
-					<td>e</td>
-					<td>f</td>
-					<td>g</td>
-					<td>h</td>
+					<td>{{$bantuan->tanggal}}</td>
+					<td>{{$bantuan->kategori_penyerahan}}</td>
+					<td>{{$bantuan->sumber_dana_id}}</td>
+					<td>{{$bantuan->total_donasi}}</td>
+					<td>{{$bantuan->gambar}}</td>
 					<td>
 						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

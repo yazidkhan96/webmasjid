@@ -196,7 +196,7 @@ top: 154px;
         display: inline !important;
 }
 .thumb-img img{
-    height: 12rem;
+    height:12rem;
     width: 100%;
     object-fit: cover;
 }
@@ -371,7 +371,6 @@ a.btn-card {
 .blinking{
     position: relative;
     left: 28%;
-    bottom: 76px;
     font-size: 25px;
     text-decoration: none;
 
@@ -450,9 +449,9 @@ a.btn-card {
     bottom: 141px;
 }
 .pagination{
-    position: absolute;
+    position: relative;
     left: 86%;
-    top: 1348px
+    
 }
 .pagination>li span,.pagination>li a{
     border: none !important;
@@ -476,4 +475,8 @@ background: #00a680 !important;
     z-index: 1;
     color: #fff;
     background: #28a745 !important;
+}
+.detailzakat{
+    border: 0;
+
 }

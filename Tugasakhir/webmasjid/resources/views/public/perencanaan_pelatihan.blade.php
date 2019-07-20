@@ -21,16 +21,16 @@
             @foreach($perencanaans as $perencanaanpelatihan)
             <div class="col-md-4 mb-5">
                 <div class="card-content">
-                    <div class="card-img">
-                        <img src="https://placeimg.com/380/230/nature" alt="">
+                    <div class="thumb-img">
+                        <img src="{{asset('images/User')}}/{{$perencanaanpelatihan->user->gambar}}" alt="">
                     </div>
                     <div class="card-desc">
                         <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
-                        <p><em>Username pengurus : {{$perencanaanpelatihan->user_id}}</em></p>
+                        <p><em>Username pengurus : {{$perencanaanpelatihan->user->name}}</em></p>
                         <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
                         <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
                         <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
-						<a href="{{url('/detail/perencanaan/pelatihan')}}" class="btn-card">Read More</a>   
+                        <a href="{{url('/detail/perencanaan/pelatihan',$perencanaanpelatihan->id)}}" class="btn-card">Read More</a> 
                     </div>
                 </div>
             </div>
@@ -39,10 +39,8 @@
     </div>
 </section>
  @if(Auth::user())
-    <div class="col p-0">
        <a href="{{url('/tambah/perencanaan/pelatihan')}}" style="position: relative;
-    left: 40%; bottom: 1345px;" class="btn btn-app">Tambah perencanaan pelatihan</a>
-    </div>
+    left: 40%; bottom: 859px;" class="btn btn-app">Tambah perencanaan pelatihan</a>
     @endif
  {{$perencanaans->links()}}
 @endsection

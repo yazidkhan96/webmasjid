@@ -18,7 +18,11 @@ use Illuminate\Http\Request;
 });*/
 Route::post('payment/zakat','PublicController@create_zakat');
 Route::post('payment/donasi','PublicController@create_donasi');
+Route::post('pembayaran/va/zakat','AdminZakatController@pembayaranvazakat');
 Route::get('/get/donasi/by/kategori/{id}','PublicController@get_donasi');
+Route::get('/get/zakat/by/kategori/{id}','PublicController@get_zakat');
+Route::post('/penyerahan/bantuan','PublicController@penyerahanBantuan');
+Route::post('add/penarikan/dana','PublicController@penarikandana');
 
 Route::post('admin/upload/masjid','AdminMasjidController@uploadmasjid');
 Route::post('admin/update/masjid/{id}','AdminMasjidController@updatemasjid');

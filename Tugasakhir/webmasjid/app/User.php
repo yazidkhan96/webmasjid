@@ -13,6 +13,11 @@ class User extends Authenticatable
         return $this->hasMany(Perencanaan_kajian_pelatihan::class,'user_id');
     }
 
+    public function galangdana()
+    {
+        return $this->hasMany(Galang_dana::class,'creator_id');
+    }
+
 
 
     use Notifiable;

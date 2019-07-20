@@ -13,7 +13,7 @@
 		<div class="carousel-inner">
 			@foreach(explode(',',$pelatihan->gambar) as $i=> $image)
 			<div class="carousel-item {{$i == 0 ? 'active':''}}">
-				<img src="{{asset('images/Pelatihan')}}/{{$image}}">
+				<img src="{{asset('images/Pelatihan')}}/{{$image}}" style="object-fit: inherit !important;">
 			</div>
 			@endforeach
 		</div>

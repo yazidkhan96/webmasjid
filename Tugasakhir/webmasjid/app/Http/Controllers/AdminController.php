@@ -50,7 +50,7 @@ class AdminController extends Controller
      public function deletepengurus($id)
     {
         $user=User::find($id);
-        $this->delete_foto($user->gambar,'User');
+        Action::delete_foto($user->gambar,'User');
         $user->delete();
         return back ();
     }

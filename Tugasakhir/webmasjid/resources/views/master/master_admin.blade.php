@@ -62,7 +62,7 @@
                 <li class="{{ request()->is('admin/masjid') ? 'active' : '' }}"><a href="{{url('/admin/masjid')}}"><i class="material-icons">domain</i> Profile Masjid</a></li>
                 <li id="akomodasi" class="{{ request()->is('admin/forum') ? 'active' : '' }}"><a href="{{url('/admin/forum')}}"><i class="material-icons">chat</i> Forum Pengurus</a></li>
                 <li id="slider" class="{{ request()->is('admin/slider') ? 'active' : '' }}"><a href="{{url('/admin/slider')}}"><i class="material-icons">info</i> Slider</a></li>
-                <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">
+                <li class="{{ request()->is('admin/jadwalkajian') ? 'active' : '' }}">
                         <a style="background: white; color: #00a680 !important;" href="#kajianSubmenu" data-toggle="collapse" aria-expanded="false"><i class="material-icons">school</i> Kajian</a>
                         <ul class="collapse list-unstyled" id="kajianSubmenu">
                             <li><a href="{{url('/admin/jadwalkajian')}}" style="background-color: #00a680;"><i class="material-icons">event</i> Jadwal</a></li>

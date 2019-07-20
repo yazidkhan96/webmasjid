@@ -10,20 +10,20 @@
 
 <a href="{{url('/tambah_kajian')}}" class="btn btn-app" style="position: absolute;right: 81%;top: 63px;">Tambah Jadwal kajian</a>
 <div class="container">
-	@for($i=0;$i<5;$i++)
+	@foreach(App\Jadwal_kajian::all() as $jadwalkajian)
 	<div id="accordion">
 		<div class="card" style="position: relative; top: 100px;">
 			<div class="card-header">
-				<a class="card-link" data-toggle="collapse" href="#collapse{{$i}}">
-					<strong class="tgl-kajian">30</strong><strong class="tema-kajian">KAJIAN RUTIN JUM'AT</strong><br>
-					<strong class="bln-kajian">OKT</strong>
-					<strong class="nama-ustadz">USTADZ ADI HIDAYAT LC MA</strong><br>
-					<strong class="waktu-kajian"><i class="fa fa-clock-o"></i>  09:10-10:10</strong>
+				<a class="card-link" data-toggle="collapse" href="#collapse{{$jadwalkajian->id}}">
+					<strong class="tgl-kajian">{{$jadwalkajian->tanggal_kajian}}</strong><strong class="tema-kajian">{{$jadwalkajian->tema_kajian}}</strong><br>
+					<strong class="bln-kajian">{{$jadwalkajian->bulan_kajian}}</strong>
+					<strong class="nama-ustadz">{{$jadwalkajian->nama_ustadz}}</strong><br>
+					<strong class="waktu-kajian"><i class="fa fa-clock-o"></i>   {{$jadwalkajian->waktu_kajian}}</strong>
 					<strong class="lokasi-masjid"><i class="fa fa-map-marker"></i>
-					Masjid Al-Muhannif-Medan kota</strong><br>
-					<em class="kota-kajian">kota: Medan</em>
+					{{$jadwalkajian->masjid->nama_masjid}}</strong><br>
+					<em class="kota-kajian">alamat:{{$jadwalkajian->lokasi}}</em>
 				</a>
-				<div id="collapse{{$i}}" class="collapse" data-parent="#accordion">
+				<div id="collapse{{$jadwalkajian->id}}" class="collapse" data-parent="#accordion">
 					<div class="content col-lg-10">
 						<div class="row">
 							<div class="container">
@@ -31,11 +31,11 @@
 									<div class="col-5 border" style="">
 										<i class="fa fa-clock-o"></i>
 										<strong>WAKTU</strong><br>
-										<em>(rabu) 09.00 - 11.00</em>
+										<em>{{$jadwalkajian->waktu_kajian}}</em>
 									</div>
 									<div class="col-7 border" style="height: 148px;">
 										<strong style=""><i class="fa fa-map-marker"></i>  Lokasi (Lihat Peta)</strong><br>
-										<em>Masjid Ar Risalah - Medan Satria, Bekasi<br>Kota:Bekasi</em>
+										<em>{{$jadwalkajian->lokasi}}</em>
 									</div>
 								</div>
 								<div class="row border" style=" height: 33px; position: relative; right: 55px;">
@@ -63,7 +63,7 @@
 			</div>
 		</div>
 	</div>
-	@endfor
+	@endforeach
 </div>
 <div class="row" style="margin-left: 83px;">
 	<div class="col-7 kirim-jadwal">

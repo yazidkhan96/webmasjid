@@ -14,7 +14,7 @@
 </div>
   </div>
   <div class="row">
-    @php($page=10)
+    @php($page=7)
     @foreach(App\Masjid::paginate($page) as $masjid)
     <div class="col-md-3 col-6 mb-4">      
       <a href="{{url('/detail/masjid',$masjid->id)}}" style="text-decoration: none;">

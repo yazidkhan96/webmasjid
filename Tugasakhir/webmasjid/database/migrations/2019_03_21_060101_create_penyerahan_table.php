@@ -17,20 +17,11 @@ class CreatePenyerahanTable extends Migration
             $table->increments('id');
             $table->string('tanggal');
             $table->string('kategori_penyerahan');
-            $table->unsignedInteger('donasi_id');
+            $table->integer('sumber_dana_id');
             $table->string('total_donasi');
             $table->string('gambar');
             $table->string('keterangan');
             $table->timestamps();
-
-
-            $table->foreign('donasi_id')
-            ->references('id')
-            ->on('donasis')
-            ->Ondelete('no action')
-            ->Onupdate('no action');
-            
-
         });
     }
 

@@ -44,13 +44,6 @@
       </div>
     </div>
 
-    <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Bulan Kajian</div>
-      
-      <div class="col pr-0">
-        <input type="" name="" id="bulankajian" placeholder="Bulan Kajian" class="form-control" style="max-width: 25rem">
-      </div>
-    </div>
 
     <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Waktu Kajian</div>
@@ -76,16 +69,17 @@
 </div>
 </div>
 <script type="text/javascript">
+  $('#jadwalkajian').addClass('active');
   $('#datepicker').datepicker();
    var dataAll = [];
-   $('#budaya').addClass('active');
 $('#save').click(function () {
+  let fullDate=$('#datepicker').val().split('/');
     dataAll = ({
         'temakajian': $('#tema').val(),
         'namamasjid': $('#namamasjid').val(),
         'namaustadz': $('#namaustadz').val(),
-        'tanggalkajian': $('#datepicker').val(),
-        'bulankajian': $('#bulankajian').val(),
+        'tanggalkajian':fullDate[0],
+        'bulankajian':fullDate[1],
         'waktukajian': $('#waktukajian').val(),
         'lokasikajian': $('#lokasikajian').val(),
 

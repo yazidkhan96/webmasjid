@@ -25,7 +25,7 @@
 					<td>{{$zakat->zakat_id}}</td>
 					<td>{{$zakat->status}}</td>
 					<td>
-						<a href="{{url('/detail/wisata')}}" class="material-icons">visibility</a>
+						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
 					</td>
 				</tr>
 				@endforeach

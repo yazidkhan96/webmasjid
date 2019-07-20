@@ -89,7 +89,7 @@
     fileImgdel.push($(this).attr('data-gbr'));
    $(this).parent().remove();
   });
-  $('#desc').summernote('code','{!!$pelatihan->deskripsi!!}');
+$('#desc').summernote('code',`{!!$pelatihan->deskripsi!!}`);
 var fileImg = [];
 var dataAll = [];
 $('#budaya').addClass('active');

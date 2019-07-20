@@ -19,7 +19,7 @@ Route::group(['middleware'=>'auth:web'],function () {//pengurus
 
 	Route::get('/forum','PublicController@forum');
 	Route::get('/tambah_forum','PublicController@addforum');
-	Route::get('/detail/perencanaan/pelatihan','PublicController@detailperencanaanpelatihan');
+	Route::get('/detail/perencanaan/pelatihan/{id}','PublicController@detailperencanaanpelatihan');
 	Route::get('/tambah/galang/dana','PublicController@tambahgalangdana');
 
 	Route::get('/detail/perencanaan/kajian','PublicController@detailperencanaankajian');
@@ -30,11 +30,14 @@ Route::group(['middleware'=>'auth:web'],function () {//pengurus
 	Route::post('/update/password','AdminController@update_password');
 	Route::get('/ubah_password','PublicController@ubahpassword');
 	Route::get('/ubah_foto','PublicController@ubahfoto');
+	Route::get('/galang/dana','PublicController@galangdanapublic');
+	Route::get('/edit/galang/dana/{id}','PublicController@editgalang');
 });
 
 //publik(tanpa login)
 Route::get('/','PublicController@index');
 
+Route::get('/search/masjid','PublicController@search');
 
 Route::get('/profile_masjid','PublicController@masjid');
 Route::get('/detail/masjid/{id}','PublicController@detailmasjid');
@@ -71,8 +74,8 @@ Route::get('/kalkulator_zakat','PublicController@kalkulator_zakat');
 Route::get('/laporan_donasi','PublicController@laporan_donasi');
 Route::get('/laporan_zakat','PublicController@laporan_zakat');
 
-Route::get('/detail_laporan_zakat','PublicController@detail_laporan_zakat');
-Route::get('/detail_laporan_donasi','PublicController@detail_laporan_donasi');
+Route::get('/detail_laporan_zakat/{id}','PublicController@detail_laporan_zakat');
+Route::get('/detail_laporan_donasi/{id}','PublicController@detail_laporan_donasi');
 //endpublik
 
 Auth::routes();
@@ -138,6 +141,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/add/penyerahan/donasi','AdminDonasiController@addpenyerahandonasi');
 	Route::get('/add/galangdana','AdminDonasiController@addgalangdana');
 	Route::get('/edit/galangdana/{id}','AdminDonasiController@editgalangdana');
+	Route::get('/delete/galang/dana/{id}','AdminDonasiController@deletegalangdana');
 });
 
 

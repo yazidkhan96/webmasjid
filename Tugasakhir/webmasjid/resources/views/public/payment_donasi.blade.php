@@ -27,20 +27,12 @@
 	<div class="card-body">
 		<h5 class="card-title" style="position: relative;left: 29%;">Intruksi pembayaran</h5>
 		<p class="card-text" style="text-align: center;">Transfer tepat sesuai nominal berikut.</p>
-		<span style="font-weight: bold; font-size: 27px; position: relative; left: 27%; bottom: 13px;">RP.<strong>;</strong></span>
-		<div class="alert alert-primary" style="width: 415px; position: relative;left: 10%; bottom: 11%; background-color: #fff70033; border-color: #fff70033; "><strong style="font-size: 14px; ">PENTING! Transfer hingga 3 digit terakhir agar Donasi Anda dapat diproses</strong>
+		<span style="font-weight: bold; font-size: 27px; position: relative; left: 27%; bottom: 13px;">RP.<strong id="nilai_tf">0000</strong></span>
+		<div class="alert alert-primary" style="width: 415px; position: relative;left: 10%; bottom: 11%; background-color: #fff70033; border-color: #fff70033; "><strong style="font-size: 14px; ">PENTING! Transfer Ke Virtual account yang sesuai agar donasi anda dapat diproses</strong>
 		</div>
 		<div class="col small-padding">
 			<div class="col col--m6" >
 				<span style="font-weight: bold;margin-left: 22px;">Jumlah donasi</span>
-			</div>
-			<div class="col col--m6">
-				<span style="font-weight: bold;position: relative;left: 94%;bottom: 31px;">;</span>
-			</div>
-		</div>
-		<div class="col small-padding">
-			<div class="col col--m6" >
-				<span style="font-weight: bold;margin-left: 22px;">Kode unik*</span>
 			</div>
 			<div class="col col--m6">
 				<span style="font-weight: bold;position: relative;left: 94%;bottom: 31px;">;</span>
@@ -51,12 +43,8 @@
 <div class="card hidden" id="pembayaran" style="width: 41%;height: 200px;position: relative;left: 30%;top: 444px;">
 	<div class="card-body">
 		<span>
-			<p>Transfer ke rekening atas nama <strong>Yayasan Masjid Indonesia</strong>   Berikut ini:</p>
+			<p>Transfer ke Virtual account berikut :<span id="virtual_account"></span>  </p>
 		</span>
-		<div class="card" style="width: 81%; height: 31px; position: relative; left: 9%;">
-			<strong>4988 00 8999</strong><em style="position: relative;left: 87%;bottom: 22px; width: 16%;">BCA</em>
-		</div>
-		
 	</div>
 </div>
 	<div class="alert alert-primary hidden" id="alert" style="width: 30%;position: relative;left: 35%;
@@ -65,13 +53,16 @@
 
 <script type="text/javascript">
 $('#pembayaran').click(function() {
+	let max=9999999999;
+	let min=1111111111;
 	let  dataAll = ({
 	  'status': 'pending',
-	  'kategori_id': '{{$galangdana->kategori_id}}',
+	  'galangdana': '{{$galangdana->id}}',
 	  'namabank': 'BNI',
 	  'juduldonasi': $('#juduldonasi').text(),
 	  'nama': $('#nama').val(),
 	  'email': $('#email').val(),
+	  'virtual_account': Math.floor(Math.random() * (max - min)) + min,
 	  'jumlahdonasi': $('#jumlahdonasi').val(),
 	  });
 	console.log(dataAll)
@@ -80,6 +71,8 @@ $('#pembayaran').click(function() {
 	  type: "POST",
 	  data:  dataAll,
 	success:function(data){
+		$('#nilai_tf').text(dataAll.jumlahdonasi);
+		$('#virtual_account').text(dataAll.virtual_account);
 		$('.hidden').show();
 		$('.payment').hide();
 	}

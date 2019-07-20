@@ -9,6 +9,7 @@ use App\Galang_dana;
 use App\Donasi_pengunjung;
 use Action;
 use Auth;
+use App\User;
 class AdminDonasiController extends Controller
 {
     public function galangdana()
@@ -30,9 +31,17 @@ class AdminDonasiController extends Controller
      public function pembayaranva(Request $r)
     {
         $bayar=Donasi_pengunjung::where('virtual_account',$r->virtual_account)->first();
+        if (!$bayar) {
+            return response()->json(['message'=>'maaf, no virtual tidak ditemukan']);
+        }
         if ($bayar->status==='pending') {
-            $bayar->status='dibayar';
+            $bayar->status='bayar';
             $bayar->save();
+            if ($bayar->galangdana->creator!='admin') {
+                $user=User::find($bayar->galangdana->creator_id);
+                $user->saldo+=$bayar->jumlah_donasi;
+                $user->save();
+            }
             return response()->json(['message'=>'terima kasih,Bpk/Ibu '.$bayar->nama_pendonasi.' telah mendonasikan dana senilai:'.$bayar->jumlah_donasi]);
         }else if($bayar->status==='expired'){
             return response()->json(['message'=>'maaf, no virtual telah expired']);
@@ -46,6 +55,13 @@ class AdminDonasiController extends Controller
         return view ('admin.add_galang_dana');
 
     } 
+     public function deletegalangdana($id)
+    {
+        $galangdana=Galang_dana::find($id);
+        Action::delete_foto($galangdana->gambar,'Donasi');
+        $galangdana->delete();
+        return back ();
+    }
  
     public function editgalangdana($id)
     {

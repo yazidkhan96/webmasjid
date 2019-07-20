@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use DB;
+use Action;
 use App\Forum;
 use App\ChatForum;
 use App\Penzakat;
@@ -12,11 +14,22 @@ use App\Galang_dana;
 use App\Donasi_pengunjung;
 use App\Masjid;
 use App\Perencanaan_kajian_pelatihan;
+use App\Penyerahan;
+use App\Zakat;
+use App\Penarikan;
 class PublicController extends Controller
 {
     public function index()
     {
     	return view ('public.index');
+    }
+    public function search(Request $r)
+    {
+        $results=Masjid::where('nama_masjid','like','%'.$r->key.'%')
+        ->orWhere('alamat_masjid','like','%'.$r->key.'%')
+        ->get();
+        $key=$r->key;
+        return view ('public.search_masjid',compact('results','key'));
     }
 
     public function masjid()
@@ -104,9 +117,10 @@ class PublicController extends Controller
         return view('public.request_pelatihan');
     }
 
-    public function detailperencanaanpelatihan()
+    public function detailperencanaanpelatihan($id)
     {
-        return view('public.detail_perencanaan_pelatihan');
+        $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
+        return view('public.detail_perencanaan_pelatihan',compact('perencanaanpelatihan'));
     }
 
     public function detailperencanaankajian()
@@ -130,17 +144,31 @@ class PublicController extends Controller
         $zakat->zakat_id=$r->zakat_id;
         $zakat->nama_penzakat=$r->nama;
         $zakat->jumlah_zakat=$r->zakat;
+        $zakat->virtual_account=$r->virtual_account;
         $zakat->email=$r->email;
         $zakat->no_hp=$r->no_hp;
         $zakat->save();
         return response()->json($r->all());
     }
 
+
+    public function penarikandana(Request $r)
+    {
+
+        $penarikan=new Penarikan();
+        $penarikan->jumlah_penarikan=$r->jumlahpencairan;
+        $penarikan->bank_tujuan=$r->banktujuan;
+        $penarikan->nama_rekening=$r->namarekening;
+        $penarikan->nomor_rekening=$r->nomorrekening;
+        $penarikan->save();
+        return response()->json($r->all());
+    }
+
     public function create_donasi(Request $r)
     {
         $donasi=new Donasi_pengunjung();
-        $donasi->kategori_id=$r->kategori_id;
-        $donasi->virtual_account=rand(1111111111,9999999999);
+        $donasi->galangdana_id=$r->galangdana;
+        $donasi->virtual_account=$r->virtual_account;
         $donasi->nama_pendonasi=$r->nama;
         $donasi->judul_donasi=$r->juduldonasi;
         $donasi->jumlah_donasi=$r->jumlahdonasi;
@@ -152,8 +180,33 @@ class PublicController extends Controller
     }
       public function get_donasi($id)
     {
-        $donasi=Donasi_pengunjung::where('kategori_id',$id)->get();
+        $donasi=Donasi_pengunjung::rightJoin('galang_danas','galang_danas.id','donasi_pengunjungs.galangdana_id')->
+        where(['galang_danas.kategori_id'=>$id,'status_penyerahan'=>'belum','status'=>'bayar'])->get();
         return response()->json($donasi);
+    } 
+
+      public function get_zakat($id)
+    {
+        $zakat=Penzakat::where(['zakat_id'=>$id,'status_penyerahan'=>'belum','status'=>'bayar'])->get();
+        return response()->json($zakat);
+    }
+    public function penyerahanBantuan(Request $r)
+    {
+           $penyerahan=new Penyerahan();
+           $penyerahan->tanggal=$r->tanggalpenyerahan;
+           $penyerahan->kategori_penyerahan=$r->jenis;
+           $penyerahan->sumber_dana_id=implode(',',$r->sumber_id);
+           $penyerahan->total_donasi=$r->total_donasi;
+           $penyerahan->gambar=Action::save_multiple_foto($r->gambar,'Penyerahan');
+           $penyerahan->keterangan=$r->deskripsi;
+           if($penyerahan->save()){
+                if ($r->jenis==='zakat') {
+                Penzakat::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'diserahkan']);
+                }else{
+                Donasi_pengunjung::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'diserahkan']);
+                }
+            }
+            return response()->json($r->all());
     }
 
       public function dashboard_user()
@@ -222,13 +275,15 @@ class PublicController extends Controller
     {
         return view('public.laporan_zakat');
     }
-    public function detail_laporan_zakat()
+    public function detail_laporan_zakat($id)
     {
-        return view('public.detail_laporan_zakat');
+        $penyerahan=Penyerahan::find($id);
+        return view('public.detail_laporan_zakat',compact('penyerahan'));
     }
-     public function detail_laporan_donasi()
+     public function detail_laporan_donasi($id)
     {
-        return view('public.detail_laporan_donasi');
+        $penyerahan=Penyerahan::find($id);
+        return view('public.detail_laporan_donasi',compact('penyerahan'));
     }
     public function ubahpassword()
     {
@@ -238,6 +293,11 @@ class PublicController extends Controller
     {
         return view('public.ubah_foto');
     }
+    public function galangdanapublic()
+    {   
+        
+        return view('public.galang_dana');
+    }
      public function tambahgalangdana()
     {
         return view('public.tambah_galang_dana');
@@ -246,5 +306,10 @@ class PublicController extends Controller
     public function tambahmasjid()
     {
         return view('public.tambah_masjid');
+    }
+    public function editgalang($id)
+    {
+        $galangdana=Galang_dana::find($id);
+        return view('public.edit_galangdana',compact('galangdana'));
     }
 }

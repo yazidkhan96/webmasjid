@@ -7,7 +7,7 @@
 			<div class="section-app">
 				<div class="row m-0 border-bottom">
 					<div class="col p-0" style="margin-top: 31px;"> 
-						<img src="{{asset('images/Masjid')}}/{{$masjid->gambar}}" style="    width: 127% !important;max-height: 100% !important;">
+						<img src="{{asset('images/Masjid')}}/{{$masjid->gambar}}" style="width: 133% !important;height: 500px !important;">
 					</div>
 				</div>
 				<div class="row m-0 border-bottom">
@@ -25,8 +25,8 @@
 		</div>
 		<div class="col-md-4 col-lg-3 col-12 p-0 p-l-sm-2">
 			<div class="section-app">
-				<div class="title-section-app border-bottom" style="position: relative;top: 929px;">Lokasi</div>
-				<div id="map" style="height: 20rem; position: relative;top: 940px;overflow: hidden;"></div>
+				<div class="title-section-app border-bottom" style="position: relative;top: 585px;">Lokasi</div>
+				<div id="map" style="height: 20rem; position: relative;top: 597px;overflow: hidden;"></div>
 			</div>
 		</div>
 	</div>

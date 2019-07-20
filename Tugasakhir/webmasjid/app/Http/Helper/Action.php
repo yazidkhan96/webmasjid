@@ -43,25 +43,31 @@ class Action
   public static function update_multiple_foto($image,$folder,$old_img,$del_img)
   {
       $arr_img=[];
-      if (count($del_img)!=0) {
+      if (isset($del_img)&& count($del_img)!=0) {
        $old_img=explode(',',$old_img);
        $arr_img= array_diff($old_img, $del_img);
       }
-      for ($i=0,$imgLength=count($image); $i <$imgLength; $i++) { 
-        $uniqid=uniqid();
-        $img=$image[$i]['gambar'];
-        if (count(explode('.', $img))!=2) {
-            $ext  = explode('/', explode(';',explode(',', $img)[0])[0])[1];
-            $img  = explode(',', $img)[1];
-            $data = base64_decode($img);
-            $file = public_path().'/images/'.$folder.'/'.$uniqid.'.'.$ext;
-            $success = file_put_contents($file, $data);
-            array_push($arr_img,$uniqid.'.'.$ext);
-        }else{
-            array_push($arr_img,'default.jpg');
+      if (isset($image)) {
+        for ($i=0,$imgLength=count($image); $i <$imgLength; $i++) { 
+          $uniqid=uniqid();
+          $img=$image[$i]['gambar'];
+          if (count(explode('.', $img))!=2) {
+              $ext  = explode('/', explode(';',explode(',', $img)[0])[0])[1];
+              $img  = explode(',', $img)[1];
+              $data = base64_decode($img);
+              $file = public_path().'/images/'.$folder.'/'.$uniqid.'.'.$ext;
+              $success = file_put_contents($file, $data);
+              array_push($arr_img,$uniqid.'.'.$ext);
+          }else{
+              array_push($arr_img,'default.jpg');
+          }
         }
       }
-      return implode(',',$arr_img);
+      if (count($arr_img)!=0) {
+        return implode(',',$arr_img);
+      }else{
+        return $old_img;
+      }
   }
 
   public static function delete_foto($img,$folder)
