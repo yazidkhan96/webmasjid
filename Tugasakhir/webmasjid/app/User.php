@@ -15,8 +15,15 @@ class User extends Authenticatable
 
     public function galangdana()
     {
-        return $this->hasMany(Galang_dana::class,'creator_id');
+        return $this->hasOne(Galang_dana::class,'creator_id');
     }
+
+     public function penarikan()
+    {
+        return $this->hasMany(Penarikan::class);
+    }
+
+
 
 
 

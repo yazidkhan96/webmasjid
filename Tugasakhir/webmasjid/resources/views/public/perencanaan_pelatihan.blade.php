@@ -27,7 +27,8 @@
                     <div class="card-desc">
                         <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
                         <p><em>Username pengurus : {{$perencanaanpelatihan->user->name}}</em></p>
-                        <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
+                        <p><em>Tanggal Pelaksanaan : {{date('d',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</em></p>
+                        <p><em>Bulan Pelaksanaan : {{date('M',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</em></p>
                         <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
                         <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
                         <a href="{{url('/detail/perencanaan/pelatihan',$perencanaanpelatihan->id)}}" class="btn-card">Read More</a> 
@@ -40,7 +41,7 @@
 </section>
  @if(Auth::user())
        <a href="{{url('/tambah/perencanaan/pelatihan')}}" style="position: relative;
-    left: 40%; bottom: 859px;" class="btn btn-app">Tambah perencanaan pelatihan</a>
+    left: 40%; bottom: 891px;" class="btn btn-app">Tambah perencanaan pelatihan</a>
     @endif
  {{$perencanaans->links()}}
 @endsection

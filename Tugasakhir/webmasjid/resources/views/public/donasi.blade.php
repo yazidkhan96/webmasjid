@@ -26,9 +26,11 @@
 	@endforeach
 	<br>
 </div>
+@if(Auth::user())
 <div class="text-right mb-3">
-			<a class="btn btn-app" href="{{url('/tambah/galang/dana')}}" style="position: relative;bottom: 401px;right: 39px;">Tambah Galang Dana</a>
+		<a class="btn btn-app" href="{{url('/tambah/galang/dana')}}" style="position: relative;bottom: 401px;right: 39px;">Tambah Galang Dana</a>
 </div>
+@endif
 
 <script type="text/javascript">
 	

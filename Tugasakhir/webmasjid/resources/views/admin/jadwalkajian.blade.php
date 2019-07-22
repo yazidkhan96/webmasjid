@@ -25,13 +25,13 @@
 					<td>{{$jadwalkajian->tema_kajian}}</td>
 					<td>{{$jadwalkajian->masjid_id}}</td>
 					<td>{{$jadwalkajian->nama_ustadz}}</td>
-					<td>{{$jadwalkajian->tanggal_kajian}}</td>
-					<td>{{$jadwalkajian->bulan_kajian}}</td>
+					<td>{{date('d',strtotime($jadwalkajian->tanggal_kajian))}}</td>
+					<td>{{date('M',strtotime($jadwalkajian->tanggal_kajian))}}</td>
 					<td>{{$jadwalkajian->waktu_kajian}}</td>
 					<td>{{$jadwalkajian->lokasi}}</td>
 					<td>
 						<a href="{{url('/admin/edit/jadwal/kajian',$jadwalkajian->id)}}" class="material-icons">edit</a>
-						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
+						<a dataid="{{url('/admin/delete/jadwal/kajian',$jadwalkajian->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach
@@ -47,7 +47,7 @@
         <h4 class="modal-title">Hapus jadwal kajian</h4>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin menghapus Masjid ini ?</p>
+        <p>Apakah anda yakin menghapus Jadwal kajian ini ?</p>
       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-app" id="delete">Ya</a>
@@ -58,7 +58,7 @@
 <script type="text/javascript">
 	$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/wisata/`+id+`')}}`);
+		$('#delete').attr('href',id);
 	})
 </script>
 @endsection

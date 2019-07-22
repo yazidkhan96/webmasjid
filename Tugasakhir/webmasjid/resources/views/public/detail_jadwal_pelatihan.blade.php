@@ -44,97 +44,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 col-lg-3 col-12 p-0 p-l-sm-2">
+		<div class="col-md-4 col-lg-3 col-12 p-0 p-l-sm-2" style="    position: absolute;left: 73%;top: 594px;">
 			<div class="section-app">
 				<div class="title-section-app border-bottom mb-2">Lokasi</div>
-				<div id="map" style="height: 20rem;"></div>
 			</div>
 		</div>
 	</div>
 
 	<a href="{{url('/daftar_peserta')}}" class="blinking">Daftarkan diri anda</a>
-	<input type="hidden" name="" value="" id="latlng">
-	<input type="hidden" name="" value="" id="wisata_id">
-	<script type="text/javascript">
-		var latlng = $('#latlng').val().split(',');
-		var lat = parseFloat(latlng[0]);
-		var lng = parseFloat(latlng[1]);
-		/*  Render Lokasi Maps*/
-		function initMap() {
-/*    var tmplatlng = $('#latlng').val();
-    var latlng = tmplatlng.split(",");
-    var x = parseFloat(latlng[0]);
-    var y = parseFloat(latlng[1]);*/
+	
+	<div class="maps" style="position: absolute	;left: 53%; bottom: -469px;">
+		<div class="mapouter"><div class="gmap_canvas"><iframe width="308" height="323" id="gmap_canvas" src="{{$pelatihan->maps}}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.org"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+	</div>
 
-    var myLatLng = {lat: lat, lng: lng};
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-    	zoom: 8,
-    	center: myLatLng
-    });
-
-    var marker = new google.maps.Marker({
-    	position: myLatLng,
-    	map: map,
-    	title: 'Hello World!'
-    });
-} 
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMku8Cv-ld6KagEfwMCmyi4G997TAAZPo&callback=initMap">
-</script>
-<script type="text/javascript">
-	var value_rate = 0;
-	var dataUlasan = [];
-	$('.ratex').on('mouseover',function () {
-		$('.ratex').each(function () {
-			$(this).text('radio_button_unchecked');
-		});
-		var value= parseInt($(this).attr('data'));
-		for(var i = 1; i <= value; i++){
-			$('#rate'+i).text('radio_button_checked');
-		}
-	});
-	$('.ratex').on('mouseleave',function () {
-		$('.ratex').each(function () {
-			$(this).text('radio_button_unchecked');
-		});
-		for(var i = 1; i <= value_rate; i++){
-			$('#rate'+i).text('radio_button_checked');
-		}
-	});
-	$('.ratex').click(function () {
-		value_rate = parseInt($(this).attr('data'));
-		for(var i = 1; i <= value_rate; i++){
-			$('#rate'+i).text('radio_button_checked');
-		}
-	})
-
-	$('#sendUlasan').click(function () {
-		if( value_rate == 0){
-			alert('rate tidak boleh kosong')
-		}
-		else if($('#formUlasan').val() == ''){
-			alert('Kolom ulasan tidak boleh kosong')
-		}
-		else{
-			dataUlasan = {
-				'user_id':$('#user_id').val(),
-				'rate':value_rate,
-				'ulasan':$('#formUlasan').val()
-			}
-			console.log(dataUlasan);
-			var id_wisata=$('#wisata_id').val();
-			$.ajax({
-			  url: "/api/user/update/ulasan/"+id_wisata,
-			  type: "POST",
-			  data:  dataUlasan, 
-			  success:function(data){
-			    console.log(data,"ini");
-			    location.reload();
-			  }
-			});
-		}
-	})
-</script>
 @endsection

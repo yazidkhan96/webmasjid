@@ -69,7 +69,7 @@ class AdminPelatihanController extends Controller
     {
         $perencanaanpelatihan=new Perencanaan_kajian_pelatihan();
         $perencanaanpelatihan->user_id=$r->user;
-        $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+        $perencanaanpelatihan->tanggal_pelaksanaan=$r->Tanggalpelaksanaan;
         $perencanaanpelatihan->lokasi=$r->lokasikajian;
         $perencanaanpelatihan->ustadz=$r->namaustadz;
         $perencanaanpelatihan->biaya_pelaksanaan=$r->deskripsi;
@@ -85,7 +85,7 @@ class AdminPelatihanController extends Controller
     {
       $perencanaanpelatihan=Perencanaan_kajian_pelatihan::find($id);
       $perencanaanpelatihan->user_id=$r->user;
-      $perencanaanpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+      $perencanaanpelatihan->tanggal_pelaksanaan=$r->Tanggalpelaksanaan;
       $perencanaanpelatihan->lokasi=$r->lokasikajian;
       $perencanaanpelatihan->biaya_pelaksanaan=$r->deskripsi;
       $perencanaanpelatihan->judul_perencanaan=$r->judulperencanaan;
@@ -152,5 +152,11 @@ class AdminPelatihanController extends Controller
         return response()->json(['data'=>$r->all()]);
     }
 
+    public function verifrequest($id)
+    {
+        $request=Request_kajian_pelatihan::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'request anda telah menjadi perencanaan','Request Di Terima',$request->email);
+        return back();        
+    }
 
 }   

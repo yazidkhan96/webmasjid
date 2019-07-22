@@ -15,6 +15,11 @@ class AdminForumController extends Controller
     {
         return view ('admin.add_forum');
     }
+      public function detail_forum($id)
+    {
+        $forum=Forum::find($id);
+        return view('public.detail_forum',compact('forum'));
+    }
 
     public function uploadforum(Request $r)
     {

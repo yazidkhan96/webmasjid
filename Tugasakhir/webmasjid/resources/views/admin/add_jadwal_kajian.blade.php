@@ -73,13 +73,12 @@
   $('#datepicker').datepicker();
    var dataAll = [];
 $('#save').click(function () {
-  let fullDate=$('#datepicker').val().split('/');
+  let fullDate=$('#datepicker').val();
     dataAll = ({
         'temakajian': $('#tema').val(),
         'namamasjid': $('#namamasjid').val(),
         'namaustadz': $('#namaustadz').val(),
-        'tanggalkajian':fullDate[0],
-        'bulankajian':fullDate[1],
+        'tanggalkajian':fullDate,
         'waktukajian': $('#waktukajian').val(),
         'lokasikajian': $('#lokasikajian').val(),
 

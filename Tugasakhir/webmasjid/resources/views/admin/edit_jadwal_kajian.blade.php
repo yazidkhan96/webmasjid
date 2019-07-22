@@ -70,15 +70,12 @@
 <script type="text/javascript">
   $('#datepicker').datepicker();
    var dataAll = [];
-   $('#budaya').addClass('active');
 $('#save').click(function () {
-  let fullDate=$('#datepicker').val().split('/');
     dataAll = ({
         'temakajian': $('#tema').val(),
         'namamasjid': $('#namamasjid').val(),
         'namaustadz': $('#namaustadz').val(),
-        'bulankajiann': fullDate[0],
-        'tanggalkajian': fullDate[1],
+        'tanggalkajian': $('#datepicker').val(),
         'waktukajian': $('#waktukajian').val(),
         'lokasikajian': $('#lokasikajian').val(),
 

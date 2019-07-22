@@ -1,10 +1,10 @@
 @extends('master.master_admin')
 @section('content')
 <div>
-	<div class="title-admin">Penyerahan Donasi</div>
+	<div class="title-admin">Penyerahan Donasi Dan Zakat</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
-			<a class="btn btn-app" href="{{url('/admin/add/penyerahan/donasi')}}">Tambah Penyerahan donasi</a>
+			<a class="btn btn-app" href="{{url('/admin/add/penyerahan/donasi')}}">Tambah Penyerahan</a>
 		</div>
 		<table id="table_id" class="table text-center table-striped">
 			<thead>

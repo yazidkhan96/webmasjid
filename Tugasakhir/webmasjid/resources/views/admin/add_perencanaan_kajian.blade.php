@@ -81,10 +81,11 @@ $('#datepicker').datepicker();
 // statusForm = variabel terdapat di main.js
 
 $('#save').on('click',function () {
+  let fullDate=$('#datepicker').val();
 dataAll = ({
 'user': $('#user_id').val(),
 'jenisperencanaan': $('#jenisperencanaan').val(),
-'Tanggalpelaksanaan': $('#datepicker').val(),
+'Tanggalpelaksanaan': fullDate,
 'lokasikajian': $('#lokasi').val(),
 'nomorhandphone': $('#Nohp').val(),
 'namaustadz': $('#namaustadz ').val(),

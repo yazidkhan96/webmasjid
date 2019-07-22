@@ -25,7 +25,7 @@
 					<td>{{$donasi->nama_bank}}</td>
 					<td>{{$donasi->status}}</td>
 					<td>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
+						<a href="{{url('/admin/verif/donasi',$donasi->id)}}" class="material-icons">done</a>
 					</td>
 				</tr>
 				@endforeach

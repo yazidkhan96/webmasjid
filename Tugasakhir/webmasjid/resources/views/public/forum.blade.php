@@ -1,5 +1,8 @@
 @extends('master.master_main')
 @section('content')
+	<!-- @foreach(App\Forum::take(10)->get() as $forum) 
+	<a href="{{url('/detail_forum',$forum->id)}}" style="text-decoration: none !important;">{{$forum->id}}</a>
+    @endforeach -->
 
 <div class="row m-0 mb-2">
     <div class="col p-0">
@@ -10,7 +13,7 @@
 <div class="container">
 	<div class="row">  
 	@foreach(App\Forum::take(10)->get() as $forum) 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div>
 	<a href="{{url('/detail_forum',$forum->id)}}" style="text-decoration: none !important;">
 			<table class="table table-striped" style="position: relative;top: 127px; right: 29px;">
 	          <tbody> 	

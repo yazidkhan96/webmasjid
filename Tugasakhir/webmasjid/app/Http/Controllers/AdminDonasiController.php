@@ -7,6 +7,7 @@ use App\Donasi;
 use App\Kategori_donasi;
 use App\Galang_dana;
 use App\Donasi_pengunjung;
+use App\Penarikan;
 use Action;
 use Auth;
 use App\User;
@@ -15,6 +16,21 @@ class AdminDonasiController extends Controller
     public function galangdana()
     {
         return view ('admin.galangdana');
+    }
+
+    public function pencairandana()
+    {
+        return view ('admin.pencairandana');
+    }
+    public function verifikasipencairandana($id)
+    {
+        $penarikan=Penarikan::find($id);
+        $penarikan->status='success';
+        $penarikan->save();
+        // return dd($penarikan->user->galangdana);
+        $penarikan->user->galangdana->biaya_yang_terkumpul-=$penarikan->jumlah_penarikan;
+        $penarikan->user->galangdana->save();
+        return back ();
     }
      public function pendonasi()
     {
@@ -37,11 +53,10 @@ class AdminDonasiController extends Controller
         if ($bayar->status==='pending') {
             $bayar->status='bayar';
             $bayar->save();
-            if ($bayar->galangdana->creator!='admin') {
-                $user=User::find($bayar->galangdana->creator_id);
-                $user->saldo+=$bayar->jumlah_donasi;
-                $user->save();
-            }
+
+            $user=$bayar->galangdana;
+            $user->biaya_yang_terkumpul+=$bayar->jumlah_donasi;
+            $user->save();
             return response()->json(['message'=>'terima kasih,Bpk/Ibu '.$bayar->nama_pendonasi.' telah mendonasikan dana senilai:'.$bayar->jumlah_donasi]);
         }else if($bayar->status==='expired'){
             return response()->json(['message'=>'maaf, no virtual telah expired']);
@@ -105,6 +120,19 @@ class AdminDonasiController extends Controller
         $galangdana->deskripsi=$r->deskripsi;
         $galangdana->save();
         return response()->json(['data'=>$r->all()]);
+    }
+
+    public function confirmdonasi($id)
+    {
+        $request=Donasi_pengunjung::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'Selamat donasi anda berhasil kami terima , Semoga allah membalas kebaikan anda','Donasi Di Terima',$request->email);
+        return back();        
+    }
+    public function confirmpencairandana($id)
+    {
+        $request=Penarikan::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'Selamat Penarikan dana anda berhasil kami terima , dan akan kami transfer sesegera mungkin','Request penarikan dana di terima',$request->email);
+        return back();        
     }
 
 }

@@ -22,14 +22,15 @@
                     <div class="thumb-img">
                          <img src="{{asset('images/User')}}/{{$perencanaanpelatihan->user->gambar}}" alt="">
                     </div>
-                    <div class="card-desc">
-                        <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
-                        <p><em>Username pengurus : {{$perencanaanpelatihan->user->name}}</em></p>
-                        <p><em>Tanggal Pelaksanaan : {{$perencanaanpelatihan->tanggal_pelaksanaan}}</em></p>
-                        <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
-                        <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
-                        <a href="{{url('/detail/perencanaan/kajian')}}" class="btn-card">Read More</a>   
-                    </div>
+                <div class="card-desc">
+                    <h4>{{$perencanaanpelatihan->judul_perencanaan}}</h4>
+                    <p><em>Username pengurus : {{$perencanaanpelatihan->user->name}}</em></p>
+                    <p><em>Tanggal Pelaksanaan : {{date('d',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</em></p>
+                    <p><em>Bulan Pelaksanaan : {{date('M',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</em></p>
+                    <p><em>Nama Pemateri : {{$perencanaanpelatihan->ustadz}}</em></p>
+                    <p><em>Biaya Pelaksaan(dll): {!!$perencanaanpelatihan->biaya_pelaksanaan!!}</em></p>
+                    <a href="{{url('/detail/perencanaan/kajian')}}" class="btn-card">Read More</a>   
+                </div>
                 </div>
             </div>
             @endforeach

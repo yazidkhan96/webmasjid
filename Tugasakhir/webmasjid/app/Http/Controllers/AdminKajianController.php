@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Jadwal_kajian;
 use App\Perencanaan_kajian_pelatihan;
 use App\Request_kajian_pelatihan;
-
+use Action;
 class AdminKajianController extends Controller
 {
     public function jadwalkajian()
@@ -51,6 +51,12 @@ class AdminKajianController extends Controller
         $perencanaankajian->delete();
         return back ();
     }
+    public function deletekajian($id)
+    {
+        $jadwalkajian=Jadwal_kajian::find($id);
+        $jadwalkajian->delete();
+        return back ();
+    }
 
     public function addkajian(Request $r)
     {
@@ -59,7 +65,6 @@ class AdminKajianController extends Controller
         $jadwalkajian->masjid_id=$r->namamasjid;
         $jadwalkajian->nama_ustadz=$r->namaustadz;
         $jadwalkajian->tanggal_kajian=$r->tanggalkajian;
-        $jadwalkajian->bulan_kajian=$r->bulankajian;
         $jadwalkajian->waktu_kajian=$r->waktukajian;
         $jadwalkajian->lokasi=$r->lokasikajian;
         $jadwalkajian->save();
@@ -72,7 +77,6 @@ class AdminKajianController extends Controller
       $jadwalkajian->masjid_id=$r->namamasjid;
       $jadwalkajian->nama_ustadz=$r->namaustadz;
       $jadwalkajian->tanggal_kajian=$r->tanggalkajian;
-      $jadwalkajian->bulan_kajian=$r->bulankajian;
       $jadwalkajian->waktu_kajian=$r->waktukajian;
       $jadwalkajian->lokasi=$r->lokasikajian;
       $jadwalkajian->save();
@@ -84,7 +88,7 @@ class AdminKajianController extends Controller
     {
         $perencanaankajian=new Perencanaan_kajian_pelatihan();
         $perencanaankajian->user_id=$r->user;
-        $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+        $perencanaankajian->tanggal_pelaksanaan=$r->Tanggalpelaksanaan;
         $perencanaankajian->lokasi=$r->lokasikajian;
         $perencanaankajian->ustadz=$r->namaustadz;
         $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;
@@ -100,7 +104,7 @@ class AdminKajianController extends Controller
     {
       $perencanaankajian=Perencanaan_kajian_pelatihan::find($id);
       $perencanaankajian->user_id=$r->user;
-      $perencanaankajian->tanggal_pelaksanaan=date('d',strtotime($r->Tanggalpelaksanaan));
+      $perencanaankajian->tanggal_pelaksanaan=$r->Tanggalpelaksanaan;
       $perencanaankajian->lokasi=$r->lokasikajian;
       $perencanaankajian->biaya_pelaksanaan=$r->deskripsi;
       $perencanaankajian->judul_perencanaan=$r->judulperencanaan;
@@ -123,6 +127,12 @@ class AdminKajianController extends Controller
         $reqpelatihan->tanggal_pelaksanaan=date('d',strtotime($r->tanggalpelaksanaan));
         $reqpelatihan->save();
         return response()->json(['data'=>$r->all()]);
+    }
+    public function verifrequest($id)
+    {
+        $request=Request_kajian_pelatihan::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'request anda telah menjadi perencanaan','Request Di Terima',$request->email);
+        return back();        
     }
 
 }

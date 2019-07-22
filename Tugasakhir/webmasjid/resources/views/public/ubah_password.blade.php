@@ -19,17 +19,7 @@
 				</div>
 			</div>
 		</li>
-		<li class="list-group-item">
-			<div class="container dashboard">
-				<a data-toggle="collapse" data-target="#demo1" style="margin-left: -27px;">Galang dana</a><br>
-				<div id="demo1" class="collapse" style="margin-left: -15px;">
-					<ul style="list-style-type:none;" class="list-group list-group-flush">
-						<li><a href="">Ubah foto</a></li>
-						<li><a href="">Ubah deskripsi</a></li>
-						<li><a href="">Ubah batas waktu</a></li>
-					</ul>
-				</div>
-			</div>
+		<li class="list-group-item"><a href="{{url('/galang/dana')}}" style="color: black; text-decoration: none;">Galang Dana</a>
 		</li>
 		<li class="list-group-item">Pencairan dana</li>
 	</ul>

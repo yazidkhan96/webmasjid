@@ -7,16 +7,17 @@
   </div>
   <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
 </div>
-
+@if(Auth::user())
 <a href="{{url('/tambah_kajian')}}" class="btn btn-app" style="position: absolute;right: 81%;top: 63px;">Tambah Jadwal kajian</a>
+@endif
 <div class="container">
 	@foreach(App\Jadwal_kajian::all() as $jadwalkajian)
 	<div id="accordion">
 		<div class="card" style="position: relative; top: 100px;">
 			<div class="card-header">
 				<a class="card-link" data-toggle="collapse" href="#collapse{{$jadwalkajian->id}}">
-					<strong class="tgl-kajian">{{$jadwalkajian->tanggal_kajian}}</strong><strong class="tema-kajian">{{$jadwalkajian->tema_kajian}}</strong><br>
-					<strong class="bln-kajian">{{$jadwalkajian->bulan_kajian}}</strong>
+					<strong class="tgl-kajian">{{date('d',strtotime($jadwalkajian->tanggal_kajian))}}</strong><strong class="tema-kajian">{{$jadwalkajian->tema_kajian}}</strong><br>
+					<strong class="bln-kajian">{{date('M',strtotime($jadwalkajian->tanggal_kajian))}}</strong>
 					<strong class="nama-ustadz">{{$jadwalkajian->nama_ustadz}}</strong><br>
 					<strong class="waktu-kajian"><i class="fa fa-clock-o"></i>   {{$jadwalkajian->waktu_kajian}}</strong>
 					<strong class="lokasi-masjid"><i class="fa fa-map-marker"></i>

@@ -17,6 +17,7 @@ use App\Perencanaan_kajian_pelatihan;
 use App\Penyerahan;
 use App\Zakat;
 use App\Penarikan;
+use App\Peserta_pelatihan;
 class PublicController extends Controller
 {
     public function index()
@@ -156,6 +157,8 @@ class PublicController extends Controller
     {
 
         $penarikan=new Penarikan();
+        $penarikan->user_id=$r->username;
+        $penarikan->email=$r->email;
         $penarikan->jumlah_penarikan=$r->jumlahpencairan;
         $penarikan->bank_tujuan=$r->banktujuan;
         $penarikan->nama_rekening=$r->namarekening;
@@ -232,17 +235,14 @@ class PublicController extends Controller
     {
         return view('public.tambah_pelatihan');
     }
-    public function detail_forum($id)
-    {
-        $forum=Forum::find($id);
-        return view('public.detail_forum',compact('forum'));
-    }
+  
 
-    public function reply_comment(Request $r,$id)
+    public function reply_comment(Request $r)
     {
+        //return dd($r->all());
         $chat=new ChatForum();
         $chat->forum_id=$r->forum_id;
-        $chat->chat_forum_id=$id;
+        $chat->chat_forum_id=$r->chat_forum_id;
         $chat->user_id=Auth::user()->id;
         $chat->message=$r->message;
         $chat->save();
@@ -311,5 +311,18 @@ class PublicController extends Controller
     {
         $galangdana=Galang_dana::find($id);
         return view('public.edit_galangdana',compact('galangdana'));
+    }
+    public function verifpeserta($id)
+    {
+        $request=Peserta_pelatihan::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'Selamat anda berhasil mendaftar sebagai peserta','Pendaftaran Di Terima',$request->email);
+        return back();        
+    }
+
+    public function confirmzakat($id)
+    {
+        $request=Penzakat::find($id);
+        $mail=Action::sendEmail($request->nama_pengunjung,'Selamat zakat anda berhasil kami terima dan akan segera kami berikan kepada yang mustahik menerima nya, Semoga allah membalas kebaikan anda','zakat Di Terima',$request->email);
+        return back()->with('alert-success','Berhasil Kirim Email');       
     }
 }

@@ -25,7 +25,7 @@
 					<td>{{$requestkajian->nohp}}</td>
 					<td>{{$requestkajian->deskripsi}}</td>
 					<td>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">done</a>
+						<a href="{{url('/admin/verif/request',$requestkajian->id)}}" class="material-icons">done</a>
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>

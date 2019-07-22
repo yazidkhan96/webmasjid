@@ -3,6 +3,7 @@
 namespace App\Http\Helper;
 use Illuminate\Contracts\View\View;
 use File;
+use Mail;
 class Action
 {
 	public static function save_foto($img,$folder)
@@ -97,6 +98,24 @@ class Action
       }else{
           return $old_img;
       }
+    }
+
+    public static function sendEmail($nama,$pesan,$judul,$email)
+    {
+        $request=(object)['nama'=>$nama,'pesan'=>$pesan,'judul'=>$judul,'email'=>$email];
+       // return $request;
+        try{
+            Mail::send('email', ['nama' => $request->nama, 'pesan' => $request->pesan], function ($message) use ($request)
+            {
+                $message->subject($request->judul);
+                $message->from('donotreply@mesjid.com', 'Masjid Umat');
+                $message->to($request->email);
+            });
+            return 'Berhasil Kirim Email';
+        }
+        catch (Exception $e){
+            return  $e->getMessage();
+        }
     }
 
 }

@@ -31,7 +31,7 @@
 				<h4 style="position: relative; bottom: 11rem; left: 388px; margin-top: 2rem; cursor: pointer;">Pencairan dana</h4>
 			<hr style="border: 1px solid grey;width: 59%;position: relative;left: 7rem;bottom: 183px;">
 
-			<em style="position: relative;left: 29%;bottom: 181px;">Saldo : {{$user->saldo}};</span></em>
+			<em style="position: relative;left: 29%;bottom: 181px;">Saldo : {{$user->galangdana->sum('biaya_yang_terkumpul')}};</span></em>
 
 			<input class="form-control" type="text" id="jumlahpencairan" placeholder="Jumlah pencairan dana" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
 			<em style="position: relative;left: 29%;bottom: 187px;">Jumlah pencairan dana</em>
@@ -47,6 +47,8 @@
 			<em style="position: relative;left: 29%;bottom: 187px;">Nama pemilik rekening</em>
 			<input class="form-control" type="text"  id="nomorrekening" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
 			<em style="position: relative;left: 29%;bottom: 187px;">Nomor rekening</em>
+			<input class="form-control" type="text"  id="email" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
+			<em style="position: relative;left: 29%;bottom: 187px;">Email</em>
 
 			<button class="btn btn-primary btn-lg" id="save"style="margin-left: 55rem;padding: 5px 60px;position: relative; bottom: 136px;">Cairkan</button>
 		</div>
@@ -55,7 +57,8 @@
 
 $('#save').on('click',function () {
 	dataAll = ({
-
+		'username' : '{{$user->id}}',
+		'email' : $('#email').val(),
 		'jumlahpencairan': $('#jumlahpencairan').val(),
 		'banktujuan': $('#banktujuan').val(),
 		'namarekening': $('#namarekening').val(),

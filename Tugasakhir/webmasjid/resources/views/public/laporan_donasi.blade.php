@@ -38,7 +38,7 @@
     <tr>
       <th scope="col">Tanggal Penyerahan</th>
       <th scope="col">Kategori Penyerahan</th>
-      <th scope="col">Total Zakat</th>
+      <th scope="col">Total Donasit</th>
       <th scope="col">Detail</th>
    </tr>
   </thead>

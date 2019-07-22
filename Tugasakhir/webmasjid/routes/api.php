@@ -56,7 +56,6 @@ Route::post('pembayaran/va','AdminDonasiController@pembayaranva');
 Route::post('admin/upload/galangdana','AdminDonasiController@uploadgalangdana');
 Route::post('admin/update/galangdana/{id}','AdminDonasiController@updategalangdana');
 
-
 Route::post('add/request/pelatihan','AdminPelatihanController@uploadreqpelatihan');
 Route::post('add/request/kajian','AdminKajianController@uploadreqkajian');
 Route::post('add/peserta/pelatihan','AdminPelatihanController@addpeserta');

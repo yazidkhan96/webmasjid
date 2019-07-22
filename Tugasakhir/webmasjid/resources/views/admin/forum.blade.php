@@ -38,10 +38,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Hapus Masjid</h4>
+        <h4 class="modal-title">Hapus forum</h4>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin menghapus Masjid ini ?</p>
+        <p>Apakah anda yakin menghapus forum ini ?</p>
       </div>
       <div class="modal-footer">
         <a type="button" class="btn btn-app" id="delete">Ya</a>

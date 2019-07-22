@@ -80,7 +80,7 @@ radial-gradient(#25d366 60%,transparent 0);
 .text-zakat{
 position: relative;
 left: 52%;
-top: 154px;
+top: 250px;
 }
 .input-group-append{
 	position: relative;
@@ -480,3 +480,7 @@ background: #00a680 !important;
     border: 0;
 
 }
+.img-fluid{
+    max-width: 57%;
+}
+

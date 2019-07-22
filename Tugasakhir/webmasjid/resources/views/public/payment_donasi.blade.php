@@ -30,17 +30,9 @@
 		<span style="font-weight: bold; font-size: 27px; position: relative; left: 27%; bottom: 13px;">RP.<strong id="nilai_tf">0000</strong></span>
 		<div class="alert alert-primary" style="width: 415px; position: relative;left: 10%; bottom: 11%; background-color: #fff70033; border-color: #fff70033; "><strong style="font-size: 14px; ">PENTING! Transfer Ke Virtual account yang sesuai agar donasi anda dapat diproses</strong>
 		</div>
-		<div class="col small-padding">
-			<div class="col col--m6" >
-				<span style="font-weight: bold;margin-left: 22px;">Jumlah donasi</span>
-			</div>
-			<div class="col col--m6">
-				<span style="font-weight: bold;position: relative;left: 94%;bottom: 31px;">;</span>
-			</div>
-		</div>
 	</div>
 </div>
-<div class="card hidden" id="pembayaran" style="width: 41%;height: 200px;position: relative;left: 30%;top: 444px;">
+<div class="card hidden" id="pembayaran" style="width: 41%;height: 200px;position: relative;left: 30%;top: 307px;">
 	<div class="card-body">
 		<span>
 			<p>Transfer ke Virtual account berikut :<span id="virtual_account"></span>  </p>
@@ -48,7 +40,7 @@
 	</div>
 </div>
 	<div class="alert alert-primary hidden" id="alert" style="width: 30%;position: relative;left: 35%;
-    top: 353px; background: #fcfcfc; "><strong style="font-size: 14px; ">Transfer sebelum 11 Jun 2019 10:00 WIB atau donasi Anda otomatis dibatalkan oleh sistem.</strong>
+    top: 201px; background: #fcfcfc; "><strong style="font-size: 14px; ">Transfer sebelum 11 Jun 2019 10:00 WIB atau donasi Anda otomatis dibatalkan oleh sistem.</strong>
 	</div>
 
 <script type="text/javascript">

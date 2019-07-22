@@ -5,13 +5,7 @@
     <div class="col p-0">
       <div class="text-bold font-20">Profile Masjid</div>
     </div>
-   <div class="input-group md-form form-sm form-1 pl-0"style="position:absolute;left: 76%;top:-2px;">
-  <div class="input-group-prepend">
-    <span class="input-group-text bg-success lighten-2" id="basic-text1"><i class="fa fa-search text-white"
-        aria-hidden="true"></i></span>
-  </div>
-  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" style="max-width:238px; ">
-</div>
+  
   </div>
   <div class="row">
     @php($page=7)

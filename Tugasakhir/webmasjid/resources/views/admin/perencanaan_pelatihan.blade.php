@@ -12,6 +12,7 @@
 					<th scope="col">Nama Pengurus</th>
 					<th scope="col">Judul perencanaan</th>
 					<th scope="col">Tanggal Pelaksaan</th>
+					<th scope="col">Bulan Pelaksaan</th>
 					<th scope="col">Lokasi</th>
 					<th scope="col">Ustadz</th>
 					<th scope="col">Biaya Pelaksaan</th>
@@ -23,7 +24,8 @@
 				<tr>
 					<td>{{$perencanaanpelatihan->user_id}}</td>
 					<td>{{$perencanaanpelatihan->judul_perencanaan}}</td>
-					<td>{{$perencanaanpelatihan->tanggal_pelaksanaan}}</td>
+					<td>{{date('d',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</td>
+					<td>{{date('M',strtotime($perencanaanpelatihan->tanggal_pelaksanaan))}}</td>
 					<td>{{$perencanaanpelatihan->lokasi}}</td>
 					<td>{{$perencanaanpelatihan->ustadz}}</td>
 					<td>{{$perencanaanpelatihan->biaya_pelaksanaan}}</td>

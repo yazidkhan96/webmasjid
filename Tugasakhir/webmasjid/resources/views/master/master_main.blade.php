@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
         <link rel="stylesheet" href="{{asset('css/helper.css')}}">
-<!--         <link rel="stylesheet" href="{{asset('css/carousel.css')}}">
- -->        <link rel="stylesheet" href="{{asset('css/jquery.dataTables.css')}}">
+        <link rel="stylesheet" href="{{asset('css/jquery.dataTables.css')}}">
         <link rel="stylesheet" href="{{asset('css/summernote.css')}}">
         <link rel="stylesheet" href="{{asset('css/summernote.css')}}">
         <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}">

@@ -13,6 +13,8 @@
 Route::group(['middleware'=>'auth:web'],function () {//pengurus	
 	Route::get('/perencanaan_kajian','PublicController@perencanaan_kajian');
 	Route::get('/tambah_kajian','PublicController@tambahkajian');
+	Route::get('/tambah/profile/masjid','PublicController@tambahmasjid');
+
  
 	Route::get('/perencanaan_pelatihan','PublicController@perencanaan_pelatihan');
 	Route::get('/tambah_pelatihan','PublicController@tambahpelatihan');
@@ -25,8 +27,10 @@ Route::group(['middleware'=>'auth:web'],function () {//pengurus
 	Route::get('/detail/perencanaan/kajian','PublicController@detailperencanaankajian');
 	Route::get('/dashboard_user','PublicController@dashboard_user');
 	Route::get('/login_user','PublicController@login_user');
-	Route::get('/detail_forum/{id}','PublicController@detail_forum');	
-	Route::post('/forum/reply/comment/{id}','PublicController@reply_comment');
+
+	Route::get('/detail_forum/{id}','AdminForumController@detail_forum');
+	Route::post('/forum/reply/comment','PublicController@reply_comment');
+
 	Route::post('/update/password','AdminController@update_password');
 	Route::get('/ubah_password','PublicController@ubahpassword');
 	Route::get('/ubah_foto','PublicController@ubahfoto');
@@ -61,10 +65,12 @@ Route::get('/request_kajian','PublicController@request_kajian');
 Route::get('/request_pelatihan','PublicController@request_pelatihan');
 
 Route::get('/daftar_peserta','PublicController@daftarpeserta');
+Route::get('/verif/peserta/{id}','PublicController@verifpeserta');
 
 Route::get('/zakat_profesi','PublicController@zakat_profesi');
 Route::get('/zakat_maal','PublicController@zakat_maal');
 Route::get('/zakat_fitrah','PublicController@zakat_fitrah');
+Route::get('/confirm/zakat/{id}','PublicController@confirmzakat');
 
 Route::get('/payment_zakat','PublicController@payment_zakat');
 Route::get('/payment_donasi/{id}','PublicController@payment_donasi');
@@ -117,6 +123,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/add/perencanaan/kajian','AdminKajianController@addperencanaankajian');
 	Route::get('/edit/perencanaan/kajian/{id}','AdminKajianController@editperencanaankajian');
 	Route::get('/delete/perencanaan/kajian/{id}','AdminKajianController@deleteperencanaankajian');
+	Route::get('/delete/jadwal/kajian/{id}','AdminKajianController@deletekajian');
 
 	Route::get('/jadwalpelatihan','AdminPelatihanController@jadwalpelatihan');
 	Route::get('/add/jadwal/pelatihan','AdminPelatihanController@addjadwalpelatihan');
@@ -142,6 +149,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/add/galangdana','AdminDonasiController@addgalangdana');
 	Route::get('/edit/galangdana/{id}','AdminDonasiController@editgalangdana');
 	Route::get('/delete/galang/dana/{id}','AdminDonasiController@deletegalangdana');
+	Route::get('/pencairan/dana','AdminDonasiController@pencairandana');
+	Route::get('/verifikasi/pencairan/{id}','AdminDonasiController@verifikasipencairandana');
+	Route::get('/confirm/penarikan/{id}','AdminDonasiController@confirmpencairandana');
+	Route::get('/verif/donasi/{id}','AdminDonasiController@confirmdonasi');
+
+
+	Route::get('/verif/request/{id}','AdminPelatihanController@verifrequest');
+	Route::get('/verif/request/{id}','AdminKajianController@verifrequest');
 });
 
 

@@ -51,7 +51,7 @@
 
 
 
-<div class="card" style="width: 41%; height: 15rem;display: none; position: relative; left: 7%;" id="show-hasil">
+<div class="card" style="width: 41%; height: 15rem;display: none; position: relative; left: 7%; top: 146px;" id="show-hasil">
 	<div class="card-header">
 		<div class="title-zakat"  style="text-align: center;">
 		<span><i class="fa fa-briefcase" style="font-size: 32px; position: relative;"></i></span>
@@ -59,7 +59,7 @@
 		</div>
 	</div>
 	<div class="card-body">
-		<div style="position: relative; left: 31%;">
+		<div style="position: relative; left: 16%;">
 			<span><em>Hasil perhitungan zakat profesi anda :<span id='total'></span> </em></span> 
 			<br>
 			<span><em></em></span>

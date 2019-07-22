@@ -85,6 +85,7 @@
                             <li><a href="{{url('/admin/galangdana')}}" style="background-color: #00a680;"><i class="material-icons">chrome_reader_mode</i> List galang dana</a></li>
                             <li><a href="{{url('/admin/pendonasi')}}" style="background-color: #00a680;"><i class="material-icons">person</i> Pendonasi</a></li>
                             <li><a href="{{url('/admin/penyerahan/donasi')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Penyerahan</a></li>
+                            <li><a href="{{url('/admin/pencairan/dana')}}" style="background-color: #00a680;"><i class="material-icons">attach_money</i>Pencairan dana</a></li>
                         </ul>
                 </li>
                  <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">

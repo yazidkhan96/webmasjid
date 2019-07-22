@@ -21,17 +21,7 @@
 				</div>
 			</div>
 		</li>
-		<li class="list-group-item">
-			<div class="container dashboard">
-				<a data-toggle="collapse" data-target="#demo1" style="margin-left: -27px;">Galang dana</a><br>
-				<div id="demo1" class="collapse" style="margin-left: -15px;">
-					<ul style="list-style-type:none;" class="list-group list-group-flush">
-						<li><a href="">Ubah foto</a></li>
-						<li><a href="">Ubah deskripsi</a></li>
-						<li><a href="">Ubah batas waktu</a></li>
-					</ul>
-				</div>
-			</div>
+		<li class="list-group-item"><a href="{{url('/galang/dana')}}" style="color: black; text-decoration: none;">Galang Dana</a>
 		</li>
 		<li class="list-group-item">Pencairan dana</li>
 	</ul>
@@ -47,23 +37,23 @@
       <div class="d-inline-block text-center">
 
         <input name="image" type="file" accept="image/*" onchange="uploadimage(event)" id="imginput" class="hidden" />
-        <img id="imgview" src="{{asset('images/User')}}/{{$user->gambar}}" class="admin-view-sampul"/ style="position: fixed;left: 31rem;bottom: 353px;width: 338px;object-fit: cover;"><br>
+        <img id="imgview" src="{{asset('images/User')}}/{{$user->gambar}}" class="admin-view-sampul"/ style="position: fixed;left: 31rem;bottom: 228px;width: 338px;object-fit: cover;"><br>
 
         <label class="mt-2 btn-change text-center" for="imginput">
-          <span class="btn border" style="position: fixed;bottom: 19rem;left: 38rem;">Pilih Gambar</span>
+          <span class="btn border" style="position: fixed;bottom: 11rem;left: 38rem;">Pilih Gambar</span>
         </label>
       </div>
     </div>
 
 
   </div>
-		<span style="position: relative; left: 33rem; bottom: 79px;">
+		<span style="position: relative; left: 33rem; bottom: -6px;">
 					<em>Foto yang di Upload disarankan</em><br>
 					<em>Berukuran 72px x 75px</em><br>
 					<em>dan memiliki format PNG,JPG atau Jpeg</em>
 		</span>
 </div>
-<button class="btn btn-primary btn-lg" id="save" style="margin-left: 33rem;padding: 5px 60px;position: relative; bottom: 4rem;">Simpan</button>
+<button class="btn btn-primary btn-lg" id="save" style="margin-left: 33rem;padding: 5px 60px;position: relative; bottom: -1rem;">Simpan</button>
 
 
 <script type="text/javascript">
