@@ -50,8 +50,8 @@ class AdminDonasiController extends Controller
         if (!$bayar) {
             return response()->json(['message'=>'maaf, no virtual tidak ditemukan']);
         }
-        if ($bayar->status==='pending') {
-            $bayar->status='bayar';
+        if ($bayar->status==='belumbayar') {
+            $bayar->status='sudahbayar';
             $bayar->save();
 
             $user=$bayar->galangdana;

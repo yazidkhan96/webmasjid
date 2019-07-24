@@ -61,7 +61,12 @@
                 <li id="user" class="{{ request()->is('admin/user') ? 'active' : '' }}"><a href="{{url('admin/user')}}"><i class="material-icons">assignment_ind</i> Data Pengurus</a></li>
                 <li class="{{ request()->is('admin/masjid') ? 'active' : '' }}"><a href="{{url('/admin/masjid')}}"><i class="material-icons">domain</i> Profile Masjid</a></li>
                 <li id="akomodasi" class="{{ request()->is('admin/forum') ? 'active' : '' }}"><a href="{{url('/admin/forum')}}"><i class="material-icons">chat</i> Forum Pengurus</a></li>
-                <li id="slider" class="{{ request()->is('admin/slider') ? 'active' : '' }}"><a href="{{url('/admin/slider')}}"><i class="material-icons">info</i> Slider</a></li>
+                
+                <li id="akomodasi" class="{{ request()->is('admin/forum') ? 'active' : '' }}"><a href="{{url('/admin/penyerahan/donasi')}}"><i class="material-icons">account_balance_wallet</i>Penyerahan</a></li>
+               
+                <li id="akomodasi" class="{{ request()->is('admin/forum') ? 'active' : '' }}"><a href="{{url('/admin/zakat')}}"><i class="material-icons">supervisor_account</i>Penzakat</a></li>
+                
+                 <li id="slider" class="{{ request()->is('admin/slider') ? 'active' : '' }}"><a href="{{url('/admin/slider')}}"><i class="material-icons">info</i> Slider</a></li>
                 <li class="{{ request()->is('admin/jadwalkajian') ? 'active' : '' }}">
                         <a style="background: white; color: #00a680 !important;" href="#kajianSubmenu" data-toggle="collapse" aria-expanded="false"><i class="material-icons">school</i> Kajian</a>
                         <ul class="collapse list-unstyled" id="kajianSubmenu">
@@ -84,15 +89,7 @@
                         <ul class="collapse list-unstyled" id="donasiSubmenu">
                             <li><a href="{{url('/admin/galangdana')}}" style="background-color: #00a680;"><i class="material-icons">chrome_reader_mode</i> List galang dana</a></li>
                             <li><a href="{{url('/admin/pendonasi')}}" style="background-color: #00a680;"><i class="material-icons">person</i> Pendonasi</a></li>
-                            <li><a href="{{url('/admin/penyerahan/donasi')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Penyerahan</a></li>
                             <li><a href="{{url('/admin/pencairan/dana')}}" style="background-color: #00a680;"><i class="material-icons">attach_money</i>Pencairan dana</a></li>
-                        </ul>
-                </li>
-                 <li class="{{ request()->is('admin/hasil-pengujian') ? 'active' : '' }}">
-                        <a style="background: white; color: #00a680 !important;" href="#zakatSubmenu" data-toggle="collapse" aria-expanded="false"><i class="material-icons">payment</i> Zakat</a>
-                        <ul class="collapse list-unstyled" id="zakatSubmenu">
-                            <li id="ulasan" class="{{ request()->is('admin/ulasan') ? 'active' : '' }}" ><a href="{{url('/admin/zakat')}}" style="background-color: #00a680;"><i class="material-icons">supervisor_account</i> Zakat</a></li>
-                            <li><a href="{{url('/admin/penyerahan/zakat')}}" style="background-color: #00a680;"><i class="material-icons">account_balance_wallet</i> Penyerahan</a></li>
                         </ul>
                 </li>
             </ul>

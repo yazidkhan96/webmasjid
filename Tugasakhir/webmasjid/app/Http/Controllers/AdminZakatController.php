@@ -23,8 +23,8 @@ class AdminZakatController extends Controller
     public function pembayaranvazakat(Request $r)
     {
         $bayar=Penzakat::where('virtual_account',$r->virtual_account)->first();
-        if ($bayar->status==='pending') {
-            $bayar->status='bayar';
+        if ($bayar->status==='belumbayar') {
+            $bayar->status='sudahbayar';
             $bayar->save();
             return response()->json(['message'=>'terima kasih,Bpk/Ibu '.$bayar->nama_penzakat.' telah membayar zakat senilai:'.$bayar->jumlah_zakat]);
         }else if($bayar->status==='expired'){

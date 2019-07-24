@@ -86,15 +86,15 @@
   </div>
 </div>
 <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Tabel Donasi</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Data Tabel</div>
       
       <div class="col pr-0">
         <table  class="table text-center table-striped">
       <thead>
         <tr>
-          <th scope="col">Untuk donasi</th>
+          <th scope="col">Untuk Penyerahan</th>
           <th scope="col">Nama</th>
-          <th scope="col">Jumlah donasi</th>
+          <th scope="col">Jumlah Penyerahan</th>
           <th scope="col">Rekening</th>
           <th scope="col">Status penyerahan</th>
         </tr>
@@ -106,7 +106,7 @@
     </div>
 
     <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Total donasi</div>
+      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem">Total Penyerahan</div>
       
       <div class="col pr-0">
         <input type="" name="" id="total_donasi" placeholder="Total donasi" class="form-control" style="max-width: 25rem" readonly>

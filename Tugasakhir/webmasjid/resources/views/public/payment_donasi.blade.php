@@ -15,7 +15,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">RP</span>
 				</div>
-				<input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" id="jumlahdonasi">
+				<input type="text" class="form-control input-number"  aria-label="Username" aria-describedby="basic-addon1" id="jumlahdonasi">
 			</div>
 			<input type="text" class="form-control" name="nama" placeholder="Nama" id="nama"><br>
 			<input type="email" class="form-control" name="email" placeholder="Email" id="email">

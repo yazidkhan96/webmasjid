@@ -14,7 +14,7 @@
 			 </div>
 			 <div class="card-text" style="position: relative;top: -30px;left: 23px;">
 			  	<span>Terkumpul :</span><br>
-			  	<span>{{$galangdana->donasi->where('status','bayar')->sum('jumlah_donasi')}};</span>
+			  	<span>{{$galangdana->donasi->where('status','sudahbayar')->sum('jumlah_donasi')}};</span>
 			 </div>
 			 <div class="card-text" style="position: relative;left: 74%;bottom: 76px;">	
 			 		<span>sisa hari :</span><br>	

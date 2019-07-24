@@ -1,10 +1,10 @@
 @extends('master.master_main')
 @section('content')
 
-<div class="container marketing" style="position: relative;top: 58px;">
+<div class="container marketing" style="position: relative;left:-5%; top:46px;">
     @if(Auth::user())
     <div class="col p-0">
-       <a href="{{url('/tambah_pelatihan')}}" class="btn btn-app" style="position: absolute;right: 1px;top: 34px;padding: 6px 28px;">Tambah Jadwal pelatihan</a>
+       <a href="{{url('/tambah_pelatihan')}}" class="btn btn-app" style="position: absolute;left:-1px;top: 34px;padding: 6px 28px;">Tambah Jadwal pelatihan</a>
     </div>
     @endif
 
@@ -12,14 +12,7 @@
     <div class="col p-0">
       <div class="text-bold font-20">Jadwal Pelatihan</div>
     </div>
-   <div class="input-group md-form form-sm form-1 pl-0"style="position:absolute;left: 76%;top:-2px;">
-  <div class="input-group-prepend">
-    <span class="input-group-text bg-success lighten-2" id="basic-text1"><i class="fa fa-search text-white"
-        aria-hidden="true"></i></span>
-  </div>
-  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" style="max-width:238px; ">
 </div>
-  </div>
   <div class="row">
     @foreach(App\Pelatihan::take(10)->get() as $pelatihan)
     <div class="col-md-3 col-6 mb-4" >
@@ -36,13 +29,27 @@
               No Pengurus : {{$pelatihan->nohp}}
             </p>
           </div>
-          <!-- Button -->
     </a>      
     
-      <!-- Card -->
-      </div><!-- /.col-lg-4 -->
-        @endforeach
+      </div>
+      @endforeach
 
     </div>
   </div>
+
+<div class="">
+        <select class="form-control" id="bataswaktu"  style="max-width: 13rem; position:absolute; left:  80%; top:  112px;">
+          <option hidden="">--Urutkan berdasarkan--</option>
+          <option>A-Z</option>
+          <option>Z-A</option>
+          <option>120 hari</option>
+        </select>
+      </div>
+  <script type="text/javascript">
+  $('#searchpelatihan').on('click',function () {
+    alert();
+    let key=$('#search').val();
+    location.href=`/search/pelatihan?key=${key}`;
+  })
+</script>
 @endsection

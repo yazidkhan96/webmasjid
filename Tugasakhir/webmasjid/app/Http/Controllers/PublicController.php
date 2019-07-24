@@ -184,13 +184,13 @@ class PublicController extends Controller
       public function get_donasi($id)
     {
         $donasi=Donasi_pengunjung::rightJoin('galang_danas','galang_danas.id','donasi_pengunjungs.galangdana_id')->
-        where(['galang_danas.kategori_id'=>$id,'status_penyerahan'=>'belum','status'=>'bayar'])->get();
+        where(['galang_danas.kategori_id'=>$id,'status_penyerahan'=>'belumdiserahkan','status'=>'sudahbayar'])->get();
         return response()->json($donasi);
     } 
 
       public function get_zakat($id)
     {
-        $zakat=Penzakat::where(['zakat_id'=>$id,'status_penyerahan'=>'belum','status'=>'bayar'])->get();
+        $zakat=Penzakat::where(['zakat_id'=>$id,'status_penyerahan'=>'belumdiserahkan','status'=>'sudahbayar'])->get();
         return response()->json($zakat);
     }
     public function penyerahanBantuan(Request $r)
@@ -204,9 +204,9 @@ class PublicController extends Controller
            $penyerahan->keterangan=$r->deskripsi;
            if($penyerahan->save()){
                 if ($r->jenis==='zakat') {
-                Penzakat::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'diserahkan']);
+                Penzakat::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'sudahdiserahkan']);
                 }else{
-                Donasi_pengunjung::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'diserahkan']);
+                Donasi_pengunjung::whereIn('id',$r->sumber_id)->update(['status_penyerahan'=>'sudahdiserahkan']);
                 }
             }
             return response()->json($r->all());

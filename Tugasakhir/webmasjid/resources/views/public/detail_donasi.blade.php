@@ -4,9 +4,11 @@
 	<!-- Slider -->
 	<div id="myCarousel" class="carousel slide slider-app" data-ride="carousel">
 		<!-- Indicators -->
+		<ol class="carousel-indicators">
 		@foreach(explode(',',$galangdana->gambar) as $key=> $image)
 			<li data-target="#myCarousel" data-slide-to="{{$key}}" class="{{$key == 0 ? 'active':''}}"></li>
 		@endforeach
+		</ol>
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 		@foreach(explode(',',$galangdana->gambar) as $i=> $image)
@@ -34,7 +36,7 @@
 					<div class="col p-0">
 						<div class="title-section-app pb-1">{{$galangdana->judul}}</div>
 						<span class="text-bold">{{$galangdana->creator}}</span>
-						<div>{{$galangdana->batas_waktu}}</div>
+						<div>Sisa waktu galang : {{$galangdana->batas_waktu}}</div>
 					</div>
 
 				</div>
@@ -47,7 +49,7 @@
 				<div class="title-section-app border-bottom" style="position: relative;left: 419%;bottom: 141px;">Donasi<br>
 				</div>
 				<div class="donasi-total">
-				<span>Rp.{{$galangdana->donasi->where('status','bayar')->sum('jumlah_donasi')}};</span><br><br>
+				<span>Rp.{{$galangdana->donasi->where('status','sudahbayar')->sum('jumlah_donasi')}};</span><br><br>
 				<span>Terkumpul dari : {{$galangdana->biaya_yang_dibutuhkan}}</span><br><br>
 				<a href="{{url('/payment_donasi',$galangdana->id)}}" class="btn btn-danger" style="padding: 8px 44px;">DONASI SEKARANG</a>
 				</div>

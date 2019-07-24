@@ -1,7 +1,7 @@
 @extends('master.master_admin')
 @section('content')
 <div>
-	<div class="title-admin">Zakat</div>
+	<div class="title-admin">Penzakat</div>
 	<div class="content-admin">
 		<table id="table_id" class="table text-center table-striped">
 			<thead>

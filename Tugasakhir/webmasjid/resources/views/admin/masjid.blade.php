@@ -4,7 +4,7 @@
 	<div class="title-admin">Profile Masjid</div>
 	<div class="content-admin">
 		<div class="text-right mb-3">
-			<a class="btn btn-app" href="{{url('/admin/add/profile/masjid')}}">Tambah Masjid</a>
+			<a class="btn btn-app" href="{{url('/admin/add/profile/masjid')}}">Tambah Profile Masjid</a>
 		</div>
 		<table id="table_id" class="table text-center table-striped">
 			<thead>

@@ -38,9 +38,9 @@
  <div class="col pr-0">
         <select class="form-control" id="bataswaktu"  style="max-width: 25rem; position:absolute; right: 70%;">
           <option hidden="">--Pilih batas waktu--</option>
-          <option>1 bulan</option>
-          <option>3 bulan</option>
-          <option>6 bulan</option>
+          <option>30 hari</option>
+          <option>90 hari</option>
+          <option>120 hari</option>
         </select>
       </div>
   </div>

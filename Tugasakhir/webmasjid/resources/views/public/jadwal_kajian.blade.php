@@ -1,12 +1,5 @@
 @extends('master.master_main')
 @section('content')
-<div class="input-group md-form form-sm form-1 pl-0" style="width: 25%; position: relative; top: 58px; left: 74%;">
-  <div class="input-group-prepend">
-    <span class="input-group-text bg-success lighten-2" id="basic-text1"><i class="fa fa-search text-white"
-        aria-hidden="true"></i></span>
-  </div>
-  <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search">
-</div>
 @if(Auth::user())
 <a href="{{url('/tambah_kajian')}}" class="btn btn-app" style="position: absolute;right: 81%;top: 63px;">Tambah Jadwal kajian</a>
 @endif

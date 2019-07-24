@@ -42,6 +42,8 @@ Route::group(['middleware'=>'auth:web'],function () {//pengurus
 Route::get('/','PublicController@index');
 
 Route::get('/search/masjid','PublicController@search');
+Route::get('/search/pelatihan','PublicController@searchpelatihan');
+
 
 Route::get('/profile_masjid','PublicController@masjid');
 Route::get('/detail/masjid/{id}','PublicController@detailmasjid');

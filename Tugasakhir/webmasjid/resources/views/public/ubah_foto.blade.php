@@ -5,9 +5,9 @@
 @php($user=Auth::user())
 <div class="card" style="width: 18rem; background-color: rgba(48,173,76,1);position: relative;
 	top: 8rem;left: 5rem;">
-	<img class="card-img-top rounded-circle" src="{{asset('/img/user-profile.jpg')}}" alt="Card image cap" style="height: 70px;width: 70px; position: relative; top: 20px; left: 33%; z-index: 1; border: 5px solid #fff;">
+	<img class="card-img-top rounded-circle" src="{{asset('images/User')}}/{{$user->gambar}}" alt="Card image cap" style="height: 70px;width: 70px; position: relative; top: 20px; left: 33%; z-index: 1; border: 5px solid #fff;">
 	<div class="card-body">
-		<h5 class="card-title" style="margin-left: 4rem; color: white;">username</h5>
+		<h5 class="card-title" style="margin-left: 4rem; color: white;">{{$user->name}}</h5>
 	</div>
 	<ul class="list-group list-group-flush">
 		<li class="list-group-item">
@@ -23,7 +23,7 @@
 		</li>
 		<li class="list-group-item"><a href="{{url('/galang/dana')}}" style="color: black; text-decoration: none;">Galang Dana</a>
 		</li>
-		<li class="list-group-item">Pencairan dana</li>
+		<li class="list-group-item"><a href="{{url('/dashboard_user')}}" style="color: black; text-decoration: none;">Pencairan dana</a></li>
 	</ul>
 </div>
 <div class="dashboard-foto-profile">

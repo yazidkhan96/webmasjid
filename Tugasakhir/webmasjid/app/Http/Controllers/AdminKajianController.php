@@ -13,7 +13,6 @@ class AdminKajianController extends Controller
     {
         return view ('admin.jadwalkajian');
     }
-
     public function perencanaan_kajian()
     {
         return view ('admin.perencanaan_kajian');

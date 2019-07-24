@@ -1,7 +1,6 @@
 @extends('master.master_main')
 @section('content')
 
-
  @php($user=Auth::user())
 <div class="card" style="width: 18rem; background-color: rgba(48,173,76,1);position: relative;
 	top: 9rem;left: 5rem;">
@@ -28,29 +27,31 @@
 </div>
 									
 		<div class="dashboard-pencairan-dana">
-				<h4 style="position: relative; bottom: 11rem; left: 388px; margin-top: 2rem; cursor: pointer;">Pencairan dana</h4>
-			<hr style="border: 1px solid grey;width: 59%;position: relative;left: 7rem;bottom: 183px;">
+				<h4 style="position: fixed; bottom: 27rem; left: 388px; margin-top: 2rem; cursor: pointer;">Pencairan dana</h4>
+			<hr style="border: 1px solid grey;width: 59%;position: fixed;left: 24rem;bottom: 26rem;">
 
-			<em style="position: relative;left: 29%;bottom: 181px;">Saldo : {{$user->galangdana->sum('biaya_yang_terkumpul')}};</span></em>
+			<em style="position: fixed;left: 29%;bottom: 25rem;">Saldo : {{$user->galangdana->sum('biaya_yang_terkumpul')}};</span></em>
 
-			<input class="form-control" type="text" id="jumlahpencairan" placeholder="Jumlah pencairan dana" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
-			<em style="position: relative;left: 29%;bottom: 187px;">Jumlah pencairan dana</em>
-			<select class="form-control" id="banktujuan" style="position: relative;left: 42%;bottom: 157px; width: 620px;">
+			<input class="form-control input-number" type="text" id="jumlahpencairan" placeholder="Jumlah pencairan dana" style="position: fixed;left: 42%;bottom: 21rem; width: 620px; text-align: center;">
+			<em style="position: fixed;left: 29%;bottom: 22rem;">Jumlah pencairan dana</em>
+			<select class="form-control" id="banktujuan" style="position: fixed;left: 42%;bottom: 18rem; width: 620px;">
   					<option>BNI</option>
   					<option>BRI</option>
   					<option>BCA</option>
   					<option>Muamalat</option>
 			</select>
-			<em style="position: relative;left: 29%;bottom: 187px;">Bank tujuan</em>
+			<em style="position: fixed;left: 29%;bottom: 19rem;">Bank tujuan</em>
 
-			<input class="form-control" type="text" id="namarekening" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
-			<em style="position: relative;left: 29%;bottom: 187px;">Nama pemilik rekening</em>
-			<input class="form-control" type="text"  id="nomorrekening" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
-			<em style="position: relative;left: 29%;bottom: 187px;">Nomor rekening</em>
-			<input class="form-control" type="text"  id="email" style="position: relative;left: 42%;bottom: 157px; width: 620px; text-align: center;">
-			<em style="position: relative;left: 29%;bottom: 187px;">Email</em>
+			<input class="form-control" type="text" id="namarekening" style="position: fixed;left: 42%;bottom: 243px; width: 620px; text-align: center;">
+			<em style="position: fixed;left: 29%; bottom: 250px;">Nama pemilik rekening</em>
 
-			<button class="btn btn-primary btn-lg" id="save"style="margin-left: 55rem;padding: 5px 60px;position: relative; bottom: 136px;">Cairkan</button>
+			<input class="form-control input-number" type="text"  id="nomorrekening" style="position: fixed;left: 42%;bottom: 173px; width: 620px; text-align: center;">
+			<em style="position: fixed;left: 29%;bottom: 187px;">Nomor rekening</em>
+
+			<input class="form-control" type="text" id="email" style="position: fixed;left:42%;bottom: 120px; width: 620px; text-align: center;">
+			<em style="position:fixed;left: 35%;bottom: 130px;">Email</em>
+
+			<button class="btn btn-primary btn-lg" id="save"style="margin-left: 52rem;padding: 5px 60px;position: fixed; bottom: 70px;">Cairkan</button>
 		</div>
 <script type="text/javascript">
 	var dataAll = [];

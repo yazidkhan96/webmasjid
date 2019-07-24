@@ -1,11 +1,12 @@
 @extends('master.master_main')
 @section('content')
 
+ @php($user=Auth::user())
 <div class="card" style="width: 18rem; background-color: rgba(48,173,76,1);position: relative;
 	top: 8rem;left: 5rem;">
-	<img class="card-img-top rounded-circle" src="{{asset('/img/user-profile.jpg')}}" alt="Card image cap" style="height: 70px;width: 70px; position: relative; top: 20px; left: 33%; z-index: 1; border: 5px solid #fff;">
+	<img class="card-img-top rounded-circle" src="{{asset('images/User')}}/{{$user->gambar}}" alt="Card image cap" style="height: 70px;width: 70px; position: relative; top: 20px; left: 33%; z-index: 1; border: 5px solid #fff;">
 	<div class="card-body">
-		<h5 class="card-title" style="margin-left: 4rem; color: white;">username</h5>
+		<h5 class="card-title" style="margin-left: 4rem; color: white;">{{$user->name}}</h5>
 	</div>
 	<ul class="list-group list-group-flush">
 		<li class="list-group-item">
@@ -21,7 +22,7 @@
 		</li>
 		<li class="list-group-item"><a href="{{url('/galang/dana')}}" style="color: black; text-decoration: none;">Galang Dana</a>
 		</li>
-		<li class="list-group-item">Pencairan dana</li>
+		<li class="list-group-item"><a href="{{url('/dashboard_user')}}" style="color: black; text-decoration: none;">Pencairan dana</a></li>
 	</ul>
 </div>
 @if ($message = Session::get('error'))
@@ -33,18 +34,19 @@
 <form action="{{url('/update/password')}}" method="post">
 	{{csrf_field()}}
 	<div class="container" id="formApp">
-		<h3 style="position: fixed; bottom: 31rem; left: 382px;">Ubah Password</h3>
-		<hr style="border: 1px solid grey;width: 59%;position: fixed;left: 24rem;bottom: 30rem;">
-			<div class="form-group" style="position: fixed;left: 386px;bottom: 25rem;">
+		<h3 style="position: fixed; bottom: 28rem; left: 382px;">Ubah Password</h3>
+		<hr style="border: 1px solid grey;width: 59%;position: fixed;left: 24rem;bottom: 27rem;">
+			<div class="form-group" style="position: fixed;left: 386px;bottom: 22rem;">
 					Password lama :<input type="password" class="form-control " name="old" required="" style="    width: 600px;position: relative;bottom: 25px;left: 121px;">
 				</div>
-		<div class="form-group" style="position: fixed;left: 386px;bottom: 22rem;">
-			Password baru : <input type="password" class="form-control" required="" id="pass" style="width: 600px; position:relative;bottom: 25px; left: 121px;" name='new'>
+		<div class="form-group" style="position: fixed;left: 386px;bottom: 18rem;">
+			Password baru : 
+			<input type="password" class="form-control" required="" id="pass" style="width: 600px; position:relative;bottom: 25px; left: 121px;" name='new'>
 		</div>
-		<div class="form-group" style="position: fixed;left: 386px;bottom: 19rem;">
+		<div class="form-group" style="position: fixed;left: 386px;bottom: 14rem;">
 			Konfirmasi Password : <input type="password" class="form-control" id="repass" required="" style="width: 600px; position:relative;bottom: 25px; left: 160px;" name="repass">
 		</div>
-		<button class="btn btn-primary btn-lg" id="save" style="position: fixed;left: 77%; bottom: 18rem;">Simpan</button>
+		<button class="btn btn-primary btn-lg" id="save" style="position: fixed;left: 77%; bottom: 12rem;">Simpan</button>
 	</div>
 </form>
 <!-- <PISAH> -->

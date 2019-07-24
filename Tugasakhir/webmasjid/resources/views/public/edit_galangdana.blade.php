@@ -25,22 +25,15 @@
 			</div>
 		</div>
 
-    <div class="row m-0 mb-3">
-      <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 16px;">Target donasi</div>
-      <div class="col pr-0">
-        <input type="" name="" value="{{$galangdana->biaya_yang_dibutuhkan}}" id="targetdonasi" placeholder="Target donasi" class="form-control input-number" style="max-width: 25rem">
-      </div>
-    </div>
-
 <div class="row m-0 mb-3">
       <div class="col p-0 pt-2 font-14 text-bold" style="max-width: 14rem; left: 16px;">Batas waktu penggalangan dana</div>
       
  <div class="col pr-0">
         <select class="form-control" id="bataswaktu"  style="max-width: 25rem; position:absolute; right: 63%;">
           <option hidden="">{{$galangdana->batas_waktu}}</option>
-          <option>1 bulan</option>
-          <option>3 bulan</option>
-          <option>6 bulan</option>
+          <option>30 Hari</option>
+          <option>60 Hari</option>
+          <option>120 Hari</option>
         </select>
       </div>
   </div>
@@ -122,7 +115,6 @@ $('#save').click(function () {
     dataAll = ({
         'kategori': $('#kategoridonasi').val(),
         'judul': $('#judulgalang').val(),
-        'target': $('#targetdonasi').val(),
         'bataswaktu': $('#bataswaktu').val(),
         'gambar': fileImg,
         'gambar_hapus': fileImgdel,

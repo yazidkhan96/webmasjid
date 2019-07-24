@@ -8,7 +8,6 @@
 				<tr>
 					<th scope="col">Kategori Galang dana</th>
 					<th scope="col">Judul donasi</th>
-					<th scope="col">Target biaya</th>
 					<th scope="col">batas waktu</th>
 					<th scope="col">Gambar</th>
 					<th scope="col">Tanggal</th>
@@ -20,7 +19,6 @@
 				<tr>
 					<td>{{$galangdana->kategori_id}}</td>
 					<td>{{$galangdana->judul}}</td>
-					<td>{{$galangdana->biaya_yang_dibutuhkan}}</td>
 					<td>{{$galangdana->batas_waktu}}</td>
 					<td>{{$galangdana->gambar}}</td>
 					<td>{{$galangdana->created_at}}</td>
