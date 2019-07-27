@@ -249,9 +249,16 @@ class PublicController extends Controller
 
         return back();
     }
-    public function donasi()
+    public function donasi(Request $r)
     {
-        return view('public.donasi');
+        $result=Galang_dana::select('*');
+          if ($r->filter) {
+            $result->where('kategori_id',$r->filter);
+          }
+          $result=$result->paginate(9);
+          $query=$r->all();
+          // return dd($result,$query);
+        return view('public.donasi',compact('result','query'));
     }
      public function detail_donasi($id)
     {
@@ -315,6 +322,8 @@ class PublicController extends Controller
     public function verifpeserta($id)
     {
         $request=Peserta_pelatihan::find($id);
+        $request->status_pendaftaran='sudahterdaftar';
+        $request->save();
         $mail=Action::sendEmail($request->nama_pengunjung,'Selamat anda berhasil mendaftar sebagai peserta','Pendaftaran Di Terima',$request->email);
         return back();        
     }

@@ -10,7 +10,7 @@
 					<th scope="col">No HP</th>
 					<th scope="col">Email</th>
 					<th scope="col">Jumlah zakat</th>
-					<th scope="col">Jenis Zakat</th>
+					<th scope="col">Kategori Zakat</th>
 					<th scope="col">status</th>
 					<th scope="col">Aksi</th>
 				</tr>
@@ -25,7 +25,9 @@
 					<td>{{$zakat->zakat_id}}</td>
 					<td>{{$zakat->status}}</td>
 					<td>
+						@if($zakat->status=='sudahbayar')
 						<a href="{{url('/confirm/zakat',$zakat->id)}}" class="material-icons">done</a>
+						@endif
 					</td>
 				</tr>
 				@endforeach

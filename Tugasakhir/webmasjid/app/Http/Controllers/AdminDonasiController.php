@@ -11,6 +11,7 @@ use App\Penarikan;
 use Action;
 use Auth;
 use App\User;
+use App\Penyerahan;
 class AdminDonasiController extends Controller
 {
     public function galangdana()
@@ -75,6 +76,14 @@ class AdminDonasiController extends Controller
         $galangdana=Galang_dana::find($id);
         Action::delete_foto($galangdana->gambar,'Donasi');
         $galangdana->delete();
+        return back ();
+    }
+
+    public function deletepenyerahan($id)
+    {
+        $penyerahan=Penyerahan::find($id);
+        Action::delete_foto($penyerahan->gambar,'Penyerahan');
+        $penyerahan->delete();
         return back ();
     }
  

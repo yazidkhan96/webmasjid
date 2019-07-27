@@ -151,6 +151,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function () {
 	Route::get('/add/galangdana','AdminDonasiController@addgalangdana');
 	Route::get('/edit/galangdana/{id}','AdminDonasiController@editgalangdana');
 	Route::get('/delete/galang/dana/{id}','AdminDonasiController@deletegalangdana');
+	Route::get('/delete/penyerahan/{id}','AdminDonasiController@deletepenyerahan');
 	Route::get('/pencairan/dana','AdminDonasiController@pencairandana');
 	Route::get('/verifikasi/pencairan/{id}','AdminDonasiController@verifikasipencairandana');
 	Route::get('/confirm/penarikan/{id}','AdminDonasiController@confirmpencairandana');

@@ -1,7 +1,7 @@
 @extends('master.master_main')
 @section('content')
 <div class="card" style="width: 34rem; margin-left: 2rem;
-	margin-top: 10rem;">
+	margin-top: 2rem;">
 	<div class="card-header" id="hide-perhitungan">
 		<div class="title-zakat" style="text-align: center;">
 			<span style="position: relative;top: -5px;left: 5px;">Kalkulator zakat Maal</span>
@@ -13,50 +13,52 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text"  class="form-control input-number" id="tabungan" aria-label="Username" aria-describedby="basic-addon1" value='900000'>
+			<input type="text"  class="form-control input-number" id="tabungan" aria-label="Username" aria-describedby="basic-addon1">
 		</div>
 		<label>Nilai properti dan kendaraan(investasi)</label>
 		<div class="input-group mb-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number" id="investasi" aria-label="Username" aria-describedby="basic-addon1" value='100000000'>
+			<input type="text" class="form-control input-number" id="investasi" aria-label="Username" aria-describedby="basic-addon1">
 		</div>
 		<label>Nilai Emas atau sejenisnya</label>
 		<div class="input-group mb-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number"  id="emas" aria-label="Username" aria-describedby="basic-addon1" value='3900000'>
+			<input type="text" class="form-control input-number"  id="emas" aria-label="Username" aria-describedby="basic-addon1" >
 		</div>
 		<label>Hutang pribadi yang jatuh tempo tahun ini</label>
 		<div class="input-group mb-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number" id="hutang" aria-label="Username" aria-describedby="basic-addon1" value='1000'>
+			<input type="text" class="form-control input-number" id="hutang" aria-label="Username" aria-describedby="basic-addon1" >
 		</div>
 		<label>Saham piutang dan surat-surat berharga lainnya</label>
 		<div class="input-group mb-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Rp</span>
 			</div>
-			<input type="text" class="form-control input-number" id="saham" aria-label="Username" aria-describedby="basic-addon1" value='100000000'>
+			<input type="text" class="form-control input-number" id="saham" aria-label="Username" aria-describedby="basic-addon1" >
 		</div>
 	</div>
 	<button class="btn btn-success " id="show-result-mal" >Hitung Zakat</button>
 </div>
 <div class="col-6" id="summary-mal">
-	<div class="form-summary" style="height: 96px;     width: 541px;
-		position: relative;
-		left: 19px;
-		bottom: 34px;">
-		<em style="position: relative;
-		bottom: -82px;">Hasil perhitungan zakat maal anda : <span id="total"></span></em><br>
-		<strong style="position: relative;
-		bottom: -85px;"></strong>
+	<div class="form-summary" style="height: 96px;width: 541px;position: relative;left: 19px;bottom: 34px;"><em style="position: relative;bottom: -82px;">Hasil perhitungan zakat maal anda : <span id="total"></span></em><br>
+		<strong style="position: relative;bottom: -85px;"></strong>
 		<div class="text-right">
 			<a href="{{url('/payment_zakat')}}" class="btn btn-success" id="salurkan" style="position: relative; bottom: -47px; color: white;">Salurkan zakat anda</a>
+		</div>
+		
+	</div>
+</div>
+<div class="col-6 hidden" id="show-hisab">
+	<div class="form-summary" style="height: 96px;width: 541px;position: relative;left: 19px;bottom: 34px;"><em style="position: relative;bottom: -82px;">Maaf!! Zakat anda belum memenuhi hisab</em><br>
+		<div class="text-right">
+			<a href="" class="btn btn-success" id="hitungulang" style="position: relative; bottom: -47px; color: white;">Hitung ulang zakat</a>
 		</div>
 		
 	</div>
@@ -81,6 +83,7 @@
 			$('#hide-perhitungan').hide();
 			$('#show-hasil').show();		
 			$('#summary-mal').show();
+			$('#show-result-mal').attr("disabled", true);
 		}
 		else{
 			$('#hide-perhitungan').hide();
@@ -88,9 +91,10 @@
 		}
 	});
 	$('#summary-mal').hide();
-	/*$('.show-result-mal').click(function (){
-	// $('.show-result-mal').attr('disabled',true);
-	});*/
 
+$('#hitungulang').click(function() {
+	$('#show-hisab').hide();
+
+})
 </script>
 @endsection

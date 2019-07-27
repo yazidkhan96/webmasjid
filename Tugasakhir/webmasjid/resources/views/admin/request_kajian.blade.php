@@ -25,7 +25,9 @@
 					<td>{{$requestkajian->nohp}}</td>
 					<td>{{$requestkajian->deskripsi}}</td>
 					<td>
+						@if($requestkajian->status_request=='menunggu')
 						<a href="{{url('/admin/verif/request',$requestkajian->id)}}" class="material-icons">done</a>
+						@endif
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>

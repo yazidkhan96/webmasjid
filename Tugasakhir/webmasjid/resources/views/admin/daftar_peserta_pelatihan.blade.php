@@ -25,8 +25,9 @@
 					<td>{{$peserta->email}}</td>
 					<td>{{$peserta->foto_data_diri}}</td>
 					<td>
-						
+						@if($peserta->status_pendaftaran=='belumterdaftar')
 						<a href="{{url('/verif/peserta',$peserta->id)}}" class="material-icons">done</a>
+						@endif
 						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 						
 					</td>

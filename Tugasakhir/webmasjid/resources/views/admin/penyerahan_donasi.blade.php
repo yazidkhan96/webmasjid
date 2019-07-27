@@ -26,8 +26,7 @@
 					<td>{{$bantuan->total_donasi}}</td>
 					<td>{{$bantuan->gambar}}</td>
 					<td>
-						<a href="{{url('/admin/edit/wisata')}}" class="material-icons">edit</a>
-						<a dataid="" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
+						<a dataid="{{url('/admin/delete/penyerahan',$bantuan->id)}}" data-toggle="modal" data-target="#modalDelete" href="" class="material-icons delete">delete</a>
 					</td>
 				</tr>
 				@endforeach
@@ -54,7 +53,7 @@
 <script type="text/javascript">
 	$('.delete').click(function () {
 		var id = $(this).attr('dataid');
-		$('#delete').attr('href',`{{url('/api/admin/delete/wisata/`+id+`')}}`);
+		$('#delete').attr('href',id);
 	})
 </script>
 @endsection

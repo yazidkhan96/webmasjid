@@ -130,6 +130,8 @@ class AdminKajianController extends Controller
     public function verifrequest($id)
     {
         $request=Request_kajian_pelatihan::find($id);
+        $request->status_request='publikasi';
+        $request->save();
         $mail=Action::sendEmail($request->nama_pengunjung,'request anda telah menjadi perencanaan','Request Di Terima',$request->email);
         return back();        
     }

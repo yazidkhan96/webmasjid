@@ -25,7 +25,9 @@
 					<td>{{$donasi->nama_bank}}</td>
 					<td>{{$donasi->status}}</td>
 					<td>
+						@if($donasi->status=='sudahbayar')
 						<a href="{{url('/admin/verif/donasi',$donasi->id)}}" class="material-icons">done</a>
+						@endif
 					</td>
 				</tr>
 				@endforeach
